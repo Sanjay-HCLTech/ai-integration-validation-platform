@@ -1,0 +1,14 @@
+category,flow,scenario,mode,file,contentType,default
+DATAHUB,DMS_BOOKING,BOOKING_UPDATE,SYNC,datahub/default-booking-update.json,application/json,Y
+DATAHUB,DMS_BOOKING,BOOKING_UPDATE,ASYNC,datahub/default-booking-update.json,application/json,Y
+DATAHUB,DMS_BOOKING,BOOKING_UPDATE_FULL,SYNC,datahub/booking-update-full.json,application/json,N
+DATAHUB,DMS_BOOKING,BOOKING_CANCEL,ASYNC,datahub/booking-cancel-event.json,application/json,N
+APIGEE,DMS_BOOKING,PACKAGE_OFFERS,SYNC,apigee/package-offers.json,application/json,Y
+APIGEE,DMS_BOOKING,PACKAGE_OFFERS_SEARCH,SYNC,apigee/package-offers-search.json,application/json,N
+APIGEE,DMS_BOOKING,PRICE_CHECK,SYNC,apigee/booking-price-check.json,application/json,N
+VRP,DMS_BOOKING,BOOKING_REQUEST,SYNC,vrp/booking-request.xml,text/xml,Y
+VRP,DMS_BOOKING,BOOKING_REQUEST_HTTP,SYNC,vrp/booking-request-http.xml,text/xml,N
+VRP,DMS_BOOKING,BOOKING_MODIFY,SYNC,vrp/booking-modify-request.xml,text/xml,N
+NORDICS,DMS_BOOKING,BOOKING_EVENT,ASYNC,nordics/booking-event.json,application/json,Y
+NORDICS,DMS_BOOKING,BOOKING_CREATED,ASYNC,nordics/booking-created-event.json,application/json,N
+NORDICS,DMS_BOOKING,CUSTOMER_ID_UPDATED,ASYNC,nordics/customer-id-updated-event.json,application/json,N

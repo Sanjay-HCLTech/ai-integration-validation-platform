@@ -1,0 +1,22 @@
+{
+  "eventId": "${corrId}",
+  "eventType": "NordicsBookingCreated",
+  "sourceSystem": "NORDICS",
+  "publishedAt": "${timestamp}",
+  "booking": {
+    "bookingId": "${bookingId}",
+    "market": "NO",
+    "brand": "TUI_NORDICS",
+    "status": "CONFIRMED",
+    "customer": {
+      "customerId": "NO-${bookingId}",
+      "language": "nb-NO"
+    },
+    "travel": {
+      "departureAirport": "OSL",
+      "destinationAirport": "LPA",
+      "departureDate": "2026-11-12",
+      "returnDate": "2026-11-19"
+    }
+  }
+}

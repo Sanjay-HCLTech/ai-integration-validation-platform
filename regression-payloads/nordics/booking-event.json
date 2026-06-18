@@ -1,0 +1,7 @@
+{
+  "bookingId": "${bookingId}",
+  "messageType": "NordicsBookingEvent",
+  "sourceSystem": "NORDICS",
+  "operation": "SubscribeBooking",
+  "payload": {}
+}

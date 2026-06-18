@@ -1,0 +1,23 @@
+{
+  "messageHeader": {
+    "messageType": "BookingCancel",
+    "sourceSystem": "DATAHUB",
+    "targetSystem": "BookingDetails",
+    "correlationId": "${corrId}",
+    "jobId": "${jobId}",
+    "eventTime": "${timestamp}"
+  },
+  "booking": {
+    "bookingId": "${bookingId}",
+    "brand": "TUI",
+    "market": "UK",
+    "status": "CANCELLED",
+    "cancelReason": "CUSTOMER_REQUEST",
+    "cancelledBy": "REGRESSION_TEST",
+    "refund": {
+      "currency": "GBP",
+      "amount": 125.50,
+      "method": "ORIGINAL_PAYMENT"
+    }
+  }
+}

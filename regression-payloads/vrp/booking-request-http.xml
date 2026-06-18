@@ -1,0 +1,19 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:vrp="http://tui.example/vrp/booking">
+  <soapenv:Header>
+    <vrp:MessageHeader>
+      <vrp:CorrelationId>${corrId}</vrp:CorrelationId>
+      <vrp:JobId>${jobId}</vrp:JobId>
+      <vrp:SourceSystem>IVP</vrp:SourceSystem>
+      <vrp:Timestamp>${timestamp}</vrp:Timestamp>
+    </vrp:MessageHeader>
+  </soapenv:Header>
+  <soapenv:Body>
+    <vrp:BookingRequest>
+      <vrp:BookingId>${bookingId}</vrp:BookingId>
+      <vrp:Operation>DisplayBooking</vrp:Operation>
+      <vrp:Market>UK</vrp:Market>
+      <vrp:IncludePricing>true</vrp:IncludePricing>
+      <vrp:IncludePassengers>true</vrp:IncludePassengers>
+    </vrp:BookingRequest>
+  </soapenv:Body>
+</soapenv:Envelope>

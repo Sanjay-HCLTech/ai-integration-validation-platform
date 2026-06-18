@@ -1,0 +1,322 @@
+{
+  "properties": [
+    {
+      "name": "sftp.host",
+      "type": "java.lang.String",
+      "description": "SFTP host used for remote log discovery and transfer."
+    },
+    {
+      "name": "sftp.port",
+      "type": "java.lang.Integer",
+      "defaultValue": 22,
+      "description": "SFTP SSH port."
+    },
+    {
+      "name": "sftp.username",
+      "type": "java.lang.String",
+      "description": "SFTP username."
+    },
+    {
+      "name": "sftp.private.key",
+      "type": "java.lang.String",
+      "description": "Local private key path used for SFTP authentication."
+    },
+    {
+      "name": "sftp.private.key.passphrase",
+      "type": "java.lang.String",
+      "description": "Passphrase for the SFTP private key."
+    },
+    {
+      "name": "sftp.remote.run.as",
+      "type": "java.lang.String",
+      "description": "Optional remote user context for SFTP shell commands."
+    },
+    {
+      "name": "sftp.payload.log.dir",
+      "type": "java.lang.String",
+      "description": "Remote payload log directory scanned for integration evidence."
+    },
+    {
+      "name": "local.log.dir",
+      "type": "java.lang.String",
+      "defaultValue": "C:/logs",
+      "description": "Local root directory where retrieved log evidence is written."
+    },
+    {
+      "name": "local.log.retention.days",
+      "type": "java.lang.Integer",
+      "description": "Number of days to retain local log evidence."
+    },
+    {
+      "name": "sftp.grep.retry.count",
+      "type": "java.lang.Integer",
+      "description": "Maximum retry count for remote log search attempts."
+    },
+    {
+      "name": "sftp.grep.retry.wait.ms",
+      "type": "java.lang.Long",
+      "description": "Wait time in milliseconds between remote log search retries."
+    },
+    {
+      "name": "sftp.command.timeout.ms",
+      "type": "java.lang.Long",
+      "description": "Timeout in milliseconds for each SFTP command."
+    },
+    {
+      "name": "sftp.keepalive.interval.ms",
+      "type": "java.lang.Long",
+      "description": "SSH keep-alive interval in milliseconds."
+    },
+    {
+      "name": "sftp.search.modified.within.days",
+      "type": "java.lang.Integer",
+      "defaultValue": 15,
+      "description": "Only remote files modified within this many days are eligible for discovery and transfer."
+    },
+    {
+      "name": "sftp.correlation.max.depth",
+      "type": "java.lang.Integer",
+      "description": "Maximum recursive correlation depth for BookingID, JobID, and CorrID expansion."
+    },
+    {
+      "name": "sftp.correlation.max.tokens",
+      "type": "java.lang.Integer",
+      "description": "Maximum total correlation tokens allowed during expansion."
+    },
+    {
+      "name": "sftp.correlation.max.jobids",
+      "type": "java.lang.Integer",
+      "description": "Maximum JobIDs allowed during correlation expansion."
+    },
+    {
+      "name": "sftp.correlation.max.tokens.per.search",
+      "type": "java.lang.Integer",
+      "description": "Maximum correlation tokens included in a single remote search batch."
+    },
+    {
+      "name": "sftp.correlation.max.batches.per.depth",
+      "type": "java.lang.Integer",
+      "description": "Maximum remote search batches allowed per correlation depth."
+    },
+    {
+      "name": "sftp.block.max.matches.per.file",
+      "type": "java.lang.Integer",
+      "description": "Maximum block starts captured per remote file."
+    },
+    {
+      "name": "sftp.local.min.block.lines",
+      "type": "java.lang.Integer",
+      "description": "Minimum local evidence lines required before a file is considered usable."
+    },
+    {
+      "name": "sftp.log.name.filter.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether remote log discovery restricts candidate files by known log filename patterns."
+    },
+    {
+      "name": "rest.endpoint",
+      "type": "java.lang.String",
+      "description": "REST endpoint used by the integration execution flow."
+    },
+    {
+      "name": "rest.api.key",
+      "type": "java.lang.String",
+      "description": "API key used when invoking the configured REST endpoint."
+    },
+    {
+      "name": "rest.method",
+      "type": "java.lang.String",
+      "defaultValue": "POST",
+      "description": "HTTP method used by the APIGEE REST trigger."
+    },
+    {
+      "name": "rest.accept",
+      "type": "java.lang.String",
+      "defaultValue": "application/json",
+      "description": "Accept header used by the APIGEE REST trigger."
+    },
+    {
+      "name": "rest.content.type",
+      "type": "java.lang.String",
+      "defaultValue": "application/json",
+      "description": "Content-Type header used by the APIGEE REST trigger."
+    },
+    {
+      "name": "soap.transport",
+      "type": "java.lang.String",
+      "defaultValue": "jms",
+      "description": "VRP SOAP transport mode: http or jms."
+    },
+    {
+      "name": "soap.endpoint",
+      "type": "java.lang.String",
+      "description": "HTTP endpoint used by the VRP SOAP trigger when soap.transport=http."
+    },
+    {
+      "name": "soap.action",
+      "type": "java.lang.String",
+      "description": "SOAPAction header used by the VRP SOAP HTTP trigger."
+    },
+    {
+      "name": "soap.jms.sender",
+      "type": "java.lang.String",
+      "description": "Sender queue used by the VRP SOAP-over-JMS trigger."
+    },
+    {
+      "name": "soap.jms.receiver",
+      "type": "java.lang.String",
+      "description": "Receiver queue used by the VRP SOAP-over-JMS trigger."
+    },
+    {
+      "name": "soap.jms.async",
+      "type": "java.lang.Boolean",
+      "defaultValue": false,
+      "description": "Whether VRP SOAP-over-JMS is simulated as asynchronous."
+    },
+    {
+      "name": "execution.retry.count",
+      "type": "java.lang.Integer",
+      "description": "Maximum retry count for execution operations."
+    },
+    {
+      "name": "execution.wait.ms",
+      "type": "java.lang.Long",
+      "description": "Wait interval in milliseconds between execution retries."
+    },
+    {
+      "name": "payload.base.dir",
+      "type": "java.lang.String",
+      "defaultValue": "regression-payloads/",
+      "description": "Deterministic payload base directory for regression templates. Supports filesystem paths or classpath: prefixes."
+    },
+    {
+      "name": "payload.default.file",
+      "type": "java.lang.String",
+      "defaultValue": "datahub/default-booking-update.json",
+      "description": "Default payload file, resolved relative to payload.base.dir, used when a request does not specify one."
+    },
+    {
+      "name": "payload.manifest.file",
+      "type": "java.lang.String",
+      "defaultValue": "manifest.csv",
+      "description": "Payload catalog manifest file, resolved relative to payload.base.dir."
+    },
+    {
+      "name": "unified.trace.report.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether the gateway emits the unified trace report."
+    },
+    {
+      "name": "platform.report.enabled",
+      "type": "java.lang.Boolean",
+      "defaultValue": false,
+      "description": "Whether the gateway emits the new unified platform report beside existing outputs."
+    },
+    {
+      "name": "jms.provider",
+      "type": "java.lang.String",
+      "description": "JMS provider mode used by the execution flow."
+    },
+    {
+      "name": "jms.default.async",
+      "type": "java.lang.Boolean",
+      "defaultValue": false,
+      "description": "Default async mode when JMS is invoked through the generic execution trigger."
+    },
+    {
+      "name": "jms.simulation.consumer.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether the JMS simulation consumer is enabled."
+    },
+    {
+      "name": "jms.simulation.retry.count",
+      "type": "java.lang.Integer",
+      "description": "Maximum retry count for JMS simulation processing."
+    },
+    {
+      "name": "jms.simulation.processing.delay.ms",
+      "type": "java.lang.Long",
+      "description": "Simulated JMS processing delay in milliseconds."
+    },
+    {
+      "name": "jms.simulation.retry.delay.ms",
+      "type": "java.lang.Long",
+      "description": "Delay in milliseconds between JMS simulation retries."
+    },
+    {
+      "name": "jms.simulation.log-analyzer.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether JMS simulation triggers log analysis."
+    },
+    {
+      "name": "ems.host",
+      "type": "java.lang.String",
+      "description": "EMS host used for queue-based execution."
+    },
+    {
+      "name": "ems.port",
+      "type": "java.lang.Integer",
+      "description": "EMS port used for queue-based execution."
+    },
+    {
+      "name": "ems.user",
+      "type": "java.lang.String",
+      "description": "EMS username."
+    },
+    {
+      "name": "ems.password",
+      "type": "java.lang.String",
+      "description": "EMS password."
+    },
+    {
+      "name": "ems.queue.sender",
+      "type": "java.lang.String",
+      "description": "EMS sender queue."
+    },
+    {
+      "name": "ems.queue.receiver",
+      "type": "java.lang.String",
+      "description": "EMS receiver queue."
+    },
+    {
+      "name": "rabbitmq.simulation.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether RabbitMQ simulation mode is enabled."
+    },
+    {
+      "name": "rabbitmq.exchange",
+      "type": "java.lang.String",
+      "description": "RabbitMQ exchange used by the execution flow."
+    },
+    {
+      "name": "rabbitmq.routing.key",
+      "type": "java.lang.String",
+      "description": "RabbitMQ routing key used by the execution flow."
+    },
+    {
+      "name": "rabbitmq.queue.receiver",
+      "type": "java.lang.String",
+      "description": "RabbitMQ receiver queue used by the execution flow."
+    },
+    {
+      "name": "system.jms.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether JMS execution is enabled in the gateway."
+    },
+    {
+      "name": "system.rest.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether REST execution is enabled in the gateway."
+    },
+    {
+      "name": "system.soap.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether SOAP execution is enabled in the gateway."
+    },
+    {
+      "name": "system.rabbitmq.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether RabbitMQ execution is enabled in the gateway."
+    }
+  ]
+}

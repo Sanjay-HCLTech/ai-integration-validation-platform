@@ -1,0 +1,23 @@
+{
+  "java.home": "C:\\Program Files (x86)\\Tools_Heckathon\\Eclipse Adoptium\\jdk-11.0.25.9",
+
+  "maven.executable.path": "C:\\Program Files (x86)\\Tools_Heckathon\\apache-maven-3.9.12\\bin\\mvn.cmd",
+
+  "maven.terminal.useJavaHome": true,
+
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-11",
+      "path": "C:\\Program Files (x86)\\Tools_Heckathon\\Eclipse Adoptium\\jdk-11.0.25.9",
+      "default": true
+    }
+  ],
+
+  "java.configuration.checkProjectSettingsExclusions": false,
+  "java.import.projectSelection": "automatic",
+  "java.compile.nullAnalysis.mode": "disabled",
+  "java.configuration.updateBuildConfiguration": "automatic",
+
+  "spring-boot.ls.problem.version-validation.UNSUPPORTED_OSS_VERSION": "IGNORE",
+  "boot-java.validation.java.version-validation": "OFF"
+}

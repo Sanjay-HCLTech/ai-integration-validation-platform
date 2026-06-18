@@ -1,0 +1,40 @@
+{
+  "messageHeader": {
+    "messageType": "BookingUpdate",
+    "sourceSystem": "DATAHUB",
+    "targetSystem": "BookingDetails",
+    "correlationId": "${corrId}",
+    "jobId": "${jobId}",
+    "eventTime": "${timestamp}"
+  },
+  "booking": {
+    "bookingId": "${bookingId}",
+    "brand": "TUI",
+    "market": "UK",
+    "status": "CONFIRMED",
+    "leadPassenger": {
+      "customerId": "CUST-${bookingId}",
+      "firstName": "Alex",
+      "lastName": "Morgan",
+      "email": "alex.morgan@example.test"
+    },
+    "itinerary": {
+      "departureDate": "2026-09-18",
+      "returnDate": "2026-09-25",
+      "origin": "LGW",
+      "destination": "PMI"
+    },
+    "products": [
+      {
+        "type": "FLIGHT",
+        "supplierCode": "TUIAIR",
+        "status": "CONFIRMED"
+      },
+      {
+        "type": "HOTEL",
+        "supplierCode": "HOTELBED",
+        "status": "CONFIRMED"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "eventId": "${corrId}",
+  "eventType": "NordicsCustomerIdUpdated",
+  "sourceSystem": "NORDICS",
+  "publishedAt": "${timestamp}",
+  "booking": {
+    "bookingId": "${bookingId}",
+    "market": "SE",
+    "brand": "TUI_NORDICS",
+    "status": "AMENDED",
+    "customer": {
+      "previousCustomerId": "TEMP-${bookingId}",
+      "customerId": "SE-${bookingId}",
+      "language": "sv-SE"
+    }
+  }
+}

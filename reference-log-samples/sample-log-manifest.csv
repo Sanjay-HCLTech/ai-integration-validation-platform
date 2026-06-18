@@ -1,0 +1,19 @@
+BizKey=NULL        | JobID=82000     | CorrID=a1a8bd0d-1de4-4d61-b94e-b9b9901eb41e | Service=BookFlow_v2                  | Operation=InfoBooking_v2
+BizKey=NULL        | JobID=833197    | CorrID=cdb98c6a-8ec6-4306-85fd-6859bef6e8d0 | Service=BookFlow_v3                  | Operation=CreateBooking_v3
+BizKey=NULL        | JobID=895700    | CorrID=29e146e5-ae5c-407a-8d7c-4542851bd075 | Service=BookFlow_v3                  | Operation=ItemSearch_v3
+BizKey=31001768      | JobID=4923936   | CorrID=419dd231-df51-46d0-882f-2b9c710a533c | Service=BookingDetails_v2            | Operation=GetBookingIDs
+BizKey=31860470    | JobID=3907331   | CorrID=f9825b98-7e16-4b31-b7fe-3aafa9bf1aa0 | Service=BookingDetails_v2            | Operation=PubBookingDetails_v2
+BizKey=42007907    | JobID=759215    | CorrID=d0c031f0-d59d-41fb-abbc-6f07d385f68e | Service=DisplayBooking_v3            | Operation=DisplayBooking_v3
+BizKey=30544300      | JobID=3969376   | CorrID=5fa56357-f437-4f8e-9e56-e6a841c37426 | Service=GIPBookingAdapter_BFE_v1     | Operation=SubscribeBookingDetailsGIP_v1
+BizKey=32036355 | JobID=2953638   | CorrID=a0e681de-acd5-441d-bf38-5faf395344d6 | Service=M3HotelsSubscriber_v1        | Operation=SubscribeBookingM3Hotels_v1
+BizKey=42005437    | JobID=144264    | CorrID=857c6778-7c36-4c43-af23-731902ea23c3 | Service=ManageBooking_v2             | Operation=ModifyBooking_v2
+BizKey=12180887   | JobID=32813     | CorrID=e0f2335d-f362-4d6f-9d29-3b0fed8ece6e | Service=ManageBooking_v2             | Operation=SearchBooking_v2
+BizKey=32075181    | JobID=150374    | CorrID=ca53ce1b-0e3d-4a4d-8714-c326aa72e810 | Service=ManageBooking_v2             | Operation=UpdateCustomerId_v2
+BizKey=42007911  JobID=2778498   | CorrID=b0daaf25-87d0-4761-9f16-aa4d5d65c81e | Service=MongoDBBookingSubscriber_v1  | Operation=MongoDBBookingSubscriber_v1
+BizKey=30581458 | JobID=413620    | CorrID=7e9d7c43-345d-47c1-af21-79f117ca12a5 | Service=NordicBookingSubscriber      | Operation=NordicBookingSubscriber_v1
+BizKey=42004679 | JobID=41035 | CorrID=e412cfcd-3058-4e5d-88d2-c7f544267122 | Service=NordicCustomerIDSubscriber_v1 | Operation=SubscribeNordicCustomerID_v1
+BizKey=42007914    | JobID=14449174  | CorrID=c3cfa0dd-2b86-4e00-984f-7030ab9cda64 | Service=PostBookFlowSubscriber_v2    | Operation=ManageDocument
+BizKey=21309925    | JobID=10539141  | CorrID=1759aec8-1aa2-4811-a24a-522604a4e57a | Service=PostBookFlowSubscriber_v2    | Operation=SendBookingDetails
+BizKey=42007921    | JobID=14449183  | CorrID=daa32d6b-d848-4885-8a01-3cfedcf1bf31 | Service=PostBookFlowSubscriber_v2    | Operation=SendDataToGIP
+BizKey=29987672    | JobID=14449180  | CorrID=4e32688f-5ced-4202-b02a-71be27747bd6 | Service=PostBookFlowSubscriber_v2    | Operation=SubscribeBookingDetails_v2
+BizKey=42007921  | JobID=5403137   | CorrID=db5ba0e1-71e7-4bc2-b186-e42262337cc8 | Service=ShorexBookingSubscriber_v1   | Operation=SubscriberBookingDetailsShorex_v1

@@ -1,0 +1,17 @@
+{
+  "packageOffersRequest": {
+    "packageType": "Inclusive",
+    "maxResultCount": 10,
+    "brandName": "TUI UK",
+    "departureAirportIATACode": ["BRS"],
+    "departureDate": "2026-12-29",
+    "duration": { "numOfDays": 10 },
+    "whereTo": {
+      "destination": [
+        { "accomName": "Parque Vacacional Eden" }
+      ]
+    },
+    "IsFlexible": true,
+    "numOfAdults": 2
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "bookingId": "${bookingId}",
+  "channel": "APIGEE",
+  "operation": "PackageOffers",
+  "payload": {}
+}

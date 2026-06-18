@@ -1,0 +1,14 @@
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+gateway-server*.log
+*.out.log
+*.err.log
+
+.DS_Store
+Thumbs.db
+
+sample-log-files.zip

@@ -1,0 +1,7 @@
+{
+  "bookingId": "${bookingId}",
+  "messageType": "BookingUpdate",
+  "sourceSystem": "DATAHUB",
+  "operation": "PublishBookingDetails",
+  "payload": {}
+}
