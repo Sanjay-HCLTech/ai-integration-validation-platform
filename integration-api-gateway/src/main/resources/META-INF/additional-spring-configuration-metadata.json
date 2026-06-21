@@ -79,7 +79,7 @@
       "description": "Maximum recursive correlation depth for BookingID, JobID, and CorrID expansion."
     },
     {
-      "name": "sftp.correlation.max.tokens",
+      "name": "sftp.correlation.token-limit",
       "type": "java.lang.Integer",
       "description": "Maximum total correlation tokens allowed during expansion."
     },
@@ -89,7 +89,7 @@
       "description": "Maximum JobIDs allowed during correlation expansion."
     },
     {
-      "name": "sftp.correlation.max.tokens.per.search",
+      "name": "sftp.correlation.tokens-per-search",
       "type": "java.lang.Integer",
       "description": "Maximum correlation tokens included in a single remote search batch."
     },
@@ -112,11 +112,6 @@
       "name": "sftp.log.name.filter.enabled",
       "type": "java.lang.Boolean",
       "description": "Whether remote log discovery restricts candidate files by known log filename patterns."
-    },
-    {
-      "name": "rest.endpoint",
-      "type": "java.lang.String",
-      "description": "REST endpoint used by the integration execution flow."
     },
     {
       "name": "rest.api.key",
@@ -146,11 +141,6 @@
       "type": "java.lang.String",
       "defaultValue": "jms",
       "description": "VRP SOAP transport mode: http or jms."
-    },
-    {
-      "name": "soap.endpoint",
-      "type": "java.lang.String",
-      "description": "HTTP endpoint used by the VRP SOAP trigger when soap.transport=http."
     },
     {
       "name": "soap.action",
