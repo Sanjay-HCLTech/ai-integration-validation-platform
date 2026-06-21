@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nordicsEvent>
+  <header>
+    <eventType>DATAHUB_EVENT</eventType>
+    <sourceSystem>SAP</sourceSystem>
+    <targetSystem>NORDICS</targetSystem>
+    <timestamp>${timestamp}</timestamp>
+  </header>
+  <booking>
+    <bookingId>${bookingId}</bookingId>
+    <status>SUCCESS</status>
+    <operation>UPDATE</operation>
+  </booking>
+</nordicsEvent>

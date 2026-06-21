@@ -1,0 +1,93 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://tuiuk.com/xsd/resource/til/messagecontext/v4" xmlns:v3="http://tuiuk.com/xsd/bookings/vrp/infobookingrequest/v3" xmlns:v31="http://tuiuk.com/xsd/bookings/vrp/bookflow/common/v3">
+   <soapenv:Header>
+      <v4:MessageContext  TimeToLive="20" messageID="112233" messageType="PUBLISH" timestamp="2923-04-20T13:20:00-05:00" xsd_ver="?">
+         <!--Optional:-->
+         <v4:CorrelationID>112233</v4:CorrelationID>
+         <!--Optional:-->
+         <v4:TransactionID>112233</v4:TransactionID>
+         <!--Optional:-->
+      </v4:MessageContext>
+   </soapenv:Header>
+   <soapenv:Body>
+<v3:InfoBookingRequest xmlns:v3="AtComRes/InfoBookingRequest" xmlns:v31="AtComRes/Common">
+	<v31:DiscardSession>true</v31:DiscardSession>
+	<v31:Adm Debug="false" IncludeDetailedPerfStats="false" Xsd_Ver="5.68.5">
+		<v31:ReqId>node9-aTSCeXY5</v31:ReqId>
+		<v31:Tm>2023-04-12T08:41:03.944+01:00</v31:Tm>
+		<v31:Trk From="phoenix" To="atcomres"/>
+	</v31:Adm>
+	<v31:CltInfo>
+		<v31:Locale>en_EN</v31:Locale>
+		<v31:CltSysContext>3</v31:CltSysContext>
+		<v31:Agt_No>T0005</v31:Agt_No>
+		<v31:TermCode>VTX</v31:TermCode>
+		<v31:User_Name>Z9997</v31:User_Name>
+		<v31:Exp_No/>
+		<v31:Chan>inhouse</v31:Chan>
+		<v31:User_Role>INTERNAL</v31:User_Role>
+	</v31:CltInfo>
+	<v31:BkgSts>BOOKING</v31:BkgSts>
+	<v31:Bkg_Ent Amend_Mth="ALL">
+		<v31:Accom Is_Adhoc="false" Error="false">
+			<v31:Id>1</v31:Id>
+			<v31:St_Dt>2023-09-03</v31:St_Dt>
+			<v31:End_Dt>2023-09-10</v31:End_Dt>
+			<v31:HtlPrd>
+				<v31:Prom Code="DTKD" Issue="1"/>
+				<v31:Acc_Cd>ESGC0001</v31:Acc_Cd>
+			</v31:HtlPrd>
+			<v31:Rm_Cd Is_Adhoc="false">
+				<v31:Rm_No>1</v31:Rm_No>
+				<v31:Code>1BA06</v31:Code>
+				<v31:BB_Cd>SC</v31:BB_Cd>
+				<v31:SubServPaxs>
+					<v31:SubServPax>
+						<v31:Pax_Id>1</v31:Pax_Id>
+					</v31:SubServPax>
+					<v31:SubServPax>
+						<v31:Pax_Id>2</v31:Pax_Id>
+					</v31:SubServPax>
+					<v31:SubServPax>
+						<v31:Pax_Id>3</v31:Pax_Id>
+					</v31:SubServPax>
+				</v31:SubServPaxs>
+			</v31:Rm_Cd>
+		</v31:Accom>
+	</v31:Bkg_Ent>
+	<v31:Pax Age="30" Index="1">
+		<v31:Person>
+			<v31:FirstName>TEST</v31:FirstName>
+			<v31:LastName>PASSENGER</v31:LastName>
+			<v31:Title>Mr</v31:Title>
+			<v31:Sex>SEX_MALE</v31:Sex>
+			<v31:PersonType>TYPE_NATURAL</v31:PersonType>
+		</v31:Person>
+		<v31:Lead_Pax>false</v31:Lead_Pax>
+	</v31:Pax>
+	<v31:Pax Age="30" Index="2">
+		<v31:Person>
+			<v31:FirstName>TEST</v31:FirstName>
+			<v31:LastName>PASSENGER</v31:LastName>
+			<v31:Title>Mr</v31:Title>
+			<v31:Sex>SEX_MALE</v31:Sex>
+			<v31:PersonType>TYPE_NATURAL</v31:PersonType>
+		</v31:Person>
+		<v31:Lead_Pax>false</v31:Lead_Pax>
+	</v31:Pax>
+	<v31:Pax Age="30" Index="3">
+		<v31:Person>
+			<v31:FirstName>TEST</v31:FirstName>
+			<v31:LastName>PASSENGER</v31:LastName>
+			<v31:Title>Mr</v31:Title>
+			<v31:Sex>SEX_MALE</v31:Sex>
+			<v31:PersonType>TYPE_NATURAL</v31:PersonType>
+		</v31:Person>
+		<v31:Lead_Pax>false</v31:Lead_Pax>
+	</v31:Pax>
+	<v31:Source/>
+	<v31:Sub_Source/>
+	<v3:Return_SearchResults>false</v3:Return_SearchResults>
+	<v31:Ext_Ref/>
+</v3:InfoBookingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

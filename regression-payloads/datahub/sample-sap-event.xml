@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datahubEvent>
+  <header>
+    <eventType>BOOKING_UPDATE</eventType>
+    <sourceSystem>SAP</sourceSystem>
+    <targetSystem>DATAHUB</targetSystem>
+    <timestamp>${timestamp}</timestamp>
+  </header>
+  <booking>
+    <bookingId>${bookingId}</bookingId>
+    <status>SUCCESS</status>
+    <operation>AMEND</operation>
+  </booking>
+</datahubEvent>

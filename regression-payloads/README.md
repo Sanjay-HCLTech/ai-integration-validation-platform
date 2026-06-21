@@ -14,9 +14,10 @@ Usage examples:
 
 ```text
 /execute/datahub?bookingId=31835146&payload=datahub/default-booking-update.json
-/execute/apigee?bookingId=31835146&payload=apigee/package-offers.json
-/execute/vrp?bookingId=31835146&payload=vrp/booking-request.xml
+/execute/apigee?bookingId=31835146&payload=apigee/package-offers-postman.json
+/execute/vrp?bookingId=31835146&payload=vrp/DisplayBooking_v3.xml
 /execute/nordics?bookingId=31835146&payload=nordics/booking-event.json
+/execute/run?bookingId=31835146&category=KAFKA&flow=DMS_BOOKING&scenario=BOOKINGDETAILS&mode=ASYNC
 /execute?bookingId=31835146&category=DATAHUB&flow=DMS_BOOKING&scenario=BOOKING_UPDATE&mode=ASYNC
 ```
 
@@ -26,10 +27,10 @@ Sample browser URLs:
 http://localhost:8080/execute/datahub?bookingId=31835146&async=false&payload=datahub/booking-update-full.json
 http://localhost:8080/execute/datahub?bookingId=31835146&async=true&payload=datahub/booking-cancel-event.json
 
-http://localhost:8080/execute/apigee?bookingId=31835146&payload=apigee/package-offers-search.json
-http://localhost:8080/execute/apigee?bookingId=31835146&payload=apigee/booking-price-check.json
+http://localhost:8080/execute/apigee?bookingId=31835146&payload=apigee/package-offers-postman.json
+http://localhost:8080/execute/apigee?bookingId=31835146&payload=apigee/flight-offers-postman.json
 
-http://localhost:8080/execute/vrp?bookingId=31835146&payload=vrp/booking-request-http.xml
+http://localhost:8080/execute/vrp?bookingId=31835146&payload=vrp/DisplayBooking_v3.xml
 http://localhost:8080/execute/vrp?bookingId=31835146&payload=vrp/booking-modify-request.xml
 
 http://localhost:8080/execute/nordics?bookingId=31835146&payload=nordics/booking-created-event.json
@@ -41,12 +42,14 @@ Catalog-based examples:
 ```text
 http://localhost:8080/execute/run?bookingId=31835146&category=DATAHUB&flow=DMS_BOOKING&scenario=BOOKING_UPDATE_FULL&mode=SYNC
 http://localhost:8080/execute/run?bookingId=31835146&category=DATAHUB&flow=DMS_BOOKING&scenario=BOOKING_CANCEL&mode=ASYNC
-http://localhost:8080/execute/run?bookingId=31835146&category=APIGEE&flow=DMS_BOOKING&scenario=PACKAGE_OFFERS_SEARCH&mode=SYNC
-http://localhost:8080/execute/run?bookingId=31835146&category=APIGEE&flow=DMS_BOOKING&scenario=PRICE_CHECK&mode=SYNC
-http://localhost:8080/execute/run?bookingId=31835146&category=VRP&flow=DMS_BOOKING&scenario=BOOKING_REQUEST_HTTP&mode=SYNC
+http://localhost:8080/execute/run?bookingId=31835146&category=APIGEE&flow=DMS_BOOKING&scenario=PACKAGEOFFER&mode=SYNC
+http://localhost:8080/execute/run?bookingId=31835146&category=APIGEE&flow=DMS_BOOKING&scenario=FLIGHTOFFERS&mode=SYNC
+http://localhost:8080/execute/run?bookingId=31835146&category=VRP&flow=DMS_BOOKING&scenario=DISPLAYBOOKING_V3&mode=SYNC
 http://localhost:8080/execute/run?bookingId=31835146&category=VRP&flow=DMS_BOOKING&scenario=BOOKING_MODIFY&mode=SYNC
 http://localhost:8080/execute/run?bookingId=31835146&category=NORDICS&flow=DMS_BOOKING&scenario=BOOKING_CREATED&mode=ASYNC
 http://localhost:8080/execute/run?bookingId=31835146&category=NORDICS&flow=DMS_BOOKING&scenario=CUSTOMER_ID_UPDATED&mode=ASYNC
+http://localhost:8080/execute/run?bookingId=31835146&category=KAFKA&flow=DMS_BOOKING&scenario=BOOKINGDETAILS&mode=ASYNC
+http://localhost:8080/execute/run?bookingId=31835146&category=KAFKA&flow=DMS_BOOKING&scenario=PUBLISHBOOKINGDETAILS&mode=ASYNC
 ```
 
 Rules:

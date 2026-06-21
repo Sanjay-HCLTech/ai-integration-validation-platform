@@ -1,0 +1,11 @@
+{
+  "eventType": "PUBLISHBOOKINGDETAILS",
+  "source": "IVP",
+  "bookingId": "${bookingId}",
+  "occurredAt": "${timestamp}",
+  "payload": {
+    "operation": "PUBLISHBOOKINGDETAILS",
+    "system": "DMS",
+    "status": "READY_FOR_SIMULATION"
+  }
+}

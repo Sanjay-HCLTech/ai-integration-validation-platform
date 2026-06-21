@@ -1,0 +1,21 @@
+{
+  "flightOffersRequest": {
+    "searchMode": "ONEWAY",
+    "numOfAdults": 1,
+    "numOfChildren": 2,
+    "childAgeonReturn": [
+      5,
+      7
+    ],
+    "originAirportCodes": [
+      "LGW"
+    ],
+    "destAirportCodes": [
+      "PFO"
+    ],
+    "depDate": "2026-10-07",
+    "returnDate": "2026-10-18",
+    "directFlightInd": false,
+    "cabinClassCode": "ECONOMY"
+  }
+}

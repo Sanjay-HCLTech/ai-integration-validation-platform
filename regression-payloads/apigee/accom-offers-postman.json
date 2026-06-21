@@ -1,0 +1,42 @@
+{
+  "accomOffersRequest": {
+    "maxResultCount": 0,
+    "brandName": "TUI UK",
+    "checkInDate": "2026-10-04",
+    "duration": {
+      "numOfDays": 7
+    },
+    "destination": [
+      {
+        "regionName": "Canary Islands"
+      }
+    ],
+    "boardBasisCode": "AI",
+    "isFlexible": true,
+    "numOfAdults": 6,
+    "numOfChild": 3,
+    "childAgeOnReturn": [
+      7,
+      1,
+      0
+    ],
+    "numOfRooms": 3,
+    "roomAllocation": [
+      {
+        "roomNumber": 1,
+        "numOfAdults": 2,
+        "numOfChild": 2
+      },
+      {
+        "roomNumber": 2,
+        "numOfAdults": 2,
+        "numOfChild": 1
+      },
+      {
+        "roomNumber": 3,
+        "numOfAdults": 2,
+        "numOfChild": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://tuiuk.com/xsd/resource/til/messagecontext/v4" xmlns:v3="http://tuiuk.com/xsd/bookings/vrp/itemsearchrequest/v3" xmlns:v31="http://tuiuk.com/xsd/bookings/vrp/bookflow/common/v3">
+   <soapenv:Header>
+     <v4:MessageContext  TimeToLive="20" messageID="112233" messageType="PUBLISH" timestamp="2923-04-20T13:20:00-05:00" xsd_ver="?">
+         <!--Optional:-->
+         <v4:CorrelationID>112233</v4:CorrelationID>
+         <!--Optional:-->
+         <v4:TransactionID>112233</v4:TransactionID>
+         <!--Optional:-->
+         <v4:UserID>syadav</v4:UserID>
+      </v4:MessageContext>
+   </soapenv:Header>
+   <soapenv:Body>
+<v3:DisplayRequest xmlns:v31="AtComRes/Common" xmlns:v3="AtComRes/DisplayRequest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="AtComRes/DisplayRequest ../api/DisplayRequest/DisplayRequest.xsd">
+	<v31:Adm Debug="false" Xsd_Ver="1.1.4">
+		<v31:SessId>123456</v31:SessId>
+		<v31:ReqId>978542</v31:ReqId>
+		<v31:Tm>2006-12-19T12:00:00+01:00</v31:Tm>
+		<v31:Trk From="phoenix" To="atcomres"/>
+	</v31:Adm>
+	<v31:CltInfo>
+		<v31:Locale>en_EN</v31:Locale>
+		<v31:Agt_No>T0005</v31:Agt_No>
+		<v31:TermCode>VTX</v31:TermCode>
+		<v31:User_Name>Z9998</v31:User_Name>
+		<v31:Exp_No>WEB</v31:Exp_No>
+		<v31:Chan>110</v31:Chan>
+		<v31:User_Role>INTERNAL</v31:User_Role>
+	</v31:CltInfo>
+	<v31:BkgNum>
+		<v31:BkgId>24599267</v31:BkgId>
+	</v31:BkgNum>
+</v3:DisplayRequest><v3:DisplayRequest xmlns:v31="AtComRes/Common" xmlns:v3="AtComRes/DisplayRequest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="AtComRes/DisplayRequest ../api/DisplayRequest/DisplayRequest.xsd">
+	<v31:Adm Debug="false" Xsd_Ver="1.1.4">
+		<v31:SessId>123456</v31:SessId>
+		<v31:ReqId>978542</v31:ReqId>
+		<v31:Tm>2006-12-19T12:00:00+01:00</v31:Tm>
+		<v31:Trk From="phoenix" To="atcomres"/>
+	</v31:Adm>
+	<v31:CltInfo>
+		<v31:Locale>en_EN</v31:Locale>
+		<v31:Agt_No>T0005</v31:Agt_No>
+		<v31:TermCode>VTX</v31:TermCode>
+		<v31:User_Name>Z9998</v31:User_Name>
+		<v31:Exp_No>WEB</v31:Exp_No>
+		<v31:Chan>110</v31:Chan>
+		<v31:User_Role>INTERNAL</v31:User_Role>
+	</v31:CltInfo>
+	<v31:BkgNum>
+		<v31:BkgId>31835146</v31:BkgId>
+	</v31:BkgNum>
+</v3:DisplayRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

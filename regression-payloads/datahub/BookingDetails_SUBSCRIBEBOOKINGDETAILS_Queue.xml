@@ -1,0 +1,2134 @@
+$MsgHeader$
+JMSMessageID=ID:EMS-BUS-ST5-16180.44076405B79D1:169832AB
+JMSTimestamp=Wed Mar 29 18:20:02 337 IST 2023
+JMSDestination=Queue[TIL.ST5.TIB-XX.SUB.SUBSCRIBEBOOKINGDETAILS.XML.V2]
+JMSDeliveryMode=PERSISTENT
+JMSPriority=4
+$MsgProperties$
+First_St_Dt=String:2023-05-03
+Credit_Req_Ind=String:Y
+Res_Id=Integer:16565840
+Conf_Req_Dt_Tm=String:
+Only_Pay_Added_Fg=String:N
+Atcom_Version=Integer:4
+Vch_Max_Ver_Num=Integer:10
+Ver_Num=Integer:96
+Debit_Max_Ver_Num=Integer:6
+Vch_Imm_Ind=String:N
+Vch_Req_Dt_Tm=String:2023-04-05T23:59:59
+SourceMarket=String:UK
+Correlation_Id=String:74706ef5-cbdc-4411-84fa-ed8943c134df
+JMSXDeliveryCount=Integer:1
+Credit_Max_Ver_Num=Integer:1
+Debit_Req_Ind=String:Y
+Ins_Max_Ver_Num=Integer:1
+Conf_Max_Ver_Num=Integer:10
+Owner_Clt_Id=String:1101092432
+Ins_Req_Ind=String:N
+IsCrystalBkg=String:FALSE
+$MsgTextBody$
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:Data_Hub xmlns:ns0="http://tuiuk.com/xsd/bookings/datahub/bookingdetailsresponse/v2" xmlns:ns1="http://tuiuk.com/xsd/bookings/datahub/publishbookingdetails/v2" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<ns1:Reservation xmlns:ns1="http://tuiuk.com/xsd/bookings/datahub/common/v2">
+		<ns1:Res_Id>16565840</ns1:Res_Id>
+		<ns1:Ver_Num>96</ns1:Ver_Num>
+		<ns1:Atcom_Version>1</ns1:Atcom_Version>
+		<ns1:Sys_Cd>Data Hub</ns1:Sys_Cd>
+		<ns1:Prd_Cd ns1:Prd_Id="56809">THP</ns1:Prd_Cd>
+		<ns1:Prd_Name>TUI UK Package</ns1:Prd_Name>
+		<ns1:Prom_Gp_Cd ns1:Prom_Gp_Id="68246">TH</ns1:Prom_Gp_Cd>
+		<ns1:Prom_Gp_Name>TUI UK</ns1:Prom_Gp_Name>
+		<ns1:Srch_Prom_Gp_Cd ns1:Srch_Prom_Gp_Id="68248">THMP</ns1:Srch_Prom_Gp_Cd>
+		<ns1:Srch_Prom_Gp_Name>TUI UK</ns1:Srch_Prom_Gp_Name>
+		<ns1:Prom_Cd ns1:Prom_Id="1001825628">BTFS</ns1:Prom_Cd>
+		<ns1:Prom_Name>TUI UK Florida Sun Package</ns1:Prom_Name>
+		<ns1:Sell_Prom_Name>Florida Sun</ns1:Sell_Prom_Name>
+		<ns1:Bo_Prom_Name>TUI UK Florida Sun Package</ns1:Bo_Prom_Name>
+		<ns1:Mkt_Cd ns1:Mkt_Id="66162">BCTH</ns1:Mkt_Cd>
+		<ns1:Mkt_Name>B2C TUI UK (�)</ns1:Mkt_Name>
+		<ns1:Mkt_Cat_Cd ns1:Mkt_Cat_Id="66089">BCTH</ns1:Mkt_Cat_Cd>
+		<ns1:Mkt_Cat_Name>B2C TUI UK (�)</ns1:Mkt_Cat_Name>
+		<ns1:Mkt_Sell_Mth>WEB</ns1:Mkt_Sell_Mth>
+		<ns1:Terms_Cd ns1:Terms_Id="3962117">�STD</ns1:Terms_Cd>
+		<ns1:Terms_Name>� Standard</ns1:Terms_Name>
+		<ns1:Origin_Dt_Tm>2022-06-19T09:27:51</ns1:Origin_Dt_Tm>
+		<ns1:Con_Dt_Tm>2022-06-19T09:31:21</ns1:Con_Dt_Tm>
+		<ns1:Mod_Dt_Tm>2023-03-29T13:47:34</ns1:Mod_Dt_Tm>
+		<ns1:Origin_User_Cd ns1:Origin_User_Id="3678450">THUSER</ns1:Origin_User_Cd>
+		<ns1:Origin_User_Name>TH Web User (SYS Default)</ns1:Origin_User_Name>
+		<ns1:Credited_User_Cd ns1:Credited_User_Id="3678450">THUSER</ns1:Credited_User_Cd>
+		<ns1:Credited_User_Name>TH Web User (SYS Default)</ns1:Credited_User_Name>
+		<ns1:Activity_User_Cd ns1:Activity_User_Id="86964">BATCH</ns1:Activity_User_Cd>
+		<ns1:Activity_User_Name>UK Batch User</ns1:Activity_User_Name>
+		<ns1:First_St_Dt>2023-05-03</ns1:First_St_Dt>
+		<ns1:Last_End_Dt>2023-05-18</ns1:Last_End_Dt>
+		<ns1:Bkg_Sts>BKG</ns1:Bkg_Sts>
+		<ns1:Pre_Bkg_Ind>N</ns1:Pre_Bkg_Ind>
+		<ns1:Res_Sts>CON</ns1:Res_Sts>
+		<ns1:Res_Sts_Dt_Tm>2022-06-19T09:31:21</ns1:Res_Sts_Dt_Tm>
+		<ns1:Bkg_Tp>INC</ns1:Bkg_Tp>
+		<ns1:N_Pax>2</ns1:N_Pax>
+		<ns1:N_Inf>0</ns1:N_Inf>
+		<ns1:N_Chd>0</ns1:N_Chd>
+		<ns1:N_Adu>2</ns1:N_Adu>
+		<ns1:Gp_Res_Ind>NONE</ns1:Gp_Res_Ind>
+		<ns1:Pkg_Ind>INC</ns1:Pkg_Ind>
+		<ns1:Sell_Prc>2222.7</ns1:Sell_Prc>
+		<ns1:Sell_Cur_Cd ns1:Sell_Cur_Id="7592">GBP</ns1:Sell_Cur_Cd>
+		<ns1:Sell_Cur_Name>Pound Sterling</ns1:Sell_Cur_Name>
+		<ns1:Res_Prc_Ex>2222.7</ns1:Res_Prc_Ex>
+		<ns1:Res_Fees>0</ns1:Res_Fees>
+		<ns1:Dpt>250</ns1:Dpt>
+		<ns1:Dpt_Due_Dt>2022-06-19</ns1:Dpt_Due_Dt>
+		<ns1:Dpt2>250</ns1:Dpt2>
+		<ns1:Dpt2_Due_Dt>2022-09-11</ns1:Dpt2_Due_Dt>
+		<ns1:Dpt1_Atcom_Amt>250</ns1:Dpt1_Atcom_Amt>
+		<ns1:Dpt1_Atcom_Due_Dt>2022-06-19</ns1:Dpt1_Atcom_Due_Dt>
+		<ns1:Dpt2_Atcom_Amt>250</ns1:Dpt2_Atcom_Amt>
+		<ns1:Dpt2_Atcom_Due_Dt>2022-09-11</ns1:Dpt2_Atcom_Due_Dt>
+		<ns1:Std_Dpt1_Amt>250</ns1:Std_Dpt1_Amt>
+		<ns1:Std_Dpt1_Due_Dt>2022-06-19</ns1:Std_Dpt1_Due_Dt>
+		<ns1:Std_Dpt2_Amt>250</ns1:Std_Dpt2_Amt>
+		<ns1:Std_Dpt2_Due_Dt>2022-09-11</ns1:Std_Dpt2_Due_Dt>
+		<ns1:Bal>1722.7</ns1:Bal>
+		<ns1:Bal_Due_Dt>2023-02-08</ns1:Bal_Due_Dt>
+		<ns1:Bal_Atcom_Due_Dt>2023-02-08</ns1:Bal_Atcom_Due_Dt>
+		<ns1:Cust_Bal_Amt>1722.7</ns1:Cust_Bal_Amt>
+		<ns1:Std_Bal_Amt>1722.7</ns1:Std_Bal_Amt>
+		<ns1:Std_Bal_Due_Dt>2023-02-08</ns1:Std_Bal_Due_Dt>
+		<ns1:Owner_Clt_Id>1101092432</ns1:Owner_Clt_Id>
+		<ns1:Owner_Clt_Sys>@ComRes</ns1:Owner_Clt_Sys>
+		<ns1:Owner_Clt_Mand>T</ns1:Owner_Clt_Mand>
+		<ns1:Bkg_Tp_Mth>RET</ns1:Bkg_Tp_Mth>
+		<ns1:Bkg_Owner_Tp_Mth>TO</ns1:Bkg_Owner_Tp_Mth>
+		<ns1:Agt_Cd ns1:Agt_Id="3435473">H6265</ns1:Agt_Cd>
+		<ns1:Agt_Name>tui.co.uk</ns1:Agt_Name>
+		<ns1:Agt_Mth>LOC</ns1:Agt_Mth>
+		<ns1:Agt_Credit_Sts>CA</ns1:Agt_Credit_Sts>
+		<ns1:Agt_Tp_Cd ns1:Agt_Tp_Id="364541">ECOM</ns1:Agt_Tp_Cd>
+		<ns1:Agt_Tp_Name>E-Commerce</ns1:Agt_Tp_Name>
+		<ns1:Agt_Cd_Mand>T</ns1:Agt_Cd_Mand>
+		<ns1:Agt_Parent_Cd ns1:Agt_Parent_Id="3435446">TUIWEB</ns1:Agt_Parent_Cd>
+		<ns1:Agt_Parent_Name>TUI websites</ns1:Agt_Parent_Name>
+		<ns1:Agt_Shop_No>2660</ns1:Agt_Shop_No>
+		<ns1:Agt_Time_Zone_Offset>0</ns1:Agt_Time_Zone_Offset>
+		<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+		<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+		<ns1:Agt_Inv_Mth_1>NONE</ns1:Agt_Inv_Mth_1>
+		<ns1:Amt_Paid>500</ns1:Amt_Paid>
+		<ns1:Paid_Sts>PT</ns1:Paid_Sts>
+		<ns1:Pay_Due_Amt>1722.7</ns1:Pay_Due_Amt>
+		<ns1:Pay_Due_Dt>2023-02-08</ns1:Pay_Due_Dt>
+		<ns1:Base_Lang_Cd ns1:Base_Lang_Id="15222">EN_EN</ns1:Base_Lang_Cd>
+		<ns1:Cust_Dox_Lang_Cd ns1:Cust_Dox_Lang_Id="15222">EN_EN</ns1:Cust_Dox_Lang_Cd>
+		<ns1:Scr_Lang_Cd ns1:Scr_Lang_Id="15222">EN_EN</ns1:Scr_Lang_Cd>
+		<ns1:Cust_Dox_Recpt>CLT</ns1:Cust_Dox_Recpt>
+		<ns1:Cust_Dox_Per_Pax>N</ns1:Cust_Dox_Per_Pax>
+		<ns1:Cust_Dox_Suppress_Prc>N</ns1:Cust_Dox_Suppress_Prc>
+		<ns1:Loyalty_Card_Rules_Ind>N</ns1:Loyalty_Card_Rules_Ind>
+		<ns1:Late_Bkg_Ind>N</ns1:Late_Bkg_Ind>
+		<ns1:Loc_Agt>DIK</ns1:Loc_Agt>
+		<ns1:Initial_Per_Agt>WEB</ns1:Initial_Per_Agt>
+		<ns1:Fin_Trf_Days>1</ns1:Fin_Trf_Days>
+		<ns1:Sales_Net>VRP</ns1:Sales_Net>
+		<ns1:Init_Sales_Channel>1100</ns1:Init_Sales_Channel>
+		<ns1:Sales_Channel>1100</ns1:Sales_Channel>
+		<ns1:Initial_Src_Sys>VRP</ns1:Initial_Src_Sys>
+		<ns1:Src_Sys>ATCM</ns1:Src_Sys>
+		<ns1:Flt_Tm_Rstn_Ind>N</ns1:Flt_Tm_Rstn_Ind>
+		<ns1:Free_Chd_Fg>N</ns1:Free_Chd_Fg>
+		<ns1:Atol_Prot_Tp>PKG</ns1:Atol_Prot_Tp>
+		<ns1:Atol_Prot_By>TO</ns1:Atol_Prot_By>
+		<ns1:Atol_Prot_Issuer>TO</ns1:Atol_Prot_Issuer>
+		<ns1:Atol_To_Prot_Amt>2222.7</ns1:Atol_To_Prot_Amt>
+		<ns1:Atol_Retail_Prot_Amt>0</ns1:Atol_Retail_Prot_Amt>
+		<ns1:Direct_Debit_Mkg_Sts>V3</ns1:Direct_Debit_Mkg_Sts>
+		<ns1:Direct_Debit_Sts>NON</ns1:Direct_Debit_Sts>
+		<ns1:Edocs_Generation_Sts>NOT</ns1:Edocs_Generation_Sts>
+		<ns1:Src_Mkt_Mth>TUK</ns1:Src_Mkt_Mth>
+		<ns1:Conf_Max_Ver_Num>10</ns1:Conf_Max_Ver_Num>
+		<ns1:Conf_Prt_Dt_Tm>2022-12-10T21:50:02</ns1:Conf_Prt_Dt_Tm>
+		<ns1:Conf_Prt_User>BookFlow</ns1:Conf_Prt_User>
+		<ns1:Vch_Imm_Ind>N</ns1:Vch_Imm_Ind>
+		<ns1:Vch_Req_Dt_Tm>2023-04-05T23:59:59</ns1:Vch_Req_Dt_Tm>
+		<ns1:Vch_Max_Ver_Num>10</ns1:Vch_Max_Ver_Num>
+		<ns1:Debit_Req_Ind>Y</ns1:Debit_Req_Ind>
+		<ns1:Debit_Max_Ver_Num>6</ns1:Debit_Max_Ver_Num>
+		<ns1:Credit_Req_Ind>Y</ns1:Credit_Req_Ind>
+		<ns1:Credit_Max_Ver_Num>1</ns1:Credit_Max_Ver_Num>
+		<ns1:Ins_Req_Ind>N</ns1:Ins_Req_Ind>
+		<ns1:Ins_Max_Ver_Num>1</ns1:Ins_Max_Ver_Num>
+		<ns1:Res_Memos>
+			<ns1:Res_Memo>
+				<ns1:Memo_Id>299213238</ns1:Memo_Id>
+				<ns1:Memo_Seq>7</ns1:Memo_Seq>
+				<ns1:Memo_Dt_Tm>2022-06-19T17:02:04</ns1:Memo_Dt_Tm>
+				<ns1:Memo_Cd ns1:Memo_Cd_Id="1203362">OP</ns1:Memo_Cd>
+				<ns1:Memo_Cd_Name>Overlooking Pool</ns1:Memo_Cd_Name>
+				<ns1:Memo_Des>Overlooking Pool</ns1:Memo_Des>
+				<ns1:Prt_Conf>N</ns1:Prt_Conf>
+				<ns1:Prt_Vch>N</ns1:Prt_Vch>
+			</ns1:Res_Memo>
+		</ns1:Res_Memos>
+		<ns1:Passengers>
+			<ns1:Passenger>
+				<ns1:Pax_Id>50015933</ns1:Pax_Id>
+				<ns1:Pax_Seq>1</ns1:Pax_Seq>
+				<ns1:Pax_Sts>CUR</ns1:Pax_Sts>
+				<ns1:Lead_Pax_Fg>Y</ns1:Lead_Pax_Fg>
+				<ns1:Owner_Clt_Fg>Y</ns1:Owner_Clt_Fg>
+				<ns1:Pax_Tp>ADU</ns1:Pax_Tp>
+				<ns1:Dt_Birth>1969-11-14</ns1:Dt_Birth>
+				<ns1:Age>53</ns1:Age>
+				<ns1:Title ns1:Title_Id="70147">Mr</ns1:Title>
+				<ns1:Initials>A</ns1:Initials>
+				<ns1:Forename>Joselyn</ns1:Forename>
+				<ns1:Surname>Botolph</ns1:Surname>
+				<ns1:Gender>M</ns1:Gender>
+				<ns1:Pax_Prc_Ex>1111.35</ns1:Pax_Prc_Ex>
+			</ns1:Passenger>
+			<ns1:Passenger>
+				<ns1:Pax_Id>50015934</ns1:Pax_Id>
+				<ns1:Pax_Seq>2</ns1:Pax_Seq>
+				<ns1:Pax_Sts>CUR</ns1:Pax_Sts>
+				<ns1:Lead_Pax_Fg>N</ns1:Lead_Pax_Fg>
+				<ns1:Owner_Clt_Fg>N</ns1:Owner_Clt_Fg>
+				<ns1:Pax_Tp>ADU</ns1:Pax_Tp>
+				<ns1:Age>30</ns1:Age>
+				<ns1:Title ns1:Title_Id="70148">Mrs</ns1:Title>
+				<ns1:Initials>D</ns1:Initials>
+				<ns1:Forename>Bernadine</ns1:Forename>
+				<ns1:Surname>Brendon</ns1:Surname>
+				<ns1:Gender>F</ns1:Gender>
+				<ns1:Pax_Prc_Ex>1111.35</ns1:Pax_Prc_Ex>
+			</ns1:Passenger>
+		</ns1:Passengers>
+		<ns1:Payments>
+			<ns1:Payment>
+				<ns1:Pay_Id>4340490318</ns1:Pay_Id>
+				<ns1:Pay_Seq>2</ns1:Pay_Seq>
+				<ns1:Pay_Dt_Tm>2022-09-01T15:21:15</ns1:Pay_Dt_Tm>
+				<ns1:Pay_Amt>250</ns1:Pay_Amt>
+				<ns1:Pay_Cur_Cd ns1:Pay_Cur_Id="7592">GBP</ns1:Pay_Cur_Cd>
+				<ns1:Pay_Cur_Name>Pound Sterling</ns1:Pay_Cur_Name>
+				<ns1:Exch_Rt>1</ns1:Exch_Rt>
+				<ns1:Card_Tp>PP</ns1:Card_Tp>
+				<ns1:Pay_Gp_Cd ns1:Pay_Gp_Id="1042684790">PP</ns1:Pay_Gp_Cd>
+				<ns1:Pay_Gp_Name>PayPal</ns1:Pay_Gp_Name>
+				<ns1:Pay_Tp>PP</ns1:Pay_Tp>
+				<ns1:Pay_Mth_Cd ns1:Pay_Mth_Id="1042684798">PPPA</ns1:Pay_Mth_Cd>
+				<ns1:Pay_Mth_Name>PayPal Payment</ns1:Pay_Mth_Name>
+				<ns1:Card_Name>Kizzy</ns1:Card_Name>
+				<ns1:Email>tonyd06@hotmail.co.uk</ns1:Email>
+				<ns1:Is_Loyalty_Card>N</ns1:Is_Loyalty_Card>
+				<ns1:User_Cd ns1:User_Id="3678450">THUSER</ns1:User_Cd>
+				<ns1:User_Name>TH Web User (SYS Default)</ns1:User_Name>
+				<ns1:User_Agt_Cd ns1:User_Agt_Id="3678450">H6265</ns1:User_Agt_Cd>
+				<ns1:User_Agt_Name>tui.co.uk</ns1:User_Agt_Name>
+				<ns1:Auth_Cd>3100114545858563</ns1:Auth_Cd>
+				<ns1:Auth_Sys>CPSI</ns1:Auth_Sys>
+				<ns1:Settle_Mth>Y</ns1:Settle_Mth>
+				<ns1:Recon_Tp>CARD</ns1:Recon_Tp>
+				<ns1:Recon_Mth>AUTO</ns1:Recon_Mth>
+				<ns1:Details>User Entered Payment Notes on CPS payment screen via PayPal MMB</ns1:Details>
+			</ns1:Payment>
+			<ns1:Payment>
+				<ns1:Pay_Id>4216944755</ns1:Pay_Id>
+				<ns1:Pay_Seq>1</ns1:Pay_Seq>
+				<ns1:Pay_Dt_Tm>2022-06-19T09:31:21</ns1:Pay_Dt_Tm>
+				<ns1:Pay_Amt>250</ns1:Pay_Amt>
+				<ns1:Pay_Cur_Cd ns1:Pay_Cur_Id="7592">GBP</ns1:Pay_Cur_Cd>
+				<ns1:Pay_Cur_Name>Pound Sterling</ns1:Pay_Cur_Name>
+				<ns1:Exch_Rt>1</ns1:Exch_Rt>
+				<ns1:Card_Tp>PP</ns1:Card_Tp>
+				<ns1:Pay_Gp_Cd ns1:Pay_Gp_Id="1042684790">PP</ns1:Pay_Gp_Cd>
+				<ns1:Pay_Gp_Name>PayPal</ns1:Pay_Gp_Name>
+				<ns1:Pay_Tp>PP</ns1:Pay_Tp>
+				<ns1:Pay_Mth_Cd ns1:Pay_Mth_Id="1042684798">PPPA</ns1:Pay_Mth_Cd>
+				<ns1:Pay_Mth_Name>PayPal Payment</ns1:Pay_Mth_Name>
+				<ns1:Card_Name>Kizzy</ns1:Card_Name>
+				<ns1:Email>tonyd06@hotmail.co.uk</ns1:Email>
+				<ns1:Is_Loyalty_Card>N</ns1:Is_Loyalty_Card>
+				<ns1:User_Cd ns1:User_Id="3678450">THUSER</ns1:User_Cd>
+				<ns1:User_Name>TH Web User (SYS Default)</ns1:User_Name>
+				<ns1:User_Agt_Cd ns1:User_Agt_Id="3678450">H6265</ns1:User_Agt_Cd>
+				<ns1:User_Agt_Name>tui.co.uk</ns1:User_Agt_Name>
+				<ns1:Auth_Cd>3200114250087336</ns1:Auth_Cd>
+				<ns1:Auth_Sys>CPSI</ns1:Auth_Sys>
+				<ns1:Settle_Mth>Y</ns1:Settle_Mth>
+				<ns1:Recon_Tp>CARD</ns1:Recon_Tp>
+				<ns1:Recon_Mth>AUTO</ns1:Recon_Mth>
+				<ns1:Details>User Entered Payment Notes on CPS payment screen via PayPal</ns1:Details>
+			</ns1:Payment>
+		</ns1:Payments>
+		<ns1:Addresses>
+			<ns1:Address>
+				<ns1:Add_Tp>AGT</ns1:Add_Tp>
+				<ns1:Add1>13 AERIAL ST</ns1:Add1>
+				<ns1:Add2>Apartment 0102</ns1:Add2>
+				<ns1:Add3>Hingham</ns1:Add3>
+				<ns1:Add4>Surrey</ns1:Add4>
+				<ns1:Add_Code>LU2 9TN</ns1:Add_Code>
+				<ns1:Work_Tel>01234567890</ns1:Work_Tel>
+				<ns1:Work_Email>ENVMGMT@thomson.co.uk</ns1:Work_Email>
+				<ns1:Pref_Mth>TEL</ns1:Pref_Mth>
+			</ns1:Address>
+			<ns1:Address>
+				<ns1:Add_Tp>CLT</ns1:Add_Tp>
+				<ns1:Add1>55 RIDGEWOOD STREET</ns1:Add1>
+				<ns1:Add3>Castleford</ns1:Add3>
+				<ns1:Add5>GB</ns1:Add5>
+				<ns1:Add_Code>LU2 9TN</ns1:Add_Code>
+				<ns1:Home_Tel>01234567890</ns1:Home_Tel>
+				<ns1:Home_Email>ENVMGMT@thomson.co.uk</ns1:Home_Email>
+				<ns1:Mkg_Mth_Post_Fg>Y</ns1:Mkg_Mth_Post_Fg>
+				<ns1:Mkg_Mth_Email_Fg>N</ns1:Mkg_Mth_Email_Fg>
+				<ns1:Mkg_Mth_Tel_Fg>N</ns1:Mkg_Mth_Tel_Fg>
+				<ns1:Mkg_Mth_Sms_Fg>N</ns1:Mkg_Mth_Sms_Fg>
+			</ns1:Address>
+		</ns1:Addresses>
+		<ns1:Message_Threads>
+			<ns1:Message_Thread>
+				<ns1:Thread_Id>4585145698</ns1:Thread_Id>
+				<ns1:Sts>OPN</ns1:Sts>
+				<ns1:Msg_Cd_Tp>STD</ns1:Msg_Cd_Tp>
+				<ns1:Msg_Cd ns1:Msg_Cd_Id="1150115731">BROD</ns1:Msg_Cd>
+				<ns1:Msg_Cd_Name>Balance Immediate</ns1:Msg_Cd_Name>
+				<ns1:Messages>
+					<ns1:Message>
+						<ns1:Msg_Seq>1</ns1:Msg_Seq>
+						<ns1:Cre_Dt_Tm>2023-02-24T05:40:02</ns1:Cre_Dt_Tm>
+						<ns1:Queue_Cd ns1:Queue_Id="1143973160">FREEZE</ns1:Queue_Cd>
+						<ns1:Queue_Name>Price Freeze</ns1:Queue_Name>
+						<ns1:Send_User_Cd ns1:Send_User_Id="86964">BATCH</ns1:Send_User_Cd>
+						<ns1:Send_User_Name>UK Batch User</ns1:Send_User_Name>
+						<ns1:Send_Off_Cd ns1:Send_Off_Id="4168925">ITSYS</ns1:Send_Off_Cd>
+						<ns1:Send_Off_Name>IT Systems</ns1:Send_Off_Name>
+						<ns1:Text>Balance Immediate Amount Paid: 500.00 Amount Due: 1722.70 Date Due: 08-Feb-2023 Total Payment: 2222.70 For: Mr Joselyn Botolph Mobile:  Tel (Work):  Tel (home): 01234567890 Email: ENVMGMT@thomson.co.uk</ns1:Text>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+					</ns1:Message>
+				</ns1:Messages>
+			</ns1:Message_Thread>
+		</ns1:Message_Threads>
+		<ns1:Price_Tp_Sums>
+			<ns1:Price_Tp_Sum>
+				<ns1:Prc_Tp_Seq>1</ns1:Prc_Tp_Seq>
+				<ns1:Prc_Tp_Cd ns1:Prc_Tp_Id="526074">ACRMAD</ns1:Prc_Tp_Cd>
+				<ns1:Prc_Tp_Desc>Adult Package Price</ns1:Prc_Tp_Desc>
+				<ns1:Qty>2</ns1:Qty>
+				<ns1:Prc>969</ns1:Prc>
+				<ns1:Total_Prc>1938</ns1:Total_Prc>
+			</ns1:Price_Tp_Sum>
+			<ns1:Price_Tp_Sum>
+				<ns1:Prc_Tp_Seq>7</ns1:Prc_Tp_Seq>
+				<ns1:Prc_Tp_Cd ns1:Prc_Tp_Id="1383186">OCC</ns1:Prc_Tp_Cd>
+				<ns1:Prc_Tp_Desc>Room Occupancy</ns1:Prc_Tp_Desc>
+				<ns1:Qty>2</ns1:Qty>
+				<ns1:Prc>210</ns1:Prc>
+				<ns1:Total_Prc>420</ns1:Total_Prc>
+			</ns1:Price_Tp_Sum>
+			<ns1:Price_Tp_Sum>
+				<ns1:Prc_Tp_Seq>9</ns1:Prc_Tp_Seq>
+				<ns1:Prc_Tp_Cd ns1:Prc_Tp_Id="381427">ABOARD</ns1:Prc_Tp_Cd>
+				<ns1:Prc_Tp_Desc>Board Upgrade</ns1:Prc_Tp_Desc>
+				<ns1:Qty>2</ns1:Qty>
+				<ns1:Prc>126</ns1:Prc>
+				<ns1:Total_Prc>252</ns1:Total_Prc>
+			</ns1:Price_Tp_Sum>
+			<ns1:Price_Tp_Sum>
+				<ns1:Prc_Tp_Seq>66</ns1:Prc_Tp_Seq>
+				<ns1:Prc_Tp_Cd ns1:Prc_Tp_Id="4608600">ONDISC</ns1:Prc_Tp_Cd>
+				<ns1:Prc_Tp_Desc>On-Line Discount</ns1:Prc_Tp_Desc>
+				<ns1:Qty>1</ns1:Qty>
+				<ns1:Prc>-167.3</ns1:Prc>
+				<ns1:Total_Prc>-167.3</ns1:Total_Prc>
+			</ns1:Price_Tp_Sum>
+			<ns1:Price_Tp_Sum>
+				<ns1:Prc_Tp_Seq>68</ns1:Prc_Tp_Seq>
+				<ns1:Prc_Tp_Cd ns1:Prc_Tp_Id="381956">YIESUP</ns1:Prc_Tp_Cd>
+				<ns1:Prc_Tp_Desc>Discount</ns1:Prc_Tp_Desc>
+				<ns1:Qty>1</ns1:Qty>
+				<ns1:Prc>-220</ns1:Prc>
+				<ns1:Total_Prc>-220</ns1:Total_Prc>
+			</ns1:Price_Tp_Sum>
+		</ns1:Price_Tp_Sums>
+		<ns1:Services>
+			<ns1:Service>
+				<ns1:Res_Ser_Id>307276431</ns1:Res_Ser_Id>
+				<ns1:Ser_Seq>2</ns1:Ser_Seq>
+				<ns1:St_Dt>2023-05-03</ns1:St_Dt>
+				<ns1:End_Dt>2023-05-03</ns1:End_Dt>
+				<ns1:Ser_Tp>TRS</ns1:Ser_Tp>
+				<ns1:Sell_Tp>FLT</ns1:Sell_Tp>
+				<ns1:Stk_Tp_Cd ns1:Stk_Tp_Id="0">FLT</ns1:Stk_Tp_Cd>
+				<ns1:Stk_Tp_Name>Flight</ns1:Stk_Tp_Name>
+				<ns1:Pkg_Ind>INC</ns1:Pkg_Ind>
+				<ns1:Bkg_Tp>INC</ns1:Bkg_Tp>
+				<ns1:Prom_Gp_Cd ns1:Prom_Gp_Id="67891">LP</ns1:Prom_Gp_Cd>
+				<ns1:Prom_Gp_Name>Load Price</ns1:Prom_Gp_Name>
+				<ns1:Prom_Cd ns1:Prom_Id="67902">AUPK</ns1:Prom_Cd>
+				<ns1:Prom_Name>TUI UK Package</ns1:Prom_Name>
+				<ns1:Sell_Prom_Name>TUI UK Package</ns1:Sell_Prom_Name>
+				<ns1:Bo_Prom_Name>TUI UK Package</ns1:Bo_Prom_Name>
+				<ns1:Prom_Srch_Cat_Cd ns1:Prom_Srch_Cat_Id="67901">A</ns1:Prom_Srch_Cat_Cd>
+				<ns1:Terms_Cd ns1:Terms_Id="3962117">�STD</ns1:Terms_Cd>
+				<ns1:Terms_Name>� Standard</ns1:Terms_Name>
+				<ns1:Ser_Qty>1</ns1:Ser_Qty>
+				<ns1:N_Pax>2</ns1:N_Pax>
+				<ns1:N_Inf>0</ns1:N_Inf>
+				<ns1:N_Chd>0</ns1:N_Chd>
+				<ns1:N_Adu>2</ns1:N_Adu>
+				<ns1:Ser_Sts>CON</ns1:Ser_Sts>
+				<ns1:Spr_Cd ns1:Spr_Id="85965">VIKING</ns1:Spr_Cd>
+				<ns1:Spr_Name>Viking Aviation</ns1:Spr_Name>
+				<ns1:Fin_Spr_Cd ns1:Fin_Spr_Id="85965">VIKING</ns1:Fin_Spr_Cd>
+				<ns1:Fin_Spr_Name>Viking Aviation</ns1:Fin_Spr_Name>
+				<ns1:Billing_Mth>NSBL</ns1:Billing_Mth>
+				<ns1:Prc_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Calc_Dt_Tm>
+				<ns1:Cost_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Cost_Calc_Dt_Tm>
+				<ns1:Comm_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Comm_Calc_Dt_Tm>
+				<ns1:Ser_Cre_Dt_Tm>2022-06-19T09:27:51</ns1:Ser_Cre_Dt_Tm>
+				<ns1:Ser_Con_Dt_Tm>2022-06-19T09:27:51</ns1:Ser_Con_Dt_Tm>
+				<ns1:Ser_Id>1246979963</ns1:Ser_Id>
+				<ns1:Atcom_Version>4</ns1:Atcom_Version>
+				<ns1:Last_User_Cd ns1:Last_User_Id="86964">BATCH</ns1:Last_User_Cd>
+				<ns1:Last_User_Name>UK Batch User</ns1:Last_User_Name>
+				<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435528">H1079</ns1:Last_User_Agt_Cd>
+				<ns1:Last_User_Agt_Name>tui.co.uk/Flights</ns1:Last_User_Agt_Name>
+				<ns1:Dpt1_Amt>0</ns1:Dpt1_Amt>
+				<ns1:Dpt2_Amt>0</ns1:Dpt2_Amt>
+				<ns1:Dpt3_Amt>0</ns1:Dpt3_Amt>
+				<ns1:Atol_Mth>APP</ns1:Atol_Mth>
+				<ns1:Total_Prc>0</ns1:Total_Prc>
+				<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+				<ns1:Prc_Len>0</ns1:Prc_Len>
+				<ns1:Inv_Len>0</ns1:Inv_Len>
+				<ns1:Service_Trs>
+					<ns1:Dep_Air_Cd ns1:Dep_Air_Id="70961" ns1:Dep_Pt_Tp="AIR">MAN</ns1:Dep_Air_Cd>
+					<ns1:Dep_Air_Name>Manchester Airport</ns1:Dep_Air_Name>
+					<ns1:Arr_Air_Cd ns1:Arr_Air_Id="28385036" ns1:Arr_Pt_Tp="AIR">MLB</ns1:Arr_Air_Cd>
+					<ns1:Arr_Air_Name>Florida,MelbourneOrlando Airport</ns1:Arr_Air_Name>
+					<ns1:Slot_Num>A</ns1:Slot_Num>
+					<ns1:Ser_Cls_Cd ns1:Ser_Cls_Id="68209">Y</ns1:Ser_Cls_Cd>
+					<ns1:Ser_Cls_Name>Economy</ns1:Ser_Cls_Name>
+					<ns1:Car_Cd ns1:Car_Id="68274">TOM</ns1:Car_Cd>
+					<ns1:Car_Name>TUI Airways</ns1:Car_Name>
+					<ns1:Flt_Num>TOM122</ns1:Flt_Num>
+					<ns1:Dep_Dt_Tm>2023-05-03T12:35:00</ns1:Dep_Dt_Tm>
+					<ns1:Arr_Dt_Tm>2023-05-03T16:20:00</ns1:Arr_Dt_Tm>
+					<ns1:Utc_Dep_Dt_Tm>2023-05-03T11:35:00</ns1:Utc_Dep_Dt_Tm>
+					<ns1:Utc_Arr_Dt_Tm>2023-05-03T20:20:00</ns1:Utc_Arr_Dt_Tm>
+					<ns1:Dir_Mth>OUT</ns1:Dir_Mth>
+					<ns1:Prc_Cls_Seq>3</ns1:Prc_Cls_Seq>
+					<ns1:Route_Tp_Cd ns1:Route_Tp_Id="68178">LH</ns1:Route_Tp_Cd>
+					<ns1:Route_Tp_Name>Long Haul</ns1:Route_Tp_Name>
+					<ns1:Route_Cat_Cd ns1:Route_Cat_Id="512468">NA</ns1:Route_Cat_Cd>
+					<ns1:Route_Cat_Name>Not Applicable</ns1:Route_Cat_Name>
+					<ns1:Chk_In_Desk_Cd ns1:Chk_In_Desk_Id="512477">T2</ns1:Chk_In_Desk_Cd>
+					<ns1:Chk_In_Desk_Name>Terminal Two</ns1:Chk_In_Desk_Name>
+					<ns1:Arr_Chk_In_Desk_Cd ns1:Arr_Chk_In_Desk_Id="512469">M</ns1:Arr_Chk_In_Desk_Cd>
+					<ns1:Arr_Chk_In_Desk_Name>Main Terminal</ns1:Arr_Chk_In_Desk_Name>
+					<ns1:Flt_Change_Ind>N</ns1:Flt_Change_Ind>
+					<ns1:Dep_Dt_Tm_Change_Tp>SAME</ns1:Dep_Dt_Tm_Change_Tp>
+					<ns1:Online_Chk_In_Mth>ENA</ns1:Online_Chk_In_Mth>
+					<ns1:Ext_Ref>N5ITFP</ns1:Ext_Ref>
+				</ns1:Service_Trs>
+				<ns1:Sub_Services>
+					<ns1:Sub_Service>
+						<ns1:Res_Sub_Ser_Id>464548614</ns1:Res_Sub_Ser_Id>
+						<ns1:Res_Ser_Id>307276431</ns1:Res_Ser_Id>
+						<ns1:N_Pax>2</ns1:N_Pax>
+						<ns1:N_Inf>0</ns1:N_Inf>
+						<ns1:N_Chd>0</ns1:N_Chd>
+						<ns1:N_Adu>2</ns1:N_Adu>
+						<ns1:Inv_Tp>ALT</ns1:Inv_Tp>
+						<ns1:Sub_Ser_Id>4340740</ns1:Sub_Ser_Id>
+						<ns1:Inv_Id>4340740</ns1:Inv_Id>
+						<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+						<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+						<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+						<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+						<ns1:Total_Prc>0</ns1:Total_Prc>
+						<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+						<ns1:Sub_Service_Trs>
+							<ns1:Dep_Air_Cd ns1:Dep_Air_Id="70961" ns1:Dep_Pt_Tp="AIR">MAN</ns1:Dep_Air_Cd>
+							<ns1:Dep_Air_Name>Manchester Airport</ns1:Dep_Air_Name>
+							<ns1:Dep_Air_Cty1_Cd ns1:Dep_Air_Cty1_Id="68214">GB</ns1:Dep_Air_Cty1_Cd>
+							<ns1:Dep_Air_Cty1_Name>United Kingdom</ns1:Dep_Air_Cty1_Name>
+							<ns1:Arr_Air_Cd ns1:Arr_Air_Id="28385036" ns1:Arr_Pt_Tp="AIR">MLB</ns1:Arr_Air_Cd>
+							<ns1:Arr_Air_Name>Florida,MelbourneOrlando Airport</ns1:Arr_Air_Name>
+							<ns1:Arr_Air_Cty1_Cd ns1:Arr_Air_Cty1_Id="12097">US</ns1:Arr_Air_Cty1_Cd>
+							<ns1:Arr_Air_Cty1_Name>United States</ns1:Arr_Air_Cty1_Name>
+							<ns1:Slot_Num>A</ns1:Slot_Num>
+							<ns1:Car_Cd ns1:Car_Id="68274">TOM</ns1:Car_Cd>
+							<ns1:Car_Name>TUI Airways</ns1:Car_Name>
+							<ns1:Flt_Num>TOM122</ns1:Flt_Num>
+							<ns1:Dep_Dt_Tm>2023-05-03T12:35:00</ns1:Dep_Dt_Tm>
+							<ns1:Arr_Dt_Tm>2023-05-03T16:20:00</ns1:Arr_Dt_Tm>
+							<ns1:Utc_Dep_Dt_Tm>2023-05-03T11:35:00</ns1:Utc_Dep_Dt_Tm>
+							<ns1:Utc_Arr_Dt_Tm>2023-05-03T20:20:00</ns1:Utc_Arr_Dt_Tm>
+							<ns1:Airft_Tp_Cd ns1:Airft_Tp_Id="513917">N/A</ns1:Airft_Tp_Cd>
+							<ns1:Airft_Tp_Name>Not Applicable</ns1:Airft_Tp_Name>
+							<ns1:Route_Tp_Cd ns1:Route_Tp_Id="68178">LH</ns1:Route_Tp_Cd>
+							<ns1:Route_Tp_Name>Long Haul</ns1:Route_Tp_Name>
+						</ns1:Sub_Service_Trs>
+						<ns1:Sub_Service_Paxs>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>702923667</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>464548614</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>307276431</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015933</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Bag_Allow_Wt>20</ns1:Bag_Allow_Wt>
+								<ns1:Bag_Allow_Pieces>1</ns1:Bag_Allow_Pieces>
+								<ns1:Seat_Row>19</ns1:Seat_Row>
+								<ns1:Seat_Col>A</ns1:Seat_Col>
+								<ns1:Seat_Corporate_Cd>987718</ns1:Seat_Corporate_Cd>
+								<ns1:Seat_Chk_In_Sts>NOTC</ns1:Seat_Chk_In_Sts>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>702923668</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>464548614</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>307276431</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015934</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Bag_Allow_Wt>20</ns1:Bag_Allow_Wt>
+								<ns1:Bag_Allow_Pieces>1</ns1:Bag_Allow_Pieces>
+								<ns1:Seat_Row>19</ns1:Seat_Row>
+								<ns1:Seat_Col>B</ns1:Seat_Col>
+								<ns1:Seat_Corporate_Cd>987718</ns1:Seat_Corporate_Cd>
+								<ns1:Seat_Chk_In_Sts>NOTC</ns1:Seat_Chk_In_Sts>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+						</ns1:Sub_Service_Paxs>
+						<ns1:Prices>
+							<ns1:Price>
+								<ns1:Prc_Id>771320103</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>464548614</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>307276431</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="74629">FA</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Adult Flight</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>TRS</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="56659">FLT</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Flight Price</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>STK</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="72585">STD</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Standard</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>0</ns1:Prc>
+								<ns1:Total_Prc>0</ns1:Total_Prc>
+								<ns1:Stk_Prc>0</ns1:Stk_Prc>
+								<ns1:Stk_Rt>0</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>0</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>1</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+							<ns1:Price>
+								<ns1:Prc_Id>771320104</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>464548614</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>307276431</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="5673720">APDF</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Air Passenger Duty</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>TRS</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="5673660">FLTDTX</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Flight Only Taxes</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>TSUP</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="5833330">APD</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>APD</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>0</ns1:Prc>
+								<ns1:Total_Prc>0</ns1:Total_Prc>
+								<ns1:Stk_Prc>87</ns1:Stk_Prc>
+								<ns1:Stk_Rt>87</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>0</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>1</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>87</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>87</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+						</ns1:Prices>
+					</ns1:Sub_Service>
+				</ns1:Sub_Services>
+				<ns1:Ser_Erratas>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>99394364</ns1:Errata_Id>
+						<ns1:Errata_Seq>11</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-06-19T09:27:52</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="70354">EF1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Flight Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>99394376</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1298752011</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>
+TRAVEL IS STILL DIFFERENT
+As travel is still different, it�s important to prepare for any COVID-19 related entry requirements. You need to check for the following:
+�	Your destination entry requirements, depending on your vaccination status, may require you to test before travel and some destinations still require you to be fully vaccinated. There may also be differences for children. You can check current entry requirements on the TUI website https://www.tui.co.uk/destinations/info/entry-requirements &amp; keep up to date of any changes by registering on the FCDO travel advice website https://www.gov.uk/foreign-travel-advice
+�	Remember, these can change quickly and it�s your responsibility to ensure that you meet all the requirements to avoid any last-minute problems, which could even include being denied boarding.
+�	Important - If you are joining a Marella Cruise you have different entry requirements � please refer to https://www.tui.co.uk/destinations/info/cruise-entry-requirements  page for the most up to date information.
+
+�	Some destinations still have local COVID restrictions in place like social distancing, facemask wearing and require proof of COVID vaccination status to enter some venues � You can also check FCDO travel advice Coronavirus page for your destination to see current restrictions.
+
+
+		</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>107310098</ns1:Errata_Id>
+						<ns1:Errata_Seq>13</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-08-10T13:41:48</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="70354">EF1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Flight Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>107310099</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1275970586</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>
+
+The US Department of Homeland Security has separate enhanced security screening procedures in place for all commercial flights to the US. This means that customers travelling to the USA may be subject to questioning by security staff at check-in. As a result of this, we are unfortunately unable to offer day before check-in for TUI Airways flights at Birmingham, Gatwick and Manchester airports for any customers travelling to Melbourne, Florida. We have, however, organised dedicated check in areas which will open a minimum of three hours prior to departure for these flights at these airports.						</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>114246721</ns1:Errata_Id>
+						<ns1:Errata_Seq>13</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-10-07T10:20:16</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="70354">EF1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Flight Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>114246722</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1255692979</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>
+
+You�ll need to purchase an Electronic System for Travel Authorisation (ESTA) at least 72 hours before you depart to enter the United States. In some cases, you may not be eligible to participate in the Visa Wavier Program (ESTA) if you�ve visited certain countries, for example If you�ve been in Cuba on or after 12th January 2021, you would need to apply for a visa and you�ll need to allow more time for this. For more information go to: Official ESTA Application Website, U.S. Customs and Border Protection (dhs.gov) and also the FCDO for the latest advice and costs: https://www.gov.uk/foreign-travel-advice/usa/entry-requirements.</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>113876344</ns1:Errata_Id>
+						<ns1:Errata_Seq>14</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-10-03T16:44:47</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="70354">EF1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Flight Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>113876348</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1255692981</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>																								"
+Customers who are boarding flights to the US may be requested to have additional checks on their electronic devices: such as phones, laptops, tablets, e-readers, power cables and transformers ? by airport security personnel.
+For TUI and First Choice this only affects customers travelling on outbound flights to the US from the UK.
+If you have any concerns with any of your devices we would advise that you either leave these items at home or place these items into your hold luggage.
+Please be aware that batteries and power banks cannot be carried in your hold luggage, and will have to carried in your hand luggage. Please also note that when airport security personnel check your devices they may be confiscated or destroyed if they show any signs of the below:
+* internal or external damage to the device
+* device having been tampered with
+* if the device cannot be removed from a protective case
+* if the device triggers the explosives trace detection alarm.
+
+"</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>113876345</ns1:Errata_Id>
+						<ns1:Errata_Seq>15</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-10-03T16:44:47</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="70354">EF1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Flight Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>113876349</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1255692983</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>
+Please note that the US government has introduced new guidelines on all flights to the United States. It relates to additional security searches and also restrictions on carrying powder like substances in hand luggage in quantities greater than 12oz or 350ml. For more information please visit our travel information tab on our homepage.
+
+
+		</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>113876346</ns1:Errata_Id>
+						<ns1:Errata_Seq>16</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-10-03T16:44:47</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="70354">EF1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Flight Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>113876350</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1298752013</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>
+How much time you need on your passport depends on the country you�re visiting � it�s important to check in case you need to renew your passport before travel.
+
+If you are planning to travel to an EU country your passport must be less than 10 years old on the day you enter (check the �date of issue�) and valid for at least 3 months after the day you plan to leave (check the �expiry date�). Passports issued more than 10 years prior to date of travel are not accepted.Passengers travelling on a Marella Cruise, passports must be valid for at least 6 months after the day you plan to leave.
+
+
+For other non EU destinations, check the FCDO travel advice https://www.gov.uk/foreign-travel-advice for the country you want to travel to - read the entry requirements section � you may need up to 6 months.
+
+
+
+	</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+				</ns1:Ser_Erratas>
+			</ns1:Service>
+			<ns1:Service>
+				<ns1:Res_Ser_Id>273430558</ns1:Res_Ser_Id>
+				<ns1:Ser_Seq>5</ns1:Ser_Seq>
+				<ns1:St_Dt>2023-05-03</ns1:St_Dt>
+				<ns1:Ser_Tp>FEX</ns1:Ser_Tp>
+				<ns1:Sell_Tp>FEX</ns1:Sell_Tp>
+				<ns1:Stk_Tp_Cd ns1:Stk_Tp_Id="68222">MEAL</ns1:Stk_Tp_Cd>
+				<ns1:Stk_Tp_Name>Meal</ns1:Stk_Tp_Name>
+				<ns1:Pkg_Ind>CMP</ns1:Pkg_Ind>
+				<ns1:Bkg_Tp>ADV</ns1:Bkg_Tp>
+				<ns1:Prom_Gp_Cd ns1:Prom_Gp_Id="67891">LP</ns1:Prom_Gp_Cd>
+				<ns1:Prom_Gp_Name>Load Price</ns1:Prom_Gp_Name>
+				<ns1:Prom_Cd ns1:Prom_Id="67902">AUPK</ns1:Prom_Cd>
+				<ns1:Prom_Name>TUI UK Package</ns1:Prom_Name>
+				<ns1:Sell_Prom_Name>TUI UK Package</ns1:Sell_Prom_Name>
+				<ns1:Bo_Prom_Name>TUI UK Package</ns1:Bo_Prom_Name>
+				<ns1:Prom_Srch_Cat_Cd ns1:Prom_Srch_Cat_Id="67901">A</ns1:Prom_Srch_Cat_Cd>
+				<ns1:Terms_Cd ns1:Terms_Id="3962117">�STD</ns1:Terms_Cd>
+				<ns1:Terms_Name>� Standard</ns1:Terms_Name>
+				<ns1:Ser_Qty>1</ns1:Ser_Qty>
+				<ns1:N_Pax>2</ns1:N_Pax>
+				<ns1:N_Inf>0</ns1:N_Inf>
+				<ns1:N_Chd>0</ns1:N_Chd>
+				<ns1:N_Adu>2</ns1:N_Adu>
+				<ns1:Ser_Sts>CON</ns1:Ser_Sts>
+				<ns1:Spr_Cd ns1:Spr_Id="85965">VIKING</ns1:Spr_Cd>
+				<ns1:Spr_Name>Viking Aviation</ns1:Spr_Name>
+				<ns1:Fin_Spr_Cd ns1:Fin_Spr_Id="85965">VIKING</ns1:Fin_Spr_Cd>
+				<ns1:Fin_Spr_Name>Viking Aviation</ns1:Fin_Spr_Name>
+				<ns1:Billing_Mth>NSBL</ns1:Billing_Mth>
+				<ns1:Prc_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Prc_Calc_Dt_Tm>
+				<ns1:Cost_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Cost_Calc_Dt_Tm>
+				<ns1:Comm_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Comm_Calc_Dt_Tm>
+				<ns1:Ser_Cre_Dt_Tm>2022-06-19T09:27:52</ns1:Ser_Cre_Dt_Tm>
+				<ns1:Ser_Con_Dt_Tm>2022-06-19T09:27:52</ns1:Ser_Con_Dt_Tm>
+				<ns1:Parent_Ser_Seq>2</ns1:Parent_Ser_Seq>
+				<ns1:Ser_Id>1246980198</ns1:Ser_Id>
+				<ns1:Ser2_Id>68222</ns1:Ser2_Id>
+				<ns1:Atcom_Version>1</ns1:Atcom_Version>
+				<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+				<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+				<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+				<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+				<ns1:Dpt1_Amt>0</ns1:Dpt1_Amt>
+				<ns1:Dpt2_Amt>0</ns1:Dpt2_Amt>
+				<ns1:Dpt3_Amt>0</ns1:Dpt3_Amt>
+				<ns1:Atol_Mth>APP</ns1:Atol_Mth>
+				<ns1:Total_Prc>0</ns1:Total_Prc>
+				<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+				<ns1:Prc_Len>1</ns1:Prc_Len>
+				<ns1:Inv_Len>1</ns1:Inv_Len>
+				<ns1:Service_Fex>
+					<ns1:Prc_Cd ns1:Prc_Cd_Id="74677">STMS</ns1:Prc_Cd>
+					<ns1:Prc_Cd_Name>Adult Meal Standard</ns1:Prc_Cd_Name>
+					<ns1:Bkg_Qty>1</ns1:Bkg_Qty>
+					<ns1:Ext_Ref>N5ITFP</ns1:Ext_Ref>
+				</ns1:Service_Fex>
+				<ns1:Sub_Services>
+					<ns1:Sub_Service>
+						<ns1:Res_Sub_Ser_Id>419326711</ns1:Res_Sub_Ser_Id>
+						<ns1:Res_Ser_Id>273430558</ns1:Res_Ser_Id>
+						<ns1:N_Pax>2</ns1:N_Pax>
+						<ns1:N_Inf>0</ns1:N_Inf>
+						<ns1:N_Chd>0</ns1:N_Chd>
+						<ns1:N_Adu>2</ns1:N_Adu>
+						<ns1:Inv_Tp>NONE</ns1:Inv_Tp>
+						<ns1:Sub_Ser_Id>1246980198</ns1:Sub_Ser_Id>
+						<ns1:Inv_Id>1246980198</ns1:Inv_Id>
+						<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+						<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+						<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+						<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+						<ns1:Total_Prc>0</ns1:Total_Prc>
+						<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+						<ns1:Sub_Service_Paxs>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>623515739</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>419326711</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>273430558</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015933</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>623515740</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>419326711</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>273430558</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015934</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+						</ns1:Sub_Service_Paxs>
+						<ns1:Prices>
+							<ns1:Price>
+								<ns1:Prc_Id>689172566</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>419326711</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>273430558</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="74677">STMS</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Adult Meal Standard</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>FEX</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="526071">TRSML</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Flight Extra Meals</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>STK</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="4507780">FLTE</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Flights Extras</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>0</ns1:Prc>
+								<ns1:Total_Prc>0</ns1:Total_Prc>
+								<ns1:Stk_Prc>0</ns1:Stk_Prc>
+								<ns1:Stk_Rt>0</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>0</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:52</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>1</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+						</ns1:Prices>
+					</ns1:Sub_Service>
+				</ns1:Sub_Services>
+			</ns1:Service>
+			<ns1:Service>
+				<ns1:Res_Ser_Id>276529754</ns1:Res_Ser_Id>
+				<ns1:Ser_Seq>6</ns1:Ser_Seq>
+				<ns1:St_Dt>2023-05-03</ns1:St_Dt>
+				<ns1:Ser_Tp>FEX</ns1:Ser_Tp>
+				<ns1:Sell_Tp>FEX</ns1:Sell_Tp>
+				<ns1:Stk_Tp_Cd ns1:Stk_Tp_Id="68221">BAG</ns1:Stk_Tp_Cd>
+				<ns1:Stk_Tp_Name>Baggage</ns1:Stk_Tp_Name>
+				<ns1:Pkg_Ind>CMP</ns1:Pkg_Ind>
+				<ns1:Bkg_Tp>ACI</ns1:Bkg_Tp>
+				<ns1:Prom_Gp_Cd ns1:Prom_Gp_Id="67891">LP</ns1:Prom_Gp_Cd>
+				<ns1:Prom_Gp_Name>Load Price</ns1:Prom_Gp_Name>
+				<ns1:Prom_Cd ns1:Prom_Id="67902">AUPK</ns1:Prom_Cd>
+				<ns1:Prom_Name>TUI UK Package</ns1:Prom_Name>
+				<ns1:Sell_Prom_Name>TUI UK Package</ns1:Sell_Prom_Name>
+				<ns1:Bo_Prom_Name>TUI UK Package</ns1:Bo_Prom_Name>
+				<ns1:Prom_Srch_Cat_Cd ns1:Prom_Srch_Cat_Id="67901">A</ns1:Prom_Srch_Cat_Cd>
+				<ns1:Terms_Cd ns1:Terms_Id="3962117">�STD</ns1:Terms_Cd>
+				<ns1:Terms_Name>� Standard</ns1:Terms_Name>
+				<ns1:Ser_Qty>2</ns1:Ser_Qty>
+				<ns1:N_Pax>2</ns1:N_Pax>
+				<ns1:N_Inf>0</ns1:N_Inf>
+				<ns1:N_Chd>0</ns1:N_Chd>
+				<ns1:N_Adu>2</ns1:N_Adu>
+				<ns1:Ser_Sts>CON</ns1:Ser_Sts>
+				<ns1:Spr_Cd ns1:Spr_Id="85965">VIKING</ns1:Spr_Cd>
+				<ns1:Spr_Name>Viking Aviation</ns1:Spr_Name>
+				<ns1:Fin_Spr_Cd ns1:Fin_Spr_Id="85965">VIKING</ns1:Fin_Spr_Cd>
+				<ns1:Fin_Spr_Name>Viking Aviation</ns1:Fin_Spr_Name>
+				<ns1:Billing_Mth>NSBL</ns1:Billing_Mth>
+				<ns1:Prc_Calc_Dt_Tm>2022-06-19T09:31:21</ns1:Prc_Calc_Dt_Tm>
+				<ns1:Cost_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Cost_Calc_Dt_Tm>
+				<ns1:Comm_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Comm_Calc_Dt_Tm>
+				<ns1:Ser_Cre_Dt_Tm>2022-06-19T09:27:52</ns1:Ser_Cre_Dt_Tm>
+				<ns1:Ser_Con_Dt_Tm>2022-06-19T09:27:52</ns1:Ser_Con_Dt_Tm>
+				<ns1:Parent_Ser_Seq>2</ns1:Parent_Ser_Seq>
+				<ns1:Ser_Id>1162428989</ns1:Ser_Id>
+				<ns1:Ser2_Id>1162428990</ns1:Ser2_Id>
+				<ns1:Atcom_Version>3</ns1:Atcom_Version>
+				<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+				<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+				<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+				<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+				<ns1:Dpt1_Amt>0</ns1:Dpt1_Amt>
+				<ns1:Dpt2_Amt>0</ns1:Dpt2_Amt>
+				<ns1:Dpt3_Amt>0</ns1:Dpt3_Amt>
+				<ns1:Total_Prc>0</ns1:Total_Prc>
+				<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+				<ns1:Prc_Len>1</ns1:Prc_Len>
+				<ns1:Inv_Len>1</ns1:Inv_Len>
+				<ns1:Service_Fex>
+					<ns1:Prc_Cd ns1:Prc_Cd_Id="74658">BAG</ns1:Prc_Cd>
+					<ns1:Prc_Cd_Name>Baggage Allowance</ns1:Prc_Cd_Name>
+					<ns1:Bkg_Qty>1</ns1:Bkg_Qty>
+					<ns1:Ext_Ref>N5ITFP</ns1:Ext_Ref>
+				</ns1:Service_Fex>
+				<ns1:Sub_Services>
+					<ns1:Sub_Service>
+						<ns1:Res_Sub_Ser_Id>423698921</ns1:Res_Sub_Ser_Id>
+						<ns1:Res_Ser_Id>276529754</ns1:Res_Ser_Id>
+						<ns1:N_Pax>2</ns1:N_Pax>
+						<ns1:N_Inf>0</ns1:N_Inf>
+						<ns1:N_Chd>0</ns1:N_Chd>
+						<ns1:N_Adu>2</ns1:N_Adu>
+						<ns1:Inv_Tp>NONE</ns1:Inv_Tp>
+						<ns1:Sub_Ser_Id>1162428989</ns1:Sub_Ser_Id>
+						<ns1:Inv_Id>1162428989</ns1:Inv_Id>
+						<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+						<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+						<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+						<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+						<ns1:Total_Prc>0</ns1:Total_Prc>
+						<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+						<ns1:Sub_Service_Paxs>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>631810608</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>423698921</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>276529754</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015933</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>631810609</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>423698921</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>276529754</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015934</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+						</ns1:Sub_Service_Paxs>
+						<ns1:Prices>
+							<ns1:Price>
+								<ns1:Prc_Id>696691220</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>423698921</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>276529754</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="74658">BAG</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Baggage Allowance</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>FEX</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="526067">TRSBAG</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Baggage Upgrade</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>STK</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="4507780">FLTE</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Flights Extras</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>0</ns1:Prc>
+								<ns1:Total_Prc>0</ns1:Total_Prc>
+								<ns1:Stk_Prc>0</ns1:Stk_Prc>
+								<ns1:Stk_Rt>0</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>0</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:31:21</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>1</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+						</ns1:Prices>
+					</ns1:Sub_Service>
+				</ns1:Sub_Services>
+			</ns1:Service>
+			<ns1:Service>
+				<ns1:Res_Ser_Id>305532590</ns1:Res_Ser_Id>
+				<ns1:Ser_Seq>1</ns1:Ser_Seq>
+				<ns1:St_Dt>2023-05-03</ns1:St_Dt>
+				<ns1:End_Dt>2023-05-17</ns1:End_Dt>
+				<ns1:Ser_Tp>ACC</ns1:Ser_Tp>
+				<ns1:Sell_Tp>BEDS</ns1:Sell_Tp>
+				<ns1:Stk_Tp_Cd ns1:Stk_Tp_Id="56714">HOT</ns1:Stk_Tp_Cd>
+				<ns1:Stk_Tp_Name>Hotel</ns1:Stk_Tp_Name>
+				<ns1:Pkg_Ind>INC</ns1:Pkg_Ind>
+				<ns1:Bkg_Tp>INC</ns1:Bkg_Tp>
+				<ns1:Prom_Gp_Cd ns1:Prom_Gp_Id="68246">TH</ns1:Prom_Gp_Cd>
+				<ns1:Prom_Gp_Name>TUI UK</ns1:Prom_Gp_Name>
+				<ns1:Srch_Prom_Gp_Cd ns1:Srch_Prom_Gp_Id="68248">THMP</ns1:Srch_Prom_Gp_Cd>
+				<ns1:Srch_Prom_Gp_Name>TUI UK</ns1:Srch_Prom_Gp_Name>
+				<ns1:Prom_Cd ns1:Prom_Id="1001825628">BTFS</ns1:Prom_Cd>
+				<ns1:Prom_Name>TUI UK Florida Sun Package</ns1:Prom_Name>
+				<ns1:Sell_Prom_Name>Florida Sun</ns1:Sell_Prom_Name>
+				<ns1:Bo_Prom_Name>TUI UK Florida Sun Package</ns1:Bo_Prom_Name>
+				<ns1:Prom_Srch_Cat_Cd ns1:Prom_Srch_Cat_Id="67901">A</ns1:Prom_Srch_Cat_Cd>
+				<ns1:Terms_Cd ns1:Terms_Id="3962117">�STD</ns1:Terms_Cd>
+				<ns1:Terms_Name>� Standard</ns1:Terms_Name>
+				<ns1:Ser_Qty>1</ns1:Ser_Qty>
+				<ns1:N_Pax>2</ns1:N_Pax>
+				<ns1:N_Inf>0</ns1:N_Inf>
+				<ns1:N_Chd>0</ns1:N_Chd>
+				<ns1:N_Adu>2</ns1:N_Adu>
+				<ns1:Ser_Sts>CON</ns1:Ser_Sts>
+				<ns1:Spr_Cd ns1:Spr_Id="80033">M-RTC</ns1:Spr_Cd>
+				<ns1:Spr_Name>Refer to Contract</ns1:Spr_Name>
+				<ns1:Spr_Lang_Cd ns1:Spr_Lang_Id="15222">EN_EN</ns1:Spr_Lang_Cd>
+				<ns1:Fin_Spr_Cd ns1:Fin_Spr_Id="329006">M-11443</ns1:Fin_Spr_Cd>
+				<ns1:Fin_Spr_Name>Rosen Group</ns1:Fin_Spr_Name>
+				<ns1:Fin_Spr_Lang_Cd ns1:Fin_Spr_Lang_Id="15222">EN_EN</ns1:Fin_Spr_Lang_Cd>
+				<ns1:Billing_Mth>NSBL</ns1:Billing_Mth>
+				<ns1:Prc_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Calc_Dt_Tm>
+				<ns1:Cost_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Cost_Calc_Dt_Tm>
+				<ns1:Comm_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Comm_Calc_Dt_Tm>
+				<ns1:Ser_Cre_Dt_Tm>2022-06-19T09:27:51</ns1:Ser_Cre_Dt_Tm>
+				<ns1:Ser_Con_Dt_Tm>2022-06-19T09:27:51</ns1:Ser_Con_Dt_Tm>
+				<ns1:Ser_Vch_Mth>SUPP</ns1:Ser_Vch_Mth>
+				<ns1:Parent_Ser_Seq>2</ns1:Parent_Ser_Seq>
+				<ns1:Ser_Id>1004342485</ns1:Ser_Id>
+				<ns1:Atcom_Version>4</ns1:Atcom_Version>
+				<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+				<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+				<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+				<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+				<ns1:Dpt1_Amt>0</ns1:Dpt1_Amt>
+				<ns1:Dpt2_Amt>0</ns1:Dpt2_Amt>
+				<ns1:Dpt3_Amt>0</ns1:Dpt3_Amt>
+				<ns1:Atol_Mth>APP</ns1:Atol_Mth>
+				<ns1:Total_Prc>2222.7</ns1:Total_Prc>
+				<ns1:Total_Sum_Prc>2222.7</ns1:Total_Sum_Prc>
+				<ns1:Prc_Len>14</ns1:Prc_Len>
+				<ns1:Cost_Len>14</ns1:Cost_Len>
+				<ns1:Inv_Len>14</ns1:Inv_Len>
+				<ns1:Service_Acc>
+					<ns1:Ser_Len>14</ns1:Ser_Len>
+					<ns1:Accom_Cd ns1:Accom_Id="311655">USFL0015</ns1:Accom_Cd>
+					<ns1:Accom_Name>Rosen Inn at Pointe Orlando</ns1:Accom_Name>
+					<ns1:Accom_Lang_Cd ns1:Accom_Lang_Id="15222">EN_EN</ns1:Accom_Lang_Cd>
+					<ns1:Htl_Chain_Cd ns1:Htl_Chain_Id="180261">RRI</ns1:Htl_Chain_Cd>
+					<ns1:Htl_Chain_Name>Rosen Group</ns1:Htl_Chain_Name>
+					<ns1:Stk_Cls_Cd ns1:Stk_Cls_Id="56647">STD</ns1:Stk_Cls_Cd>
+					<ns1:Stk_Cls_Name>Standard</ns1:Stk_Cls_Name>
+					<ns1:Star_Rtg_Cd ns1:Star_Rtg_Id="56654">3</ns1:Star_Rtg_Cd>
+					<ns1:Star_Rtg_Name>3 Star</ns1:Star_Rtg_Name>
+					<ns1:Star_Rtg_Tp_Cd ns1:Star_Rtg_Tp_Id="3776114">TR</ns1:Star_Rtg_Tp_Cd>
+					<ns1:Star_Rtg_Tp_Name>Tour Operator Rating</ns1:Star_Rtg_Tp_Name>
+					<ns1:Cty1_Cd ns1:Cty1_Id="12097">US</ns1:Cty1_Cd>
+					<ns1:Cty1_Name>United States</ns1:Cty1_Name>
+					<ns1:Cty2_Cd ns1:Cty2_Id="16788">USFL</ns1:Cty2_Cd>
+					<ns1:Cty2_Name>Florida</ns1:Cty2_Name>
+					<ns1:Cty3_Cd ns1:Cty3_Id="16794">USFLIN</ns1:Cty3_Cd>
+					<ns1:Cty3_Name>International Drive</ns1:Cty3_Name>
+					<ns1:Tourist_Region_Cd ns1:Tourist_Region_Id="300764">FLO</ns1:Tourist_Region_Cd>
+					<ns1:Tourist_Region_Name>Florida</ns1:Tourist_Region_Name>
+					<ns1:Cost_Prom_Cd ns1:Cost_Prom_Id="67908">AUCC</ns1:Cost_Prom_Cd>
+					<ns1:Cost_Prom_Name>Common Costs &amp; Inventory</ns1:Cost_Prom_Name>
+					<ns1:Trf_Tp_Cd ns1:Trf_Tp_Id="331080">TFR</ns1:Trf_Tp_Cd>
+					<ns1:Trf_Tp_Name>Coach Transfer Included</ns1:Trf_Tp_Name>
+					<ns1:Trf_Tp_Cost_Cd_Id>331080</ns1:Trf_Tp_Cost_Cd_Id>
+					<ns1:Accom_Add1>44 GAUMONT ROAD</ns1:Accom_Add1>
+					<ns1:Accom_Add2/>
+					<ns1:Accom_Add3/>
+					<ns1:Accom_Add4>Merseyside</ns1:Accom_Add4>
+					<ns1:Accom_Add5>Florida</ns1:Accom_Add5>
+					<ns1:Accom_Add_Code>LU2 9TN</ns1:Accom_Add_Code>
+					<ns1:Accom_Tel>01234567890</ns1:Accom_Tel>
+					<ns1:Accom_Email/>
+					<ns1:Accom_Website/>
+					<ns1:Corporate_Code>001996</ns1:Corporate_Code>
+				</ns1:Service_Acc>
+				<ns1:Sub_Services>
+					<ns1:Sub_Service>
+						<ns1:Res_Sub_Ser_Id>462181915</ns1:Res_Sub_Ser_Id>
+						<ns1:Res_Ser_Id>305532590</ns1:Res_Ser_Id>
+						<ns1:N_Pax>2</ns1:N_Pax>
+						<ns1:N_Inf>0</ns1:N_Inf>
+						<ns1:N_Chd>0</ns1:N_Chd>
+						<ns1:N_Adu>2</ns1:N_Adu>
+						<ns1:Inv_Tp>ALT</ns1:Inv_Tp>
+						<ns1:Prc_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Calc_Dt_Tm>
+						<ns1:Cost_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Cost_Calc_Dt_Tm>
+						<ns1:Sub_Ser_Id>1004342487</ns1:Sub_Ser_Id>
+						<ns1:Inv_Id>753048</ns1:Inv_Id>
+						<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+						<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+						<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+						<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+						<ns1:Total_Prc>2222.7</ns1:Total_Prc>
+						<ns1:Total_Sum_Prc>2222.7</ns1:Total_Sum_Prc>
+						<ns1:Sub_Service_Acc>
+							<ns1:Rm_Cd ns1:Rm_Id="56811">DD01</ns1:Rm_Cd>
+							<ns1:Rm_Name>Double Room</ns1:Rm_Name>
+							<ns1:Bb_Cd ns1:Bb_Id="56663">BB</ns1:Bb_Cd>
+							<ns1:Bb_Name>Bed &amp; Breakfast</ns1:Bb_Name>
+							<ns1:Rm_Cat_Cd>D</ns1:Rm_Cat_Cd>
+							<ns1:Rm_Cat_Name>Double</ns1:Rm_Cat_Name>
+							<ns1:Contract_Tp>NCOM</ns1:Contract_Tp>
+							<ns1:Rt_Tp>PP</ns1:Rt_Tp>
+							<ns1:Shr_Book_Mth>NONE</ns1:Shr_Book_Mth>
+							<ns1:Alt_Bundled_Fg>Y</ns1:Alt_Bundled_Fg>
+							<ns1:Alt_Unbundled_Fg>N</ns1:Alt_Unbundled_Fg>
+							<ns1:Prc_Chd_Tp>NONE</ns1:Prc_Chd_Tp>
+							<ns1:Sub_Service_Acc_Facils>
+								<ns1:Rm_Facil_Name ns1:Rm_Facil_Cd="DBL" ns1:Rm_Facil_Id="88886">Double Bed</ns1:Rm_Facil_Name>
+								<ns1:Rm_Facil_Name ns1:Rm_Facil_Cd="AC" ns1:Rm_Facil_Id="225050">Air-conditioning</ns1:Rm_Facil_Name>
+								<ns1:Rm_Facil_Name ns1:Rm_Facil_Cd="BT" ns1:Rm_Facil_Id="225068">Bath</ns1:Rm_Facil_Name>
+								<ns1:Rm_Facil_Name ns1:Rm_Facil_Cd="SH" ns1:Rm_Facil_Id="225069">Shower</ns1:Rm_Facil_Name>
+								<ns1:Rm_Facil_Name ns1:Rm_Facil_Cd="WC" ns1:Rm_Facil_Id="225071">WC</ns1:Rm_Facil_Name>
+								<ns1:Rm_Facil_Name ns1:Rm_Facil_Cd="WIF" ns1:Rm_Facil_Id="309647">Wi-Fi</ns1:Rm_Facil_Name>
+							</ns1:Sub_Service_Acc_Facils>
+							<ns1:Sub_Service_Acc_Bundles>
+								<ns1:Sub_Service_Acc_Bundle>
+									<ns1:Inv_Dt ns1:Bundle_Fg="Y">2023-05-03</ns1:Inv_Dt>
+								</ns1:Sub_Service_Acc_Bundle>
+							</ns1:Sub_Service_Acc_Bundles>
+						</ns1:Sub_Service_Acc>
+						<ns1:Sub_Service_Paxs>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>698885912</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>462181915</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>305532590</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015933</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>1111.35</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Prc_Matrix_Cd ns1:Prc_Matrix_Cd_Id="16956">200</ns1:Prc_Matrix_Cd>
+								<ns1:Origin_Bb_Cd ns1:Origin_Bb_Id="56667">RO</ns1:Origin_Bb_Cd>
+								<ns1:Origin_Bb_Name>Room Only</ns1:Origin_Bb_Name>
+								<ns1:Bb_Id>56663</ns1:Bb_Id>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+								<ns1:Prc_Pax_Tp>ADU</ns1:Prc_Pax_Tp>
+								<ns1:Cost_Pax_Tp>ADU</ns1:Cost_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>698885913</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>462181915</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>305532590</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015934</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>1111.35</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Prc_Matrix_Cd ns1:Prc_Matrix_Cd_Id="16956">200</ns1:Prc_Matrix_Cd>
+								<ns1:Origin_Bb_Cd ns1:Origin_Bb_Id="56667">RO</ns1:Origin_Bb_Cd>
+								<ns1:Origin_Bb_Name>Room Only</ns1:Origin_Bb_Name>
+								<ns1:Bb_Id>56663</ns1:Bb_Id>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+								<ns1:Prc_Pax_Tp>ADU</ns1:Prc_Pax_Tp>
+								<ns1:Cost_Pax_Tp>ADU</ns1:Cost_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+						</ns1:Sub_Service_Paxs>
+						<ns1:Prices>
+							<ns1:Price>
+								<ns1:Prc_Id>767059052</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>462181915</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>305532590</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="70924">AA</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Adult Package Price</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>ACC</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="526074">ACRMAD</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Adult Package Price</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>STK</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="72585">STD</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Standard</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>969</ns1:Prc>
+								<ns1:Total_Prc>1938</ns1:Total_Prc>
+								<ns1:Stk_Prc>301.1</ns1:Stk_Prc>
+								<ns1:Stk_Rt>409.5</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="15225">USD</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>US Dollars</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>969</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>4</ns1:Atcom_Version>
+								<ns1:Contract_Ver>USFL/USFL0015/S23 V5</ns1:Contract_Ver>
+								<ns1:Crt_Unique_Ref>USFL-1099-1699</ns1:Crt_Unique_Ref>
+								<ns1:Crt_Commit_Tp>NC</ns1:Crt_Commit_Tp>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>969</ns1:Prc>
+										<ns1:Stk_Prc>301.1</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>969</ns1:Prc>
+										<ns1:Stk_Prc>301.1</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+							<ns1:Price>
+								<ns1:Prc_Id>767059053</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>462181915</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>305532590</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="56663">BB</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Bed &amp; Breakfast</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>BB</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="381427">ABOARD</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Board Upgrade</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>BB</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="72585">STD</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Standard</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>126</ns1:Prc>
+								<ns1:Total_Prc>252</ns1:Total_Prc>
+								<ns1:Stk_Prc>92.65</ns1:Stk_Prc>
+								<ns1:Stk_Rt>126</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="15225">USD</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>US Dollars</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>126</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>4</ns1:Atcom_Version>
+								<ns1:Contract_Ver>USFL/USFL0015/S23 V5</ns1:Contract_Ver>
+								<ns1:Crt_Unique_Ref>USFL-1099-1699</ns1:Crt_Unique_Ref>
+								<ns1:Crt_Commit_Tp>NC</ns1:Crt_Commit_Tp>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>126</ns1:Prc>
+										<ns1:Stk_Prc>92.65</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>126</ns1:Prc>
+										<ns1:Stk_Prc>92.65</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+							<ns1:Price>
+								<ns1:Prc_Id>767059054</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>462181915</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>305532590</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="80213">UOC</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Under Occupancy</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>AS</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="1383186">OCC</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Room Occupancy</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>ASUP</ns1:Prc_Sts>
+								<ns1:Prc_Sts2>OCC</ns1:Prc_Sts2>
+								<ns1:Agt_Band ns1:Agt_Band_Id="72585">STD</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Standard</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>210</ns1:Prc>
+								<ns1:Total_Prc>420</ns1:Total_Prc>
+								<ns1:Stk_Prc>0</ns1:Stk_Prc>
+								<ns1:Stk_Rt>0</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>210</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>4</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>210</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>210</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+							<ns1:Price>
+								<ns1:Prc_Id>767059055</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>462181915</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>305532590</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="75140">YA</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Saving (Accom)</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>YLD</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="381956">YIESUP</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Discount</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>YSUP</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="72585">STD</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Standard</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>-110</ns1:Prc>
+								<ns1:Total_Prc>-220</ns1:Total_Prc>
+								<ns1:Stk_Prc>0</ns1:Stk_Prc>
+								<ns1:Stk_Rt>0</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>-110</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>4</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>-110</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>-110</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+							<ns1:Price>
+								<ns1:Prc_Id>767059056</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>462181915</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>305532590</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="2945330">OLD</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>On-line Discount</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>DS</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="4608600">ONDISC</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>On-Line Discount</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>TDIS</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="72585">STD</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Standard</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>-83.65</ns1:Prc>
+								<ns1:Total_Prc>-167.3</ns1:Total_Prc>
+								<ns1:Stk_Prc>0</ns1:Stk_Prc>
+								<ns1:Stk_Rt>0</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>-83.65</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>4</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>-83.65</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>-83.65</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+						</ns1:Prices>
+						<ns1:Price_Sums>
+							<ns1:Price_Sum>
+								<ns1:Prc_Sum_Seq>1</ns1:Prc_Sum_Seq>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="70924">AA</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Desc>Adult Package Price</ns1:Prc_Cd_Desc>
+								<ns1:Prc_Sts>STK</ns1:Prc_Sts>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>969</ns1:Prc>
+								<ns1:Total_Prc>1938</ns1:Total_Prc>
+								<ns1:Price_Sum_Paxs>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>969</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>969</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+								</ns1:Price_Sum_Paxs>
+							</ns1:Price_Sum>
+							<ns1:Price_Sum>
+								<ns1:Prc_Sum_Seq>3</ns1:Prc_Sum_Seq>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="56663">BB</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Desc>Bed &amp; Breakfast</ns1:Prc_Cd_Desc>
+								<ns1:Prc_Sts>BB</ns1:Prc_Sts>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>126</ns1:Prc>
+								<ns1:Total_Prc>252</ns1:Total_Prc>
+								<ns1:Price_Sum_Paxs>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>126</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>126</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+								</ns1:Price_Sum_Paxs>
+							</ns1:Price_Sum>
+							<ns1:Price_Sum>
+								<ns1:Prc_Sum_Seq>5</ns1:Prc_Sum_Seq>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="80213">UOC</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Desc>Under Occupancy</ns1:Prc_Cd_Desc>
+								<ns1:Prc_Sts>ASUP</ns1:Prc_Sts>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>210</ns1:Prc>
+								<ns1:Total_Prc>420</ns1:Total_Prc>
+								<ns1:Price_Sum_Paxs>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>210</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>210</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+								</ns1:Price_Sum_Paxs>
+							</ns1:Price_Sum>
+							<ns1:Price_Sum>
+								<ns1:Prc_Sum_Seq>7</ns1:Prc_Sum_Seq>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="75140">YA</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Desc>Saving (Accom)</ns1:Prc_Cd_Desc>
+								<ns1:Prc_Sts>YSUP</ns1:Prc_Sts>
+								<ns1:Qty>1</ns1:Qty>
+								<ns1:Prc>-220</ns1:Prc>
+								<ns1:Total_Prc>-220</ns1:Total_Prc>
+								<ns1:Price_Sum_Paxs>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>-110</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>-110</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+								</ns1:Price_Sum_Paxs>
+							</ns1:Price_Sum>
+							<ns1:Price_Sum>
+								<ns1:Prc_Sum_Seq>9</ns1:Prc_Sum_Seq>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="2945330">OLD</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Desc>On-line Discount</ns1:Prc_Cd_Desc>
+								<ns1:Prc_Sts>TDIS</ns1:Prc_Sts>
+								<ns1:Qty>1</ns1:Qty>
+								<ns1:Prc>-167.3</ns1:Prc>
+								<ns1:Total_Prc>-167.3</ns1:Total_Prc>
+								<ns1:Price_Sum_Paxs>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>-83.65</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+									<ns1:Price_Sum_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>-83.65</ns1:Prc>
+									</ns1:Price_Sum_Pax>
+								</ns1:Price_Sum_Paxs>
+							</ns1:Price_Sum>
+						</ns1:Price_Sums>
+					</ns1:Sub_Service>
+				</ns1:Sub_Services>
+				<ns1:Ser_Erratas>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>99394358</ns1:Errata_Id>
+						<ns1:Errata_Seq>5</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-06-19T09:27:52</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="2948766">EG1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Geography Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>99394370</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1128662059</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>
+�	Please note that the US government has introduced new guidelines on all flights to the United States. It relates to additional security searches and also restrictions on carrying powder like substances in hand luggage in quantities greater than 12oz or 350ml.  For more information, please visit our travel information tab on our homepage.
+�	The US Department of Homeland Security has separate enhanced security screening procedures in place for all commercial flights into the US.  This means that customers travelling to the USA may be subject to questioning by security staff at check-in.  As a result of this, we are unfortunately unable to offer day before check-in for TUI Airways flights at Birmingham, Gatwick and Manchester airports for any customers travelling to Florida.  We have, however, organised dedicated check in areas which will open a minimum of three hours prior to departure for these flights at these airports.
+�	Please note, that all hotels in Florida with the exception of the Holiday Inn and Suites and Wyndham Orlando Resort require at least one passenger in each room booked to be over the age of 21.
+�	Only guests aged 21 and over are allowed to drive hire cars under Florida law.  If there are no drivers aged 21 or over, the car will be refused on arrival. If this applies to your booking, please select a different transport option instead.
+�	Customers who are boarding flights to the US may be requested to have additional checks on their electronic devices � such as phones, laptops, tablets, e-readers, power cables and transformers � by airport security personnel.  For TUI and First Choice, this only affects customers travelling on outbound flights to the US from the UK. If you have any concerns with any of your devices, we would advise that you either leave these items at home or place these items into your hold luggage. Please be aware that batteries and power banks cannot be carried in your hold luggage.
+�	For access to up-to-date travel advice, see Travel Aware � Staying Safe and Healthy Abroad.
+
+		</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>99394359</ns1:Errata_Id>
+						<ns1:Errata_Seq>6</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-06-19T09:27:52</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="2948766">EG1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Geography Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>99394371</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1271236420</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>
+You�ll need an Electronic System for Travel Authorisation (ESTA) to travel to the USA. Please see the FCDO for the latest advice and costs: https://www.gov.uk/foreign-travel-advice/usa/entry-requirements .
+
+				</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>118176710</ns1:Errata_Id>
+						<ns1:Errata_Seq>13</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-12-10T21:46:49</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="2948766">EG1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Geography Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>118176712</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1151258575</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>Please note that all hotels in Florida and USA require at least one passenger in each room booked to be over the age of 21. This includes customers on a cruise &amp; stay holiday.					</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>118176711</ns1:Errata_Id>
+						<ns1:Errata_Seq>14</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-12-10T21:46:49</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="2948766">EG1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Geography Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>118176713</ns1:Errata_Note_Id>
+								<ns1:Note_Id>4443631556</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>
+Please be advised that The USA requires the lead passenger of the booking to be 21+ years old to check into your chosen hotels.</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+					<ns1:Ser_Errata>
+						<ns1:Errata_Id>104866452</ns1:Errata_Id>
+						<ns1:Errata_Seq>16</ns1:Errata_Seq>
+						<ns1:Errata_Dt_Tm>2022-07-26T17:29:08</ns1:Errata_Dt_Tm>
+						<ns1:Errata_Cd ns1:Errata_Cd_Id="2948766">EG1</ns1:Errata_Cd>
+						<ns1:Errata_Cd_Name>Geography Errata</ns1:Errata_Cd_Name>
+						<ns1:Prt_Conf>N</ns1:Prt_Conf>
+						<ns1:Prt_Vch>N</ns1:Prt_Vch>
+						<ns1:Ser_Errata_Notes>
+							<ns1:Ser_Errata_Note>
+								<ns1:Errata_Note_Id>104866457</ns1:Errata_Note_Id>
+								<ns1:Note_Id>1271859419</ns1:Note_Id>
+								<ns1:Paragraph_Lvl>1</ns1:Paragraph_Lvl>
+								<ns1:Text>
+Please note the lead passenger of the booking will be automatically assigned as the main driver unless you contact to advise otherwise, this cannot be changed on arrival.  The named driver of each car must have a credit card in their name, no cash deposits will be accepted.  Only guests aged 21 and over are allowed to drive hire cars under Florida law. If there are no drivers aged 21 or over, the car will be refused on arrival. If this applies to your booking, please select a different transport option instead.  Drivers aged 21 - 25 will need to pay a young drivers supplement upon arrival (Please see Terms &amp; Conditions)  Please also note, child seats are compulsory for up to 6 years of age &amp; Alamo staff are not authorised to help fit child car seats.  Please remember to pre register your car hire
+ .
+		</ns1:Text>
+							</ns1:Ser_Errata_Note>
+						</ns1:Ser_Errata_Notes>
+					</ns1:Ser_Errata>
+				</ns1:Ser_Erratas>
+			</ns1:Service>
+			<ns1:Service>
+				<ns1:Res_Ser_Id>307276432</ns1:Res_Ser_Id>
+				<ns1:Ser_Seq>3</ns1:Ser_Seq>
+				<ns1:St_Dt>2023-05-17</ns1:St_Dt>
+				<ns1:End_Dt>2023-05-18</ns1:End_Dt>
+				<ns1:Ser_Tp>TRS</ns1:Ser_Tp>
+				<ns1:Sell_Tp>FLT</ns1:Sell_Tp>
+				<ns1:Stk_Tp_Cd ns1:Stk_Tp_Id="0">FLT</ns1:Stk_Tp_Cd>
+				<ns1:Stk_Tp_Name>Flight</ns1:Stk_Tp_Name>
+				<ns1:Pkg_Ind>INC</ns1:Pkg_Ind>
+				<ns1:Bkg_Tp>INC</ns1:Bkg_Tp>
+				<ns1:Prom_Gp_Cd ns1:Prom_Gp_Id="67891">LP</ns1:Prom_Gp_Cd>
+				<ns1:Prom_Gp_Name>Load Price</ns1:Prom_Gp_Name>
+				<ns1:Prom_Cd ns1:Prom_Id="67902">AUPK</ns1:Prom_Cd>
+				<ns1:Prom_Name>TUI UK Package</ns1:Prom_Name>
+				<ns1:Sell_Prom_Name>TUI UK Package</ns1:Sell_Prom_Name>
+				<ns1:Bo_Prom_Name>TUI UK Package</ns1:Bo_Prom_Name>
+				<ns1:Prom_Srch_Cat_Cd ns1:Prom_Srch_Cat_Id="67901">A</ns1:Prom_Srch_Cat_Cd>
+				<ns1:Terms_Cd ns1:Terms_Id="3962117">�STD</ns1:Terms_Cd>
+				<ns1:Terms_Name>� Standard</ns1:Terms_Name>
+				<ns1:Ser_Qty>1</ns1:Ser_Qty>
+				<ns1:N_Pax>2</ns1:N_Pax>
+				<ns1:N_Inf>0</ns1:N_Inf>
+				<ns1:N_Chd>0</ns1:N_Chd>
+				<ns1:N_Adu>2</ns1:N_Adu>
+				<ns1:Ser_Sts>CON</ns1:Ser_Sts>
+				<ns1:Spr_Cd ns1:Spr_Id="85965">VIKING</ns1:Spr_Cd>
+				<ns1:Spr_Name>Viking Aviation</ns1:Spr_Name>
+				<ns1:Fin_Spr_Cd ns1:Fin_Spr_Id="85965">VIKING</ns1:Fin_Spr_Cd>
+				<ns1:Fin_Spr_Name>Viking Aviation</ns1:Fin_Spr_Name>
+				<ns1:Billing_Mth>NSBL</ns1:Billing_Mth>
+				<ns1:Prc_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Calc_Dt_Tm>
+				<ns1:Cost_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Cost_Calc_Dt_Tm>
+				<ns1:Comm_Calc_Dt_Tm>2022-06-19T09:27:51</ns1:Comm_Calc_Dt_Tm>
+				<ns1:Ser_Cre_Dt_Tm>2022-06-19T09:27:51</ns1:Ser_Cre_Dt_Tm>
+				<ns1:Ser_Con_Dt_Tm>2022-06-19T09:27:51</ns1:Ser_Con_Dt_Tm>
+				<ns1:Parent_Ser_Seq>2</ns1:Parent_Ser_Seq>
+				<ns1:Ser_Id>1246980473</ns1:Ser_Id>
+				<ns1:Atcom_Version>4</ns1:Atcom_Version>
+				<ns1:Last_User_Cd ns1:Last_User_Id="86964">BATCH</ns1:Last_User_Cd>
+				<ns1:Last_User_Name>UK Batch User</ns1:Last_User_Name>
+				<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435528">H1079</ns1:Last_User_Agt_Cd>
+				<ns1:Last_User_Agt_Name>tui.co.uk/Flights</ns1:Last_User_Agt_Name>
+				<ns1:Dpt1_Amt>0</ns1:Dpt1_Amt>
+				<ns1:Dpt2_Amt>0</ns1:Dpt2_Amt>
+				<ns1:Dpt3_Amt>0</ns1:Dpt3_Amt>
+				<ns1:Atol_Mth>APP</ns1:Atol_Mth>
+				<ns1:Total_Prc>0</ns1:Total_Prc>
+				<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+				<ns1:Prc_Len>0</ns1:Prc_Len>
+				<ns1:Inv_Len>0</ns1:Inv_Len>
+				<ns1:Service_Trs>
+					<ns1:Dep_Air_Cd ns1:Dep_Air_Id="28385036" ns1:Dep_Pt_Tp="AIR">MLB</ns1:Dep_Air_Cd>
+					<ns1:Dep_Air_Name>Florida,MelbourneOrlando Airport</ns1:Dep_Air_Name>
+					<ns1:Arr_Air_Cd ns1:Arr_Air_Id="70961" ns1:Arr_Pt_Tp="AIR">MAN</ns1:Arr_Air_Cd>
+					<ns1:Arr_Air_Name>Manchester Airport</ns1:Arr_Air_Name>
+					<ns1:Slot_Num>A</ns1:Slot_Num>
+					<ns1:Ser_Cls_Cd ns1:Ser_Cls_Id="68209">Y</ns1:Ser_Cls_Cd>
+					<ns1:Ser_Cls_Name>Economy</ns1:Ser_Cls_Name>
+					<ns1:Bkg_Cls_Cd>Economy</ns1:Bkg_Cls_Cd>
+					<ns1:Bkg_Cls_Name>Economy</ns1:Bkg_Cls_Name>
+					<ns1:Car_Cd ns1:Car_Id="68274">TOM</ns1:Car_Cd>
+					<ns1:Car_Name>TUI Airways</ns1:Car_Name>
+					<ns1:Flt_Num>TOM123</ns1:Flt_Num>
+					<ns1:Dep_Dt_Tm>2023-05-17T18:20:00</ns1:Dep_Dt_Tm>
+					<ns1:Arr_Dt_Tm>2023-05-18T07:05:00</ns1:Arr_Dt_Tm>
+					<ns1:Utc_Dep_Dt_Tm>2023-05-17T22:20:00</ns1:Utc_Dep_Dt_Tm>
+					<ns1:Utc_Arr_Dt_Tm>2023-05-18T06:05:00</ns1:Utc_Arr_Dt_Tm>
+					<ns1:Dir_Mth>IN</ns1:Dir_Mth>
+					<ns1:Prc_Cls_Seq>4</ns1:Prc_Cls_Seq>
+					<ns1:Route_Tp_Cd ns1:Route_Tp_Id="68178">LH</ns1:Route_Tp_Cd>
+					<ns1:Route_Tp_Name>Long Haul</ns1:Route_Tp_Name>
+					<ns1:Route_Cat_Cd ns1:Route_Cat_Id="512468">NA</ns1:Route_Cat_Cd>
+					<ns1:Route_Cat_Name>Not Applicable</ns1:Route_Cat_Name>
+					<ns1:Chk_In_Desk_Cd ns1:Chk_In_Desk_Id="512469">M</ns1:Chk_In_Desk_Cd>
+					<ns1:Chk_In_Desk_Name>Main Terminal</ns1:Chk_In_Desk_Name>
+					<ns1:Arr_Chk_In_Desk_Cd ns1:Arr_Chk_In_Desk_Id="512477">T2</ns1:Arr_Chk_In_Desk_Cd>
+					<ns1:Arr_Chk_In_Desk_Name>Terminal Two</ns1:Arr_Chk_In_Desk_Name>
+					<ns1:Flt_Change_Ind>N</ns1:Flt_Change_Ind>
+					<ns1:Dep_Dt_Tm_Change_Tp>SAME</ns1:Dep_Dt_Tm_Change_Tp>
+					<ns1:Online_Chk_In_Mth>ENA</ns1:Online_Chk_In_Mth>
+					<ns1:Ext_Sys>ENA</ns1:Ext_Sys>
+					<ns1:Ext_Car_Sys>ENA</ns1:Ext_Car_Sys>
+					<ns1:Ext_Car_Ref>N5ITFP</ns1:Ext_Car_Ref>
+					<ns1:Ext_Ref>N5ITFP</ns1:Ext_Ref>
+				</ns1:Service_Trs>
+				<ns1:Sub_Services>
+					<ns1:Sub_Service>
+						<ns1:Res_Sub_Ser_Id>464548615</ns1:Res_Sub_Ser_Id>
+						<ns1:Res_Ser_Id>307276432</ns1:Res_Ser_Id>
+						<ns1:N_Pax>2</ns1:N_Pax>
+						<ns1:N_Inf>0</ns1:N_Inf>
+						<ns1:N_Chd>0</ns1:N_Chd>
+						<ns1:N_Adu>2</ns1:N_Adu>
+						<ns1:Inv_Tp>ALT</ns1:Inv_Tp>
+						<ns1:Sub_Ser_Id>4340741</ns1:Sub_Ser_Id>
+						<ns1:Inv_Id>4340741</ns1:Inv_Id>
+						<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+						<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+						<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+						<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+						<ns1:Total_Prc>0</ns1:Total_Prc>
+						<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+						<ns1:Sub_Service_Trs>
+							<ns1:Dep_Air_Cd ns1:Dep_Air_Id="28385036" ns1:Dep_Pt_Tp="AIR">MLB</ns1:Dep_Air_Cd>
+							<ns1:Dep_Air_Name>Florida,MelbourneOrlando Airport</ns1:Dep_Air_Name>
+							<ns1:Dep_Air_Cty1_Cd ns1:Dep_Air_Cty1_Id="12097">US</ns1:Dep_Air_Cty1_Cd>
+							<ns1:Dep_Air_Cty1_Name>United States</ns1:Dep_Air_Cty1_Name>
+							<ns1:Arr_Air_Cd ns1:Arr_Air_Id="70961" ns1:Arr_Pt_Tp="AIR">MAN</ns1:Arr_Air_Cd>
+							<ns1:Arr_Air_Name>Manchester Airport</ns1:Arr_Air_Name>
+							<ns1:Arr_Air_Cty1_Cd ns1:Arr_Air_Cty1_Id="68214">GB</ns1:Arr_Air_Cty1_Cd>
+							<ns1:Arr_Air_Cty1_Name>United Kingdom</ns1:Arr_Air_Cty1_Name>
+							<ns1:Slot_Num>A</ns1:Slot_Num>
+							<ns1:Car_Cd ns1:Car_Id="68274">TOM</ns1:Car_Cd>
+							<ns1:Car_Name>TUI Airways</ns1:Car_Name>
+							<ns1:Flt_Num>TOM123</ns1:Flt_Num>
+							<ns1:Dep_Dt_Tm>2023-05-17T18:20:00</ns1:Dep_Dt_Tm>
+							<ns1:Arr_Dt_Tm>2023-05-18T07:05:00</ns1:Arr_Dt_Tm>
+							<ns1:Utc_Dep_Dt_Tm>2023-05-17T22:20:00</ns1:Utc_Dep_Dt_Tm>
+							<ns1:Utc_Arr_Dt_Tm>2023-05-18T06:05:00</ns1:Utc_Arr_Dt_Tm>
+							<ns1:Airft_Tp_Cd ns1:Airft_Tp_Id="513917">N/A</ns1:Airft_Tp_Cd>
+							<ns1:Airft_Tp_Name>Not Applicable</ns1:Airft_Tp_Name>
+							<ns1:Route_Tp_Cd ns1:Route_Tp_Id="68178">LH</ns1:Route_Tp_Cd>
+							<ns1:Route_Tp_Name>Long Haul</ns1:Route_Tp_Name>
+						</ns1:Sub_Service_Trs>
+						<ns1:Sub_Service_Paxs>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>702923669</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>464548615</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>307276432</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015933</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Bag_Allow_Wt>20</ns1:Bag_Allow_Wt>
+								<ns1:Bag_Allow_Pieces>1</ns1:Bag_Allow_Pieces>
+								<ns1:Seat_Row>19</ns1:Seat_Row>
+								<ns1:Seat_Col>A</ns1:Seat_Col>
+								<ns1:Seat_Corporate_Cd>987718</ns1:Seat_Corporate_Cd>
+								<ns1:Seat_Chk_In_Sts>NOTC</ns1:Seat_Chk_In_Sts>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>702923670</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>464548615</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>307276432</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015934</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Bag_Allow_Wt>20</ns1:Bag_Allow_Wt>
+								<ns1:Bag_Allow_Pieces>1</ns1:Bag_Allow_Pieces>
+								<ns1:Seat_Row>19</ns1:Seat_Row>
+								<ns1:Seat_Col>B</ns1:Seat_Col>
+								<ns1:Seat_Corporate_Cd>987718</ns1:Seat_Corporate_Cd>
+								<ns1:Seat_Chk_In_Sts>NOTC</ns1:Seat_Chk_In_Sts>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+						</ns1:Sub_Service_Paxs>
+						<ns1:Prices>
+							<ns1:Price>
+								<ns1:Prc_Id>771320105</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>464548615</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>307276432</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="74629">FA</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Adult Flight</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>TRS</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="56659">FLT</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Flight Price</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>STK</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="72585">STD</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Standard</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>0</ns1:Prc>
+								<ns1:Total_Prc>0</ns1:Total_Prc>
+								<ns1:Stk_Prc>0</ns1:Stk_Prc>
+								<ns1:Stk_Rt>0</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>0</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:51</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>1</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+						</ns1:Prices>
+					</ns1:Sub_Service>
+				</ns1:Sub_Services>
+			</ns1:Service>
+			<ns1:Service>
+				<ns1:Res_Ser_Id>273430557</ns1:Res_Ser_Id>
+				<ns1:Ser_Seq>4</ns1:Ser_Seq>
+				<ns1:St_Dt>2023-05-17</ns1:St_Dt>
+				<ns1:Ser_Tp>FEX</ns1:Ser_Tp>
+				<ns1:Sell_Tp>FEX</ns1:Sell_Tp>
+				<ns1:Stk_Tp_Cd ns1:Stk_Tp_Id="68222">MEAL</ns1:Stk_Tp_Cd>
+				<ns1:Stk_Tp_Name>Meal</ns1:Stk_Tp_Name>
+				<ns1:Pkg_Ind>CMP</ns1:Pkg_Ind>
+				<ns1:Bkg_Tp>ADV</ns1:Bkg_Tp>
+				<ns1:Prom_Gp_Cd ns1:Prom_Gp_Id="67891">LP</ns1:Prom_Gp_Cd>
+				<ns1:Prom_Gp_Name>Load Price</ns1:Prom_Gp_Name>
+				<ns1:Prom_Cd ns1:Prom_Id="67902">AUPK</ns1:Prom_Cd>
+				<ns1:Prom_Name>TUI UK Package</ns1:Prom_Name>
+				<ns1:Sell_Prom_Name>TUI UK Package</ns1:Sell_Prom_Name>
+				<ns1:Bo_Prom_Name>TUI UK Package</ns1:Bo_Prom_Name>
+				<ns1:Prom_Srch_Cat_Cd ns1:Prom_Srch_Cat_Id="67901">A</ns1:Prom_Srch_Cat_Cd>
+				<ns1:Terms_Cd ns1:Terms_Id="3962117">�STD</ns1:Terms_Cd>
+				<ns1:Terms_Name>� Standard</ns1:Terms_Name>
+				<ns1:Ser_Qty>1</ns1:Ser_Qty>
+				<ns1:N_Pax>2</ns1:N_Pax>
+				<ns1:N_Inf>0</ns1:N_Inf>
+				<ns1:N_Chd>0</ns1:N_Chd>
+				<ns1:N_Adu>2</ns1:N_Adu>
+				<ns1:Ser_Sts>CON</ns1:Ser_Sts>
+				<ns1:Spr_Cd ns1:Spr_Id="85965">VIKING</ns1:Spr_Cd>
+				<ns1:Spr_Name>Viking Aviation</ns1:Spr_Name>
+				<ns1:Fin_Spr_Cd ns1:Fin_Spr_Id="85965">VIKING</ns1:Fin_Spr_Cd>
+				<ns1:Fin_Spr_Name>Viking Aviation</ns1:Fin_Spr_Name>
+				<ns1:Billing_Mth>NSBL</ns1:Billing_Mth>
+				<ns1:Prc_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Prc_Calc_Dt_Tm>
+				<ns1:Cost_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Cost_Calc_Dt_Tm>
+				<ns1:Comm_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Comm_Calc_Dt_Tm>
+				<ns1:Ser_Cre_Dt_Tm>2022-06-19T09:27:52</ns1:Ser_Cre_Dt_Tm>
+				<ns1:Ser_Con_Dt_Tm>2022-06-19T09:27:52</ns1:Ser_Con_Dt_Tm>
+				<ns1:Parent_Ser_Seq>3</ns1:Parent_Ser_Seq>
+				<ns1:Ser_Id>1246980533</ns1:Ser_Id>
+				<ns1:Ser2_Id>68222</ns1:Ser2_Id>
+				<ns1:Atcom_Version>1</ns1:Atcom_Version>
+				<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+				<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+				<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+				<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+				<ns1:Dpt1_Amt>0</ns1:Dpt1_Amt>
+				<ns1:Dpt2_Amt>0</ns1:Dpt2_Amt>
+				<ns1:Dpt3_Amt>0</ns1:Dpt3_Amt>
+				<ns1:Atol_Mth>APP</ns1:Atol_Mth>
+				<ns1:Total_Prc>0</ns1:Total_Prc>
+				<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+				<ns1:Prc_Len>1</ns1:Prc_Len>
+				<ns1:Inv_Len>1</ns1:Inv_Len>
+				<ns1:Service_Fex>
+					<ns1:Prc_Cd ns1:Prc_Cd_Id="74677">STMS</ns1:Prc_Cd>
+					<ns1:Prc_Cd_Name>Adult Meal Standard</ns1:Prc_Cd_Name>
+					<ns1:Bkg_Qty>1</ns1:Bkg_Qty>
+					<ns1:Ext_Ref>N5ITFP</ns1:Ext_Ref>
+				</ns1:Service_Fex>
+				<ns1:Sub_Services>
+					<ns1:Sub_Service>
+						<ns1:Res_Sub_Ser_Id>419326710</ns1:Res_Sub_Ser_Id>
+						<ns1:Res_Ser_Id>273430557</ns1:Res_Ser_Id>
+						<ns1:N_Pax>2</ns1:N_Pax>
+						<ns1:N_Inf>0</ns1:N_Inf>
+						<ns1:N_Chd>0</ns1:N_Chd>
+						<ns1:N_Adu>2</ns1:N_Adu>
+						<ns1:Inv_Tp>NONE</ns1:Inv_Tp>
+						<ns1:Sub_Ser_Id>1246980533</ns1:Sub_Ser_Id>
+						<ns1:Inv_Id>1246980533</ns1:Inv_Id>
+						<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+						<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+						<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+						<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+						<ns1:Total_Prc>0</ns1:Total_Prc>
+						<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+						<ns1:Sub_Service_Paxs>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>623515737</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>419326710</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>273430557</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015933</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>623515738</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>419326710</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>273430557</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015934</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+						</ns1:Sub_Service_Paxs>
+						<ns1:Prices>
+							<ns1:Price>
+								<ns1:Prc_Id>689172567</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>419326710</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>273430557</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="74677">STMS</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Adult Meal Standard</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>FEX</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="526071">TRSML</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Flight Extra Meals</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>STK</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="4507780">FLTE</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Flights Extras</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>0</ns1:Prc>
+								<ns1:Total_Prc>0</ns1:Total_Prc>
+								<ns1:Stk_Prc>0</ns1:Stk_Prc>
+								<ns1:Stk_Rt>0</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>0</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:27:52</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>1</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+						</ns1:Prices>
+					</ns1:Sub_Service>
+				</ns1:Sub_Services>
+			</ns1:Service>
+			<ns1:Service>
+				<ns1:Res_Ser_Id>276529755</ns1:Res_Ser_Id>
+				<ns1:Ser_Seq>7</ns1:Ser_Seq>
+				<ns1:St_Dt>2023-05-17</ns1:St_Dt>
+				<ns1:Ser_Tp>FEX</ns1:Ser_Tp>
+				<ns1:Sell_Tp>FEX</ns1:Sell_Tp>
+				<ns1:Stk_Tp_Cd ns1:Stk_Tp_Id="68221">BAG</ns1:Stk_Tp_Cd>
+				<ns1:Stk_Tp_Name>Baggage</ns1:Stk_Tp_Name>
+				<ns1:Pkg_Ind>CMP</ns1:Pkg_Ind>
+				<ns1:Bkg_Tp>ACI</ns1:Bkg_Tp>
+				<ns1:Prom_Gp_Cd ns1:Prom_Gp_Id="67891">LP</ns1:Prom_Gp_Cd>
+				<ns1:Prom_Gp_Name>Load Price</ns1:Prom_Gp_Name>
+				<ns1:Prom_Cd ns1:Prom_Id="67902">AUPK</ns1:Prom_Cd>
+				<ns1:Prom_Name>TUI UK Package</ns1:Prom_Name>
+				<ns1:Sell_Prom_Name>TUI UK Package</ns1:Sell_Prom_Name>
+				<ns1:Bo_Prom_Name>TUI UK Package</ns1:Bo_Prom_Name>
+				<ns1:Prom_Srch_Cat_Cd ns1:Prom_Srch_Cat_Id="67901">A</ns1:Prom_Srch_Cat_Cd>
+				<ns1:Terms_Cd ns1:Terms_Id="3962117">�STD</ns1:Terms_Cd>
+				<ns1:Terms_Name>� Standard</ns1:Terms_Name>
+				<ns1:Ser_Qty>2</ns1:Ser_Qty>
+				<ns1:N_Pax>2</ns1:N_Pax>
+				<ns1:N_Inf>0</ns1:N_Inf>
+				<ns1:N_Chd>0</ns1:N_Chd>
+				<ns1:N_Adu>2</ns1:N_Adu>
+				<ns1:Ser_Sts>CON</ns1:Ser_Sts>
+				<ns1:Spr_Cd ns1:Spr_Id="85965">VIKING</ns1:Spr_Cd>
+				<ns1:Spr_Name>Viking Aviation</ns1:Spr_Name>
+				<ns1:Fin_Spr_Cd ns1:Fin_Spr_Id="85965">VIKING</ns1:Fin_Spr_Cd>
+				<ns1:Fin_Spr_Name>Viking Aviation</ns1:Fin_Spr_Name>
+				<ns1:Billing_Mth>NSBL</ns1:Billing_Mth>
+				<ns1:Prc_Calc_Dt_Tm>2022-06-19T09:31:21</ns1:Prc_Calc_Dt_Tm>
+				<ns1:Cost_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Cost_Calc_Dt_Tm>
+				<ns1:Comm_Calc_Dt_Tm>2022-06-19T09:27:52</ns1:Comm_Calc_Dt_Tm>
+				<ns1:Ser_Cre_Dt_Tm>2022-06-19T09:27:52</ns1:Ser_Cre_Dt_Tm>
+				<ns1:Ser_Con_Dt_Tm>2022-06-19T09:27:52</ns1:Ser_Con_Dt_Tm>
+				<ns1:Parent_Ser_Seq>3</ns1:Parent_Ser_Seq>
+				<ns1:Ser_Id>1162428989</ns1:Ser_Id>
+				<ns1:Ser2_Id>1162428990</ns1:Ser2_Id>
+				<ns1:Atcom_Version>3</ns1:Atcom_Version>
+				<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+				<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+				<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+				<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+				<ns1:Dpt1_Amt>0</ns1:Dpt1_Amt>
+				<ns1:Dpt2_Amt>0</ns1:Dpt2_Amt>
+				<ns1:Dpt3_Amt>0</ns1:Dpt3_Amt>
+				<ns1:Total_Prc>0</ns1:Total_Prc>
+				<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+				<ns1:Prc_Len>1</ns1:Prc_Len>
+				<ns1:Inv_Len>1</ns1:Inv_Len>
+				<ns1:Service_Fex>
+					<ns1:Prc_Cd ns1:Prc_Cd_Id="74658">BAG</ns1:Prc_Cd>
+					<ns1:Prc_Cd_Name>Baggage Allowance</ns1:Prc_Cd_Name>
+					<ns1:Bkg_Qty>1</ns1:Bkg_Qty>
+					<ns1:Ext_Ref>N5ITFP</ns1:Ext_Ref>
+				</ns1:Service_Fex>
+				<ns1:Sub_Services>
+					<ns1:Sub_Service>
+						<ns1:Res_Sub_Ser_Id>423698922</ns1:Res_Sub_Ser_Id>
+						<ns1:Res_Ser_Id>276529755</ns1:Res_Ser_Id>
+						<ns1:N_Pax>2</ns1:N_Pax>
+						<ns1:N_Inf>0</ns1:N_Inf>
+						<ns1:N_Chd>0</ns1:N_Chd>
+						<ns1:N_Adu>2</ns1:N_Adu>
+						<ns1:Inv_Tp>NONE</ns1:Inv_Tp>
+						<ns1:Sub_Ser_Id>1162428989</ns1:Sub_Ser_Id>
+						<ns1:Inv_Id>1162428989</ns1:Inv_Id>
+						<ns1:Last_User_Cd ns1:Last_User_Id="3678450">THUSER</ns1:Last_User_Cd>
+						<ns1:Last_User_Name>TH Web User (SYS Default)</ns1:Last_User_Name>
+						<ns1:Last_User_Agt_Cd ns1:Last_User_Agt_Id="3435472">H6265</ns1:Last_User_Agt_Cd>
+						<ns1:Last_User_Agt_Name>tui.co.uk</ns1:Last_User_Agt_Name>
+						<ns1:Total_Prc>0</ns1:Total_Prc>
+						<ns1:Total_Sum_Prc>0</ns1:Total_Sum_Prc>
+						<ns1:Sub_Service_Paxs>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>631810610</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>423698922</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>276529755</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015933</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+							<ns1:Sub_Service_Pax>
+								<ns1:Sub_Ser_Pax_Id>631810611</ns1:Sub_Ser_Pax_Id>
+								<ns1:Res_Sub_Ser_Id>423698922</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>276529755</ns1:Res_Ser_Id>
+								<ns1:Pax_Id>50015934</ns1:Pax_Id>
+								<ns1:Pax_Ser_Prc_Ex>0</ns1:Pax_Ser_Prc_Ex>
+								<ns1:Occ_Pax_Tp>ADU</ns1:Occ_Pax_Tp>
+							</ns1:Sub_Service_Pax>
+						</ns1:Sub_Service_Paxs>
+						<ns1:Prices>
+							<ns1:Price>
+								<ns1:Prc_Id>696691221</ns1:Prc_Id>
+								<ns1:Res_Sub_Ser_Id>423698922</ns1:Res_Sub_Ser_Id>
+								<ns1:Res_Ser_Id>276529755</ns1:Res_Ser_Id>
+								<ns1:Prc_Cd ns1:Prc_Cd_Id="74658">BAG</ns1:Prc_Cd>
+								<ns1:Prc_Cd_Name>Baggage Allowance</ns1:Prc_Cd_Name>
+								<ns1:Prc_Cd_Mth>FEX</ns1:Prc_Cd_Mth>
+								<ns1:Prc_Cd_Tp ns1:Prc_Cd_Tp_Id="526067">TRSBAG</ns1:Prc_Cd_Tp>
+								<ns1:Prc_Cd_Tp_Name>Baggage Upgrade</ns1:Prc_Cd_Tp_Name>
+								<ns1:Prc_Sts>STK</ns1:Prc_Sts>
+								<ns1:Agt_Band ns1:Agt_Band_Id="4507780">FLTE</ns1:Agt_Band>
+								<ns1:Agt_Band_Name>Flights Extras</ns1:Agt_Band_Name>
+								<ns1:Vat_Tp>RAT1</ns1:Vat_Tp>
+								<ns1:Qty>2</ns1:Qty>
+								<ns1:Prc>0</ns1:Prc>
+								<ns1:Total_Prc>0</ns1:Total_Prc>
+								<ns1:Stk_Prc>0</ns1:Stk_Prc>
+								<ns1:Stk_Rt>0</ns1:Stk_Rt>
+								<ns1:Stk_Cur_Cd ns1:Stk_Cur_Id="7592">GBP</ns1:Stk_Cur_Cd>
+								<ns1:Stk_Cur_Name>Pound Sterling</ns1:Stk_Cur_Name>
+								<ns1:Agt_Com_Relev_Prc>0</ns1:Agt_Com_Relev_Prc>
+								<ns1:Agt_Com_Amt>0</ns1:Agt_Com_Amt>
+								<ns1:Agt_Com_Vat>0</ns1:Agt_Com_Vat>
+								<ns1:Agt_Com>0</ns1:Agt_Com>
+								<ns1:Agt_Com_Tp>PER</ns1:Agt_Com_Tp>
+								<ns1:Agt_Com_Origin>STD</ns1:Agt_Com_Origin>
+								<ns1:Prc_Dt_Tm>2022-06-19T09:31:21</ns1:Prc_Dt_Tm>
+								<ns1:Turnover_Rev_Fg>N</ns1:Turnover_Rev_Fg>
+								<ns1:Scale_Rev_Fg>N</ns1:Scale_Rev_Fg>
+								<ns1:Exped_Red_Fg>N</ns1:Exped_Red_Fg>
+								<ns1:Atcom_Version>1</ns1:Atcom_Version>
+								<ns1:Price_Paxs>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015933</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+									<ns1:Price_Pax>
+										<ns1:Pax_Id>50015934</ns1:Pax_Id>
+										<ns1:Prc>0</ns1:Prc>
+										<ns1:Stk_Prc>0</ns1:Stk_Prc>
+										<ns1:Prc_Round>0</ns1:Prc_Round>
+									</ns1:Price_Pax>
+								</ns1:Price_Paxs>
+							</ns1:Price>
+						</ns1:Prices>
+					</ns1:Sub_Service>
+				</ns1:Sub_Services>
+			</ns1:Service>
+		</ns1:Services>
+	</ns1:Reservation>
+</ns1:Data_Hub>

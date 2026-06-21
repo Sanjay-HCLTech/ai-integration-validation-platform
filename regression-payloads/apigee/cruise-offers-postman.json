@@ -1,0 +1,50 @@
+{
+  "cruiseOffersRequest": {
+    "xmlns": "http://tuiuk.com/xsd/cruise/cruiseoffers/v1",
+    "cruiseType": "Fly Cruise",
+    "maxResultCount": "2",
+    "departureAirportCode": "LGW",
+    "destination": [
+      {
+        "countryCode": "BRB"
+      },
+      {
+        "countryName": "Barbados"
+      },
+      {
+        "regionCode": "L04304"
+      },
+      {
+        "regionName": "Caribbean"
+      },
+      {
+        "itineraryCode": "440505"
+      },
+      {
+        "itineraryName": "A Taste of Paradise"
+      },
+      {
+        "shipCode": "055414"
+      },
+      {
+        "shipName": "Marella Celebration"
+      },
+      {
+        "portOfCall": "St John's"
+      }
+    ],
+    "isFlexible": "true",
+    "departureMonth": 10,
+    "departureYear": 2026,
+    "duration": {
+      "numOfDays": 7
+    },
+    "numOfAdults": 1,
+    "numOfChildren": 2,
+    "childAgeOnReturn": [
+      "11",
+      "13"
+    ],
+    "sellingMarketCode": "UK"
+  }
+}

@@ -1,0 +1,928 @@
+$MsgHeader$
+JMSMessageID=ID:EMS-BUS-ST5-16180.44076405B79D1:168FA650
+JMSTimestamp=Tue Mar 28 15:40:06 623 IST 2023
+JMSDestination=TOPIC[reservationEvent.v3]
+JMSDeliveryMode=PERSISTENT
+JMSPriority=4
+$MsgProperties$
+First_St_Dt=String:2023-09-20
+Credit_Req_Ind=String:Y
+Res_Id=Integer:23246322
+Conf_Req_Dt_Tm=String:
+Only_Pay_Added_Fg=String:N
+Atcom_Version=Integer:4
+Vch_Max_Ver_Num=Integer:4
+Ver_Num=Integer:76
+Debit_Max_Ver_Num=Integer:4
+Vch_Imm_Ind=String:N
+Vch_Req_Dt_Tm=String:2023-08-23T23:59:59
+SourceMarket=String:UK
+Correlation_Id=String:16316249-b83c-447b-8918-c1332c7e8512
+JMSXDeliveryCount=Integer:1
+Credit_Max_Ver_Num=Integer:1
+Debit_Req_Ind=String:Y
+Ins_Max_Ver_Num=Integer:1
+Conf_Max_Ver_Num=Integer:4
+Ins_Req_Ind=String:N
+IsCrystalBkg=String:FALSE
+$MsgTextBody$
+<?xml version="1.0" encoding="UTF-8"?>
+<ns:ReservationEvent xmlns:ns="urn:tuinordic:schemas:reservationEvent:v3" schemaVersion="3.0 stable 9" messageCreated="2024-05-17T13:25:59.344+02:00" messageId="a92c4867-6f03-4ec7-b4d6-94886f26de42">
+	<ns:ReservationActions xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+		<ns:ReservationAction>
+			<ns:ReservationType>Package</ns:ReservationType>
+			<ns:FlightTimeChanged>true</ns:FlightTimeChanged>
+			<ns:ChangedBooking>false</ns:ChangedBooking>
+			<ns:NewBooking>false</ns:NewBooking>
+			<ns:AmendedBooking>false</ns:AmendedBooking>
+			<ns:CancelledBooking>false</ns:CancelledBooking>
+			<ns:Ticket>false</ns:Ticket>
+			<ns:Payment>true</ns:Payment>
+			<ns:Reminder>false</ns:Reminder>
+			<ns:SinglePayer>false</ns:SinglePayer>
+			<ns:MultiPayer>false</ns:MultiPayer>
+			<ns:UpdatedGroupBooking>false</ns:UpdatedGroupBooking>
+			<ns:StopConfirmation>false</ns:StopConfirmation>
+			<ns:StopVoucher>true</ns:StopVoucher>
+			<ns:ContainsDynamicAccommodation>true</ns:ContainsDynamicAccommodation>
+			<ns:ContainsDynamicCruise>false</ns:ContainsDynamicCruise>
+			<ns:ContainsDynamicFlight>true</ns:ContainsDynamicFlight>
+			<ns:ContainsCharterFlight>false</ns:ContainsCharterFlight>
+			<ns:ContainsCombinationBooking>false</ns:ContainsCombinationBooking>
+		</ns:ReservationAction>
+	</ns:ReservationActions>
+	<ns:CurrentReservation>
+		<ns:CommonReservationInfo>
+			<ns:TypeOfReservation>Package</ns:TypeOfReservation>
+			<ns:BookingStatus>Booked</ns:BookingStatus>
+			<ns:ExternalReservationReference>23246322</ns:ExternalReservationReference>
+			<ns:MainReservationId>23246322</ns:MainReservationId>
+			<ns:InternalVersion>2</ns:InternalVersion>
+			<ns:VersionNo>2</ns:VersionNo>
+			<ns:ReservationOriginDate>2024-05-17T12:24:48</ns:ReservationOriginDate>
+			<ns:ReservationModifiedDate>2024-05-17T12:25:54</ns:ReservationModifiedDate>
+			<ns:TravelDuration>7</ns:TravelDuration>
+			<ns:SourceMarket>SE</ns:SourceMarket>
+			<ns:LocalBrand>TUI SE Package</ns:LocalBrand>
+			<ns:Passengers xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+				<ns:Passenger>
+					<ns:PassengerId>68890299</ns:PassengerId>
+					<ns:Status>Current</ns:Status>
+					<ns:Index>1</ns:Index>
+					<ns:IsLead>true</ns:IsLead>
+					<ns:IsPrimaryCustomer>true</ns:IsPrimaryCustomer>
+					<ns:FirstName>Alpha</ns:FirstName>
+					<ns:LastName>Timechange</ns:LastName>
+					<ns:DateOfBirth>1965-05-05</ns:DateOfBirth>
+					<ns:AgeCategory>Adult</ns:AgeCategory>
+					<ns:Gender>M</ns:Gender>
+				</ns:Passenger>
+				<ns:Passenger>
+					<ns:PassengerId>68890300</ns:PassengerId>
+					<ns:Status>Current</ns:Status>
+					<ns:Index>2</ns:Index>
+					<ns:IsLead>false</ns:IsLead>
+					<ns:IsPrimaryCustomer>false</ns:IsPrimaryCustomer>
+					<ns:FirstName>Beta</ns:FirstName>
+					<ns:LastName>Timechange</ns:LastName>
+					<ns:DateOfBirth>1955-05-05</ns:DateOfBirth>
+					<ns:AgeCategory>Adult</ns:AgeCategory>
+					<ns:Gender>M</ns:Gender>
+				</ns:Passenger>
+			</ns:Passengers>
+			<ns:Customer>
+				<ns:ExternalCustomerId>10911110</ns:ExternalCustomerId>
+				<ns:PassengerId>68890299</ns:PassengerId>
+				<ns:Contact xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+					<ns:PostalAddress>
+						<ns:Address>Vägen 1</ns:Address>
+						<ns:City>Stockholm</ns:City>
+						<ns:ZipCode>12345</ns:ZipCode>
+						<ns:Country>Sweden</ns:Country>
+						<ns:CountryOfResidence>SE</ns:CountryOfResidence>
+					</ns:PostalAddress>
+					<ns:Email>cecilia.stigsson@tui.se</ns:Email>
+					<ns:MobilePhone>0708720286</ns:MobilePhone>
+				</ns:Contact>
+				<ns:MarketingAllowance xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+					<ns:AllowViaSMS>true</ns:AllowViaSMS>
+					<ns:AllowViaEmail>true</ns:AllowViaEmail>
+					<ns:AllowViaTelephone>false</ns:AllowViaTelephone>
+					<ns:AllowViaMail>false</ns:AllowViaMail>
+				</ns:MarketingAllowance>
+			</ns:Customer>
+			<ns:SalesChannel>B2C TUI SE (kr)</ns:SalesChannel>
+			<ns:SalesAgent xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+				<ns:AgentId>5103</ns:AgentId>
+				<ns:Name>Tui.se</ns:Name>
+				<ns:Commission>0.0</ns:Commission>
+				<ns:CommissionTax>0.0</ns:CommissionTax>
+				<ns:VATNo/>
+			</ns:SalesAgent>
+			<ns:OriginalSalesPerson xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+				<ns:Id>SEUSER</ns:Id>
+				<ns:UserName>SE Web User (SYS Default)</ns:UserName>
+			</ns:OriginalSalesPerson>
+			<ns:ModifiedSalesPerson xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+				<ns:Id>SEUSER</ns:Id>
+				<ns:UserName>SE Web User (SYS Default)</ns:UserName>
+			</ns:ModifiedSalesPerson>
+			<ns:TotalAmount>21650.0</ns:TotalAmount>
+			<ns:TotalAmountExclCommission>21650.0</ns:TotalAmountExclCommission>
+			<ns:Currency>SEK</ns:Currency>
+			<ns:TOMS>562.9</ns:TOMS>
+			<ns:Payment xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+				<ns:FullBalanceAmount>0.0</ns:FullBalanceAmount>
+				<ns:FullBalanceDue>2024-05-17T00:00:00</ns:FullBalanceDue>
+				<ns:DepositAmount>0.0</ns:DepositAmount>
+				<ns:DepositDue>2024-05-17T00:00:00</ns:DepositDue>
+				<ns:ReceivedPaymentTotalAmount>21650.0</ns:ReceivedPaymentTotalAmount>
+				<ns:RemainingAmountToPay>0.0</ns:RemainingAmountToPay>
+				<ns:ReceivedPayments>
+					<ns:ReceivedPayment>
+						<ns:Amount>21650.0</ns:Amount>
+						<ns:Date>2024-05-17T12:25:54</ns:Date>
+						<ns:Currency>SEK</ns:Currency>
+						<ns:PaymentMethodCode>1PPN</ns:PaymentMethodCode>
+						<ns:PaymentMethodName>Visa/Mastercard</ns:PaymentMethodName>
+						<ns:PaymentCardType>CC</ns:PaymentCardType>
+						<ns:PaymentCardNumberLastDigits>************0000</ns:PaymentCardNumberLastDigits>
+						<ns:IsLoyaltyCard>false</ns:IsLoyaltyCard>
+					</ns:ReceivedPayment>
+				</ns:ReceivedPayments>
+				<ns:Reference>0 00000 02324 63224</ns:Reference>
+			</ns:Payment>
+			<ns:Promotion xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+				<ns:Code>BWBB</ns:Code>
+				<ns:SalesName>Bedbanks SE</ns:SalesName>
+			</ns:Promotion>
+			<ns:Memos xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd"/>
+			<ns:Period xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+				<ns:Id>PERIOD-000000027</ns:Id>
+				<ns:Name>Summer 24</ns:Name>
+			</ns:Period>
+		</ns:CommonReservationInfo>
+		<ns:FlightReservations xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+			<ns:FlightReservation>
+				<ns:ServiceId>1</ns:ServiceId>
+				<ns:ReservationServiceId>394988482</ns:ReservationServiceId>
+				<ns:FlightType>Dynamic</ns:FlightType>
+				<ns:Added>2024-05-17T12:24:49</ns:Added>
+				<ns:SalesAgent>
+					<ns:AgentId>5103</ns:AgentId>
+					<ns:Name>Tui.se</ns:Name>
+					<ns:Commission>0.0</ns:Commission>
+					<ns:CommissionTax>0.0</ns:CommissionTax>
+					<ns:VATNo/>
+				</ns:SalesAgent>
+				<ns:ModifiedSalesPerson>
+					<ns:Id>SEUSER</ns:Id>
+					<ns:UserName>SE Web User (SYS Default)</ns:UserName>
+				</ns:ModifiedSalesPerson>
+				<ns:RouteType/>
+				<ns:Index>2</ns:Index>
+				<ns:ReservationIndex>1</ns:ReservationIndex>
+				<ns:Product>
+					<ns:Id/>
+				</ns:Product>
+				<ns:ProductConfiguration>
+					<ns:Id/>
+				</ns:ProductConfiguration>
+				<ns:Direction>Out</ns:Direction>
+				<ns:PassengerIds>
+					<ns:PassengerId>68890299</ns:PassengerId>
+					<ns:PassengerId>68890300</ns:PassengerId>
+				</ns:PassengerIds>
+				<ns:BookingStatus/>
+				<ns:ArrivalAirport>
+					<ns:AirportCode>BCN</ns:AirportCode>
+					<ns:AirportName>Barcelona – El Prat Airport</ns:AirportName>
+					<ns:AirportNameLocal>Barcelona International Airport</ns:AirportNameLocal>
+				</ns:ArrivalAirport>
+				<ns:DepartureAirport>
+					<ns:AirportCode>ARN</ns:AirportCode>
+					<ns:AirportName>Stockholm, Arlanda Airport</ns:AirportName>
+					<ns:AirportNameLocal>Stockholm-Arlanda</ns:AirportNameLocal>
+					<ns:Terminal>5</ns:Terminal>
+				</ns:DepartureAirport>
+				<ns:Legs>
+					<ns:Leg>
+						<ns:SubServiceId>1</ns:SubServiceId>
+						<ns:ReservationSubServiceId>568033724</ns:ReservationSubServiceId>
+						<ns:FlightNumber>D85501</ns:FlightNumber>
+						<ns:PNR>
+							<ns:Reference/>
+							<ns:AirlineReference>TBFHU4</ns:AirlineReference>
+							<ns:TicketByDate>2024-05-17</ns:TicketByDate>
+							<ns:Source/>
+						</ns:PNR>
+						<ns:MarketingCarrier>
+							<ns:CarrierCode>D8</ns:CarrierCode>
+							<ns:CarrierName>Norwegian Air</ns:CarrierName>
+						</ns:MarketingCarrier>
+						<ns:OperatingCarrier>
+							<ns:CarrierCode>D8</ns:CarrierCode>
+							<ns:CarrierName>Norwegian Air</ns:CarrierName>
+						</ns:OperatingCarrier>
+						<ns:SeatClass>
+							<ns:ClassCode>M</ns:ClassCode>
+							<ns:ClassName>Economy</ns:ClassName>
+						</ns:SeatClass>
+						<ns:BaseCabinClass>
+							<ns:ClassCode/>
+							<ns:ClassName/>
+						</ns:BaseCabinClass>
+						<ns:ArrivalAirport>
+							<ns:AirportCode>BCN</ns:AirportCode>
+							<ns:AirportName>Barcelona – El Prat Airport</ns:AirportName>
+							<ns:AirportNameLocal>Barcelona International Airport</ns:AirportNameLocal>
+						</ns:ArrivalAirport>
+						<ns:DepartureAirport>
+							<ns:AirportCode>ARN</ns:AirportCode>
+							<ns:AirportName>Stockholm, Arlanda Airport</ns:AirportName>
+							<ns:AirportNameLocal>Stockholm-Arlanda</ns:AirportNameLocal>
+							<ns:Terminal>5</ns:Terminal>
+						</ns:DepartureAirport>
+						<ns:DepartureTimeLocal>2024-06-25T11:55:00</ns:DepartureTimeLocal>
+						<ns:DepartureTimeUTC>2024-06-25T09:55:00</ns:DepartureTimeUTC>
+						<ns:ArrivalTimeLocal>2024-06-25T15:20:00</ns:ArrivalTimeLocal>
+						<ns:ArrivalTimeUTC>2024-06-25T13:20:00</ns:ArrivalTimeUTC>
+						<ns:ETickets>
+							<ns:ETicket>
+								<ns:PassengerId>68890299</ns:PassengerId>
+							</ns:ETicket>
+							<ns:ETicket>
+								<ns:PassengerId>68890300</ns:PassengerId>
+							</ns:ETicket>
+						</ns:ETickets>
+						<ns:Luggages>
+							<ns:Luggage>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:AllowancePieces>1</ns:AllowancePieces>
+							</ns:Luggage>
+							<ns:Luggage>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:AllowancePieces>1</ns:AllowancePieces>
+							</ns:Luggage>
+						</ns:Luggages>
+						<ns:PNRsPerPax>
+							<ns:PNR>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:Reference/>
+								<ns:AirlineReference>TBFHU4</ns:AirlineReference>
+								<ns:TicketByDate>2024-05-17</ns:TicketByDate>
+								<ns:Source/>
+							</ns:PNR>
+							<ns:PNR>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:Reference/>
+								<ns:AirlineReference>TBFHU4</ns:AirlineReference>
+								<ns:TicketByDate>2024-05-17</ns:TicketByDate>
+								<ns:Source/>
+							</ns:PNR>
+						</ns:PNRsPerPax>
+					</ns:Leg>
+				</ns:Legs>
+				<ns:NumberOfPassengers>
+					<ns:CurrentNoOfPassengers>2</ns:CurrentNoOfPassengers>
+					<ns:CurrentNoOfChildren>0</ns:CurrentNoOfChildren>
+					<ns:CurrentNoOfInfants>0</ns:CurrentNoOfInfants>
+					<ns:CurrentNoOfAdults>2</ns:CurrentNoOfAdults>
+				</ns:NumberOfPassengers>
+				<ns:Status>CON</ns:Status>
+				<ns:StatusExtension/>
+				<ns:Memos/>
+				<ns:Erratas>
+					<ns:Errata>
+						<ns:Index>2</ns:Index>
+						<ns:Type>
+							<ns:Code>QC1</ns:Code>
+							<ns:Name>Flight Errata</ns:Name>
+						</ns:Type>
+						<ns:Added>2024-05-17T12:24:50</ns:Added>
+						<ns:ShowOnConfirmation>false</ns:ShowOnConfirmation>
+						<ns:ShowOnVoucher>false</ns:ShowOnVoucher>
+						<ns:Texts>
+							<ns:Text>
+								<ns:Index>175441894</ns:Index>
+								<ns:ActualText>En turistskatt på ca 4-7 Euro / person och natt betalas direkt till hotellet vid ankomst. Gäller alla resenärer över 17 år.</ns:ActualText>
+							</ns:Text>
+						</ns:Texts>
+					</ns:Errata>
+				</ns:Erratas>
+				<ns:Costs>
+					<ns:Cost>
+						<ns:PriceCode>
+							<ns:Code>3FA</ns:Code>
+							<ns:Name>3PF Adult Flight Cost</ns:Name>
+						</ns:PriceCode>
+						<ns:PriceId>961052497</ns:PriceId>
+						<ns:Amount>3886.0</ns:Amount>
+						<ns:Currency>SEK</ns:Currency>
+						<ns:Status>STK</ns:Status>
+						<ns:Quantity>2</ns:Quantity>
+						<ns:AmountInSellingCurrency>3886.0</ns:AmountInSellingCurrency>
+						<ns:PerPassengers>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:Amount>3886.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:Amount>3886.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+						</ns:PerPassengers>
+					</ns:Cost>
+					<ns:Cost>
+						<ns:PriceCode>
+							<ns:Code>3TA</ns:Code>
+							<ns:Name>Varav flygskatt</ns:Name>
+						</ns:PriceCode>
+						<ns:PriceId>961052498</ns:PriceId>
+						<ns:Amount>444.0</ns:Amount>
+						<ns:Currency>SEK</ns:Currency>
+						<ns:Status>TAX</ns:Status>
+						<ns:Quantity>2</ns:Quantity>
+						<ns:AmountInSellingCurrency>444.0</ns:AmountInSellingCurrency>
+						<ns:PerPassengers>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:Amount>444.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:Amount>444.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+						</ns:PerPassengers>
+					</ns:Cost>
+				</ns:Costs>
+				<ns:Prices>
+					<ns:Price>
+						<ns:PriceCode>
+							<ns:Code>3FA</ns:Code>
+							<ns:Name>3PF Adult Flight Cost</ns:Name>
+						</ns:PriceCode>
+						<ns:PriceId>961052497</ns:PriceId>
+						<ns:PriceIndex>1</ns:PriceIndex>
+						<ns:Status>STK</ns:Status>
+						<ns:Quantity>2</ns:Quantity>
+						<ns:AmountPerPiece>4786.0</ns:AmountPerPiece>
+						<ns:TotalAmount>9572.0</ns:TotalAmount>
+						<ns:AgentCommissionPriceBase>4786.0</ns:AgentCommissionPriceBase>
+						<ns:AgentCommissionAmount>0.0</ns:AgentCommissionAmount>
+						<ns:PerPassengers>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:Amount>4786.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:Amount>4786.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+						</ns:PerPassengers>
+						<ns:VATType>RAT1</ns:VATType>
+						<ns:Taxes/>
+					</ns:Price>
+					<ns:Price>
+						<ns:PriceCode>
+							<ns:Code>3TA</ns:Code>
+							<ns:Name>Varav flygskatt</ns:Name>
+						</ns:PriceCode>
+						<ns:PriceId>961052498</ns:PriceId>
+						<ns:PriceIndex>2</ns:PriceIndex>
+						<ns:Status>TAX</ns:Status>
+						<ns:Quantity>2</ns:Quantity>
+						<ns:AmountPerPiece>444.0</ns:AmountPerPiece>
+						<ns:TotalAmount>888.0</ns:TotalAmount>
+						<ns:AgentCommissionPriceBase>444.0</ns:AgentCommissionPriceBase>
+						<ns:AgentCommissionAmount>0.0</ns:AgentCommissionAmount>
+						<ns:PerPassengers>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:Amount>444.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:Amount>444.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+						</ns:PerPassengers>
+						<ns:VATType>RAT1</ns:VATType>
+						<ns:Taxes/>
+					</ns:Price>
+				</ns:Prices>
+				<ns:Promotion>
+					<ns:Code>LP</ns:Code>
+					<ns:Name>Load Price</ns:Name>
+				</ns:Promotion>
+			</ns:FlightReservation>
+			<ns:FlightReservation>
+				<ns:ServiceId>2</ns:ServiceId>
+				<ns:ReservationServiceId>394988483</ns:ReservationServiceId>
+				<ns:FlightType>Dynamic</ns:FlightType>
+				<ns:Added>2024-05-17T12:24:49</ns:Added>
+				<ns:SalesAgent>
+					<ns:AgentId>5103</ns:AgentId>
+					<ns:Name>Tui.se</ns:Name>
+					<ns:Commission>0.0</ns:Commission>
+					<ns:CommissionTax>0.0</ns:CommissionTax>
+					<ns:VATNo/>
+				</ns:SalesAgent>
+				<ns:ModifiedSalesPerson>
+					<ns:Id>SEUSER</ns:Id>
+					<ns:UserName>SE Web User (SYS Default)</ns:UserName>
+				</ns:ModifiedSalesPerson>
+				<ns:RouteType/>
+				<ns:Index>3</ns:Index>
+				<ns:ReservationIndex>2</ns:ReservationIndex>
+				<ns:Product>
+					<ns:Id/>
+				</ns:Product>
+				<ns:ProductConfiguration>
+					<ns:Id/>
+				</ns:ProductConfiguration>
+				<ns:Direction>In</ns:Direction>
+				<ns:PassengerIds>
+					<ns:PassengerId>68890299</ns:PassengerId>
+					<ns:PassengerId>68890300</ns:PassengerId>
+				</ns:PassengerIds>
+				<ns:BookingStatus/>
+				<ns:ArrivalAirport>
+					<ns:AirportCode>ARN</ns:AirportCode>
+					<ns:AirportName>Stockholm, Arlanda Airport</ns:AirportName>
+					<ns:AirportNameLocal>Stockholm-Arlanda</ns:AirportNameLocal>
+				</ns:ArrivalAirport>
+				<ns:DepartureAirport>
+					<ns:AirportCode>BCN</ns:AirportCode>
+					<ns:AirportName>Barcelona – El Prat Airport</ns:AirportName>
+					<ns:AirportNameLocal>Barcelona International Airport</ns:AirportNameLocal>
+					<ns:Terminal>2</ns:Terminal>
+				</ns:DepartureAirport>
+				<ns:Legs>
+					<ns:Leg>
+						<ns:SubServiceId>2</ns:SubServiceId>
+						<ns:ReservationSubServiceId>568033725</ns:ReservationSubServiceId>
+						<ns:FlightNumber>D85500</ns:FlightNumber>
+						<ns:PNR>
+							<ns:Reference/>
+							<ns:AirlineReference>TBFHU4</ns:AirlineReference>
+							<ns:TicketByDate>2024-05-17</ns:TicketByDate>
+							<ns:Source/>
+						</ns:PNR>
+						<ns:MarketingCarrier>
+							<ns:CarrierCode>D8</ns:CarrierCode>
+							<ns:CarrierName>Norwegian Air</ns:CarrierName>
+						</ns:MarketingCarrier>
+						<ns:OperatingCarrier>
+							<ns:CarrierCode>D8</ns:CarrierCode>
+							<ns:CarrierName>Norwegian Air</ns:CarrierName>
+						</ns:OperatingCarrier>
+						<ns:SeatClass>
+							<ns:ClassCode>M</ns:ClassCode>
+							<ns:ClassName>Economy</ns:ClassName>
+						</ns:SeatClass>
+						<ns:BaseCabinClass>
+							<ns:ClassCode/>
+							<ns:ClassName/>
+						</ns:BaseCabinClass>
+						<ns:ArrivalAirport>
+							<ns:AirportCode>ARN</ns:AirportCode>
+							<ns:AirportName>Stockholm, Arlanda Airport</ns:AirportName>
+							<ns:AirportNameLocal>Stockholm-Arlanda</ns:AirportNameLocal>
+						</ns:ArrivalAirport>
+						<ns:DepartureAirport>
+							<ns:AirportCode>BCN</ns:AirportCode>
+							<ns:AirportName>Barcelona – El Prat Airport</ns:AirportName>
+							<ns:AirportNameLocal>Barcelona International Airport</ns:AirportNameLocal>
+							<ns:Terminal>2</ns:Terminal>
+						</ns:DepartureAirport>
+						<ns:PreviousFlight>
+							<ns:DepartureTimeLocal>2024-07-02T07:30:00</ns:DepartureTimeLocal>
+							<ns:ArrivalTimeLocal>2024-07-02T11:15:00</ns:ArrivalTimeLocal>
+							<ns:FlightNumber>D85500</ns:FlightNumber>
+							<ns:CarrierCode>D8</ns:CarrierCode>
+							<ns:CarrierName>Norwegian Air</ns:CarrierName>
+						</ns:PreviousFlight>
+						<ns:DepartureTimeLocal>2024-07-02T09:29:00</ns:DepartureTimeLocal>
+						<ns:DepartureTimeUTC>2024-07-02T07:29:00</ns:DepartureTimeUTC>
+						<ns:ArrivalTimeLocal>2024-07-02T13:14:00</ns:ArrivalTimeLocal>
+						<ns:ArrivalTimeUTC>2024-07-02T11:14:00</ns:ArrivalTimeUTC>
+						<ns:ETickets>
+							<ns:ETicket>
+								<ns:PassengerId>68890299</ns:PassengerId>
+							</ns:ETicket>
+							<ns:ETicket>
+								<ns:PassengerId>68890300</ns:PassengerId>
+							</ns:ETicket>
+						</ns:ETickets>
+						<ns:Luggages>
+							<ns:Luggage>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:AllowancePieces>1</ns:AllowancePieces>
+							</ns:Luggage>
+							<ns:Luggage>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:AllowancePieces>1</ns:AllowancePieces>
+							</ns:Luggage>
+						</ns:Luggages>
+						<ns:PNRsPerPax>
+							<ns:PNR>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:Reference/>
+								<ns:AirlineReference>TBFHU4</ns:AirlineReference>
+								<ns:TicketByDate>2024-05-17</ns:TicketByDate>
+								<ns:Source/>
+							</ns:PNR>
+							<ns:PNR>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:Reference/>
+								<ns:AirlineReference>TBFHU4</ns:AirlineReference>
+								<ns:TicketByDate>2024-05-17</ns:TicketByDate>
+								<ns:Source/>
+							</ns:PNR>
+						</ns:PNRsPerPax>
+					</ns:Leg>
+				</ns:Legs>
+				<ns:NumberOfPassengers>
+					<ns:CurrentNoOfPassengers>2</ns:CurrentNoOfPassengers>
+					<ns:CurrentNoOfChildren>0</ns:CurrentNoOfChildren>
+					<ns:CurrentNoOfInfants>0</ns:CurrentNoOfInfants>
+					<ns:CurrentNoOfAdults>2</ns:CurrentNoOfAdults>
+				</ns:NumberOfPassengers>
+				<ns:Status>CON</ns:Status>
+				<ns:StatusExtension/>
+				<ns:Memos/>
+				<ns:Erratas/>
+				<ns:Costs>
+					<ns:Cost>
+						<ns:PriceCode>
+							<ns:Code>3FA</ns:Code>
+							<ns:Name>3PF Adult Flight Cost</ns:Name>
+						</ns:PriceCode>
+						<ns:PriceId>961052499</ns:PriceId>
+						<ns:Amount>0.0</ns:Amount>
+						<ns:Currency>SEK</ns:Currency>
+						<ns:Status>STK</ns:Status>
+						<ns:Quantity>2</ns:Quantity>
+						<ns:AmountInSellingCurrency>0.0</ns:AmountInSellingCurrency>
+						<ns:PerPassengers>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:Amount>0.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:Amount>0.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+						</ns:PerPassengers>
+					</ns:Cost>
+				</ns:Costs>
+				<ns:Prices>
+					<ns:Price>
+						<ns:PriceCode>
+							<ns:Code>3FA</ns:Code>
+							<ns:Name>3PF Adult Flight Cost</ns:Name>
+						</ns:PriceCode>
+						<ns:PriceId>961052499</ns:PriceId>
+						<ns:PriceIndex>1</ns:PriceIndex>
+						<ns:Status>STK</ns:Status>
+						<ns:Quantity>2</ns:Quantity>
+						<ns:AmountPerPiece>0.0</ns:AmountPerPiece>
+						<ns:TotalAmount>0.0</ns:TotalAmount>
+						<ns:AgentCommissionPriceBase>0.0</ns:AgentCommissionPriceBase>
+						<ns:AgentCommissionAmount>0.0</ns:AgentCommissionAmount>
+						<ns:PerPassengers>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890299</ns:PassengerId>
+								<ns:Amount>0.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+							<ns:PerPassenger>
+								<ns:PassengerId>68890300</ns:PassengerId>
+								<ns:Amount>0.0</ns:Amount>
+								<ns:PriceRound>0.0</ns:PriceRound>
+							</ns:PerPassenger>
+						</ns:PerPassengers>
+						<ns:VATType>RAT1</ns:VATType>
+						<ns:Taxes/>
+					</ns:Price>
+				</ns:Prices>
+				<ns:Promotion>
+					<ns:Code>LP</ns:Code>
+					<ns:Name>Load Price</ns:Name>
+				</ns:Promotion>
+			</ns:FlightReservation>
+		</ns:FlightReservations>
+		<ns:AccommodationReservations xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+			<ns:AccommodationReservation>
+				<ns:ServiceId>4549421506</ns:ServiceId>
+				<ns:ReservationServiceId>394988481</ns:ReservationServiceId>
+				<ns:Added>2024-05-17T12:24:48</ns:Added>
+				<ns:SalesAgent>
+					<ns:AgentId>5103</ns:AgentId>
+					<ns:Name>Tui.se</ns:Name>
+					<ns:Commission>0.0</ns:Commission>
+					<ns:CommissionTax>0.0</ns:CommissionTax>
+					<ns:VATNo/>
+				</ns:SalesAgent>
+				<ns:ModifiedSalesPerson>
+					<ns:Id>SEUSER</ns:Id>
+					<ns:UserName>SE Web User (SYS Default)</ns:UserName>
+				</ns:ModifiedSalesPerson>
+				<ns:Index>1</ns:Index>
+				<ns:ReservationIndex>1</ns:ReservationIndex>
+				<ns:ArrivalDate>2024-06-25</ns:ArrivalDate>
+				<ns:DepartureDate>2024-07-02</ns:DepartureDate>
+				<ns:DurationNights>7</ns:DurationNights>
+				<ns:SourcingType>Contract</ns:SourcingType>
+				<ns:SourceName>HB3</ns:SourceName>
+				<ns:SourceAccommodationCode>215284</ns:SourceAccommodationCode>
+				<ns:SourceReference>102-11428901</ns:SourceReference>
+				<ns:Product>
+					<ns:Id>P-000336276</ns:Id>
+					<ns:Name>BCN Urbaness  Hotels Bonavista</ns:Name>
+					<ns:NameLocal>BCN Urbaness  Hotels Bonavista</ns:NameLocal>
+					<ns:Code>BCN</ns:Code>
+				</ns:Product>
+				<ns:ProductConfiguration>
+					<ns:Id>PC-000629305</ns:Id>
+					<ns:Name>BCN Urbaness  Hotels Bonavista</ns:Name>
+				</ns:ProductConfiguration>
+				<ns:Category>Hotel</ns:Category>
+				<ns:AccommodationSalesName>BCN Urbaness  Hotels Bonavista</ns:AccommodationSalesName>
+				<ns:AccommodationSupplierName>BCN Urbaness  Hotels Bonavista</ns:AccommodationSupplierName>
+				<ns:Contact>
+					<ns:PostalAddress>Carrer De Francisco Giner, 5 TRASLADOS   BARCELONA 08012 </ns:PostalAddress>
+					<ns:Email>reservas@buhbonavista.com</ns:Email>
+					<ns:Phone>+34 933 68 19 96</ns:Phone>
+				</ns:Contact>
+				<ns:Chain/>
+				<ns:Geography>
+					<ns:Country>
+						<ns:Id>G-000073</ns:Id>
+						<ns:Name>Spain</ns:Name>
+						<ns:NameLocal>Spanien</ns:NameLocal>
+						<ns:Code>ES</ns:Code>
+					</ns:Country>
+					<ns:ProductDestination>
+						<ns:Id>G-000000741</ns:Id>
+						<ns:Name>Barcelona</ns:Name>
+						<ns:Code>ESGR</ns:Code>
+					</ns:ProductDestination>
+					<ns:Resort>
+						<ns:Id>G-000000703</ns:Id>
+						<ns:Name>Barcelona</ns:Name>
+						<ns:NameLocal>Barcelona</ns:NameLocal>
+						<ns:Code>BCN</ns:Code>
+					</ns:Resort>
+				</ns:Geography>
+				<ns:RoomTypes>
+					<ns:RoomType>
+						<ns:SubServiceId>1126475022</ns:SubServiceId>
+						<ns:ReservationSubServiceId>568033723</ns:ReservationSubServiceId>
+						<ns:Code>W0001</ns:Code>
+						<ns:ProductRoomTypeId>1126475022</ns:ProductRoomTypeId>
+						<ns:SupplierRoomTypeId>DBL.DB!NOR.CG-OPAQUE RO</ns:SupplierRoomTypeId>
+						<ns:SupplierRoomTypeDescription>DOUBLE STANDARD</ns:SupplierRoomTypeDescription>
+						<ns:NumberOfPassengers>
+							<ns:CurrentNoOfPassengers>2</ns:CurrentNoOfPassengers>
+							<ns:CurrentNoOfChildren>0</ns:CurrentNoOfChildren>
+							<ns:CurrentNoOfInfants>0</ns:CurrentNoOfInfants>
+							<ns:CurrentNoOfAdults>2</ns:CurrentNoOfAdults>
+						</ns:NumberOfPassengers>
+						<ns:PassengerIds>
+							<ns:PassengerId>68890299</ns:PassengerId>
+							<ns:PassengerId>68890300</ns:PassengerId>
+						</ns:PassengerIds>
+						<ns:RoomTypeCategory/>
+						<ns:RoomTypeName/>
+						<ns:Bundles/>
+						<ns:Classification>2</ns:Classification>
+						<ns:OriginalBoard>
+							<ns:Id>56667</ns:Id>
+							<ns:Name>Rum utan måltider</ns:Name>
+							<ns:Code>RO</ns:Code>
+						</ns:OriginalBoard>
+						<ns:Board>
+							<ns:Id/>
+							<ns:Name>Rum utan måltider</ns:Name>
+							<ns:Code>RO</ns:Code>
+							<ns:SupplierRef>
+								<ns:Code>RO</ns:Code>
+								<ns:Name>RO</ns:Name>
+							</ns:SupplierRef>
+						</ns:Board>
+						<ns:Prices>
+							<ns:Price>
+								<ns:PriceCode>
+									<ns:Code>AA</ns:Code>
+									<ns:Name>Grundpris Vuxen</ns:Name>
+								</ns:PriceCode>
+								<ns:PriceId>961052500</ns:PriceId>
+								<ns:PriceIndex>1</ns:PriceIndex>
+								<ns:Status>STK</ns:Status>
+								<ns:Quantity>1</ns:Quantity>
+								<ns:AmountPerPiece>11190.0</ns:AmountPerPiece>
+								<ns:TotalAmount>11190.0</ns:TotalAmount>
+								<ns:AgentCommissionPriceBase>11190.0</ns:AgentCommissionPriceBase>
+								<ns:AgentCommissionAmount>0.0</ns:AgentCommissionAmount>
+								<ns:PerPassengers>
+									<ns:PerPassenger>
+										<ns:PassengerId>68890299</ns:PassengerId>
+										<ns:Amount>5595.0</ns:Amount>
+										<ns:PriceRound>0.08</ns:PriceRound>
+									</ns:PerPassenger>
+									<ns:PerPassenger>
+										<ns:PassengerId>68890300</ns:PassengerId>
+										<ns:Amount>5595.0</ns:Amount>
+										<ns:PriceRound>0.07</ns:PriceRound>
+									</ns:PerPassenger>
+								</ns:PerPassengers>
+								<ns:VATType>RAT1</ns:VATType>
+								<ns:Taxes/>
+							</ns:Price>
+						</ns:Prices>
+						<ns:Costs>
+							<ns:Cost>
+								<ns:PriceCode>
+									<ns:Code>AA</ns:Code>
+									<ns:Name>Grundpris Vuxen</ns:Name>
+								</ns:PriceCode>
+								<ns:PriceId>961052500</ns:PriceId>
+								<ns:Amount>10324.41</ns:Amount>
+								<ns:Currency>SEK</ns:Currency>
+								<ns:Status>STK</ns:Status>
+								<ns:Quantity>1</ns:Quantity>
+								<ns:AmountInSellingCurrency>10324.41</ns:AmountInSellingCurrency>
+								<ns:PerPassengers>
+									<ns:PerPassenger>
+										<ns:PassengerId>68890299</ns:PassengerId>
+										<ns:Amount>5162.21</ns:Amount>
+										<ns:PriceRound>0.08</ns:PriceRound>
+									</ns:PerPassenger>
+									<ns:PerPassenger>
+										<ns:PassengerId>68890300</ns:PassengerId>
+										<ns:Amount>5162.2</ns:Amount>
+										<ns:PriceRound>0.07</ns:PriceRound>
+									</ns:PerPassenger>
+								</ns:PerPassengers>
+								<ns:CommitmentLevel>NC</ns:CommitmentLevel>
+							</ns:Cost>
+						</ns:Costs>
+						<ns:TotalSummaryPriceAmount>20762.0</ns:TotalSummaryPriceAmount>
+						<ns:TotalPriceAmount>11190.0</ns:TotalPriceAmount>
+						<ns:Erratas/>
+					</ns:RoomType>
+				</ns:RoomTypes>
+				<ns:NumberOfPassengers>
+					<ns:CurrentNoOfPassengers>2</ns:CurrentNoOfPassengers>
+					<ns:CurrentNoOfChildren>0</ns:CurrentNoOfChildren>
+					<ns:CurrentNoOfInfants>0</ns:CurrentNoOfInfants>
+					<ns:CurrentNoOfAdults>2</ns:CurrentNoOfAdults>
+				</ns:NumberOfPassengers>
+				<ns:Status>CON</ns:Status>
+				<ns:StatusExtension/>
+				<ns:Memos/>
+				<ns:Erratas>
+					<ns:Errata>
+						<ns:Index>1</ns:Index>
+						<ns:Type>
+							<ns:Code>MA1</ns:Code>
+							<ns:Name>Manual Errata</ns:Name>
+						</ns:Type>
+						<ns:Added>2024-05-17T12:24:49</ns:Added>
+						<ns:ShowOnConfirmation>false</ns:ShowOnConfirmation>
+						<ns:ShowOnVoucher>false</ns:ShowOnVoucher>
+						<ns:Texts>
+							<ns:Text>
+								<ns:Index>175441893</ns:Index>
+								<ns:ActualText>  Estimated total amount of taxes &amp; fees for this booking:65.38 Euro payable on arrival. Current City Tax final price for Barcelona and surroundings is under discussion by the local government, so final amount to be paid may change at the moment of guest’s arrival. Check-in hour 15:00-00:00.Car park YES (With additional debit notes) 25.00 EUR Per unit/night.LGTBIQ friendly.Minimum check-in age 18.Identification card at arrival.Credit card is compulsory as a deposit, no deposit in cash is accepted.</ns:ActualText>
+							</ns:Text>
+						</ns:Texts>
+					</ns:Errata>
+				</ns:Erratas>
+				<ns:TotalPriceAmount>11190.0</ns:TotalPriceAmount>
+				<ns:TotalSummaryPriceAmount>20762.0</ns:TotalSummaryPriceAmount>
+				<ns:Promotion>
+					<ns:Code>BWBB</ns:Code>
+					<ns:Name>TUI SE Bedbanks</ns:Name>
+				</ns:Promotion>
+			</ns:AccommodationReservation>
+		</ns:AccommodationReservations>
+		<ns:AncillaryReservations xmlns:com="http://tuiuk.com/xsd/bookings/datahub/common/v2" xmlns:tns="http://tui.se/DataEnrichment/EnrichmentFields.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="urn:namespaces.tui.com:logging:TUIContext:0100" xmlns:ns1="urn:namespaces.tui.com:logging:TUIMessageContext:0100" xmlns:tns1="http://tui.se/reservation_action_headers" xmlns:tns2="http://tui.se/DataEnrichment/TransportationStations.xsd">
+			<ns:AncillaryReservation>
+				<ns:ServiceId>4827417020</ns:ServiceId>
+				<ns:ReservationServiceId>394988484</ns:ReservationServiceId>
+				<ns:SubServiceId>4827417020</ns:SubServiceId>
+				<ns:ReservationSubServiceId>568033726</ns:ReservationSubServiceId>
+				<tns:ItemIdentifier xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:ItemSetCode>ET2</tns:ItemSetCode>
+					<tns:ItemSetName>Electronic Tickets</tns:ItemSetName>
+					<tns:ItemCode>ET2/SE</tns:ItemCode>
+					<tns:ItemName>Electronic Tickets</tns:ItemName>
+				</tns:ItemIdentifier>
+				<tns:Parent xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:ParentServiceIndex>1</tns:ParentServiceIndex>
+					<tns:Id>394988481</tns:Id>
+					<tns:Type>Accommodation</tns:Type>
+				</tns:Parent>
+				<ns:Added>2024-05-17T12:24:50</ns:Added>
+				<tns:SalesAgent xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:AgentId>5103</tns:AgentId>
+					<tns:Name>Tui.se</tns:Name>
+					<tns:Commission>0.0</tns:Commission>
+					<tns:CommissionTax>0.0</tns:CommissionTax>
+					<tns:VATNo/>
+				</tns:SalesAgent>
+				<tns:ModifiedSalesPerson xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:Id>SEUSER</tns:Id>
+					<tns:UserName>SE Web User (SYS Default)</tns:UserName>
+				</tns:ModifiedSalesPerson>
+				<ns:Index>4</ns:Index>
+				<ns:ReservationIndex>1</ns:ReservationIndex>
+				<ns:Start>2024-06-25T00:00:00</ns:Start>
+				<ns:Duration>1</ns:Duration>
+				<ns:End>2024-06-25T00:00:00</ns:End>
+				<tns:Product xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:Id>WHP</tns:Id>
+				</tns:Product>
+				<tns:ProductConfiguration xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:Id>SW</tns:Id>
+				</tns:ProductConfiguration>
+				<tns:NumberOfPassengers xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:CurrentNoOfPassengers>1</tns:CurrentNoOfPassengers>
+					<tns:CurrentNoOfChildren>0</tns:CurrentNoOfChildren>
+					<tns:CurrentNoOfInfants>0</tns:CurrentNoOfInfants>
+					<tns:CurrentNoOfAdults>1</tns:CurrentNoOfAdults>
+				</tns:NumberOfPassengers>
+				<ns:Status>CON</ns:Status>
+				<ns:StatusExtension/>
+				<tns:PassengerIds xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:PassengerId>68890299</tns:PassengerId>
+				</tns:PassengerIds>
+				<tns:Memos xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3"/>
+				<tns:Erratas xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3"/>
+				<ns:TotalPriceAmount>0.0</ns:TotalPriceAmount>
+				<ns:TotalSummaryPriceAmount>0.0</ns:TotalSummaryPriceAmount>
+				<tns:Costs xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:Cost>
+						<tns:PriceCode>
+							<tns:Code>ET</tns:Code>
+							<tns:Name>Elektronisk biljett</tns:Name>
+						</tns:PriceCode>
+						<tns:PriceId>961052501</tns:PriceId>
+						<tns:Amount>0.0</tns:Amount>
+						<tns:Currency>SEK</tns:Currency>
+						<tns:Status>STK</tns:Status>
+						<tns:Quantity>1</tns:Quantity>
+						<tns:PerPassengers>
+							<tns:PerPassenger>
+								<tns:PassengerId>68890299</tns:PassengerId>
+								<tns:Amount>0.0</tns:Amount>
+								<tns:PriceRound>0.0</tns:PriceRound>
+							</tns:PerPassenger>
+						</tns:PerPassengers>
+					</tns:Cost>
+				</tns:Costs>
+				<ns:Prices>
+					<ns:Price>
+						<ns:PriceCode>
+							<ns:Code>ET</ns:Code>
+							<ns:Name>Elektronisk biljett</ns:Name>
+						</ns:PriceCode>
+						<ns:PriceId>961052501</ns:PriceId>
+						<ns:PriceIndex>1</ns:PriceIndex>
+						<ns:Status>STK</ns:Status>
+						<ns:Quantity>1</ns:Quantity>
+						<ns:AmountPerPiece>0.0</ns:AmountPerPiece>
+						<ns:TotalAmount>0.0</ns:TotalAmount>
+						<ns:AgentCommissionPriceBase>0.0</ns:AgentCommissionPriceBase>
+						<ns:AgentCommissionAmount>0.0</ns:AgentCommissionAmount>
+						<tns:PerPassengers xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+							<tns:PerPassenger>
+								<tns:PassengerId>68890299</tns:PassengerId>
+								<tns:Amount>0.0</tns:Amount>
+								<tns:PriceRound>0.0</tns:PriceRound>
+							</tns:PerPassenger>
+						</tns:PerPassengers>
+						<ns:VATType>RAT1</ns:VATType>
+						<tns:Taxes xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3"/>
+					</ns:Price>
+				</ns:Prices>
+				<tns:Promotion xmlns:tns="urn:tuinordic:schemas:reservationEvent:v3">
+					<tns:Code>ST</tns:Code>
+					<tns:Name>Standard Promotion</tns:Name>
+				</tns:Promotion>
+			</ns:AncillaryReservation>
+		</ns:AncillaryReservations>
+	</ns:CurrentReservation>
+</ns:ReservationEvent>

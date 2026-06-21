@@ -1,0 +1,11 @@
+{
+  "eventType": "BOOKINGDETAILS",
+  "source": "IVP",
+  "bookingId": "${bookingId}",
+  "occurredAt": "${timestamp}",
+  "payload": {
+    "operation": "SUBSCRIBEBOOKINGDETAILS",
+    "system": "DMS",
+    "status": "READY_FOR_SIMULATION"
+  }
+}
