@@ -26,7 +26,16 @@ public class JmsProducerService {
     }
 
     public JmsProcessingResult send(String bookingId, String payload, String sourceSystem, boolean async) {
-        JmsMessage message = buildMessage(bookingId, payload, sourceSystem, async);
+        JmsPublishRequest request = new JmsPublishRequest();
+        request.setBookingId(bookingId);
+        request.setPayload(payload);
+        request.setSourceSystem(sourceSystem);
+        request.setAsync(async);
+        return send(request);
+    }
+
+    public JmsProcessingResult send(JmsPublishRequest request) {
+        JmsMessage message = buildMessage(request);
 
         if (!message.isAsync()) {
             return processingService.processDirectly(message);
@@ -37,17 +46,22 @@ public class JmsProducerService {
                 "Message accepted by " + queueService.providerName() + " queue for async processing");
     }
 
-    private JmsMessage buildMessage(String bookingId, String payload, String sourceSystem, boolean async) {
+    private JmsMessage buildMessage(JmsPublishRequest request) {
         JmsMessage message = new JmsMessage();
-        message.setBookingId(bookingId);
+        message.setBookingId(request == null ? null : request.getBookingId());
         message.setCorrId(UUID.randomUUID().toString());
-        String normalizedSource = normalizeSourceSystem(sourceSystem);
+        message.setJmsMessageId("ID:" + UUID.randomUUID());
+        String normalizedSource = normalizeSourceSystem(request == null ? null : request.getSourceSystem());
         message.setSourceSystem(normalizedSource);
-        message.setSenderQueue(senderQueueName(normalizedSource));
+        message.setEnv(request == null ? "" : value(request.getEnv()));
+        message.setDestinationType(valueOrDefault(request == null ? null : request.getDestinationType(), "QUEUE").toUpperCase(Locale.ROOT));
+        message.setDestinationName(valueOrDefault(request == null ? null : request.getDestinationName(), senderQueueName(normalizedSource)));
+        message.setSenderQueue(message.getDestinationName());
         message.setReceiverQueue(receiverQueueName());
-        message.setMessageType("BookingUpdate");
-        message.setPayload(payload);
-        message.setAsync(async);
+        message.setMessageType(valueOrDefault(request == null ? null : request.getMessageType(), "DATAHUB_EVENT"));
+        message.setPayload(request == null ? null : request.getPayload());
+        message.setPayloadSource(valueOrDefault(request == null ? null : request.getPayloadSource(), "INLINE"));
+        message.setAsync(request != null && request.isAsync());
         message.setRetryCount(defaultRetryCount);
         message.setTimestamp(System.currentTimeMillis());
         return message;
@@ -75,6 +89,14 @@ public class JmsProducerService {
         if (configuredQueue == null || configuredQueue.trim().isEmpty()) {
             return "BookingDetails.Queue";
         }
-        return "BookingDetails.Queue";
+        return configuredQueue.trim();
+    }
+
+    private String valueOrDefault(String value, String fallback) {
+        return value == null || value.trim().isEmpty() ? fallback : value.trim();
+    }
+
+    private String value(String value) {
+        return value == null ? "" : value.trim();
     }
 }

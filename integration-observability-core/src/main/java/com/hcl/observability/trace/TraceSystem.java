@@ -6,6 +6,7 @@ public enum TraceSystem {
     JMS,
     SOAP,
     RABBITMQ,
+    KAFKA,
     GEMS,
     DATAHUB,
     VRP,

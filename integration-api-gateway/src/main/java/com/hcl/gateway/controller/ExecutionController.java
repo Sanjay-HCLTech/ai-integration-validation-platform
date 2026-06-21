@@ -4,7 +4,10 @@ import com.hcl.execution.model.ExecutionResult;
 import com.hcl.execution.model.StepResult;
 import com.hcl.execution.model.TestCase;
 import com.hcl.execution.model.TestStep;
+import com.hcl.execution.jms.JmsFlowConfig;
+import com.hcl.execution.jms.JmsPayloadResolver;
 import com.hcl.execution.jms.JmsProcessingResult;
+import com.hcl.execution.jms.JmsPublishRequest;
 import com.hcl.execution.jms.JmsProducerService;
 import com.hcl.gateway.service.ExecutionRouterService;
 import com.hcl.gateway.service.OrchestratorService;
@@ -57,6 +60,8 @@ public class ExecutionController {
     private final OrchestratorService orchestratorService;
     private final ExecutionRouterService executionRouterService;
     private final JmsProducerService jmsProducerService;
+    private final JmsFlowConfig jmsFlowConfig;
+    private final JmsPayloadResolver jmsPayloadResolver;
     private final LogAnalyzerService logAnalyzerService;
     private final TestCaseGenerator testCaseGenerator;
     private final PayloadCatalogService payloadCatalogService;
@@ -66,11 +71,15 @@ public class ExecutionController {
     private final String localLogDir;
     private final boolean unifiedTraceReportEnabled;
     private final boolean platformReportEnabled;
+    private final boolean soapPayloadCatalogEnabled;
+    private final boolean restPayloadCatalogEnabled;
 
     public ExecutionController(
             OrchestratorService orchestratorService,
             ExecutionRouterService executionRouterService,
             JmsProducerService jmsProducerService,
+            JmsFlowConfig jmsFlowConfig,
+            JmsPayloadResolver jmsPayloadResolver,
             LogAnalyzerService logAnalyzerService,
             TestCaseGenerator testCaseGenerator,
             PayloadCatalogService payloadCatalogService,
@@ -79,10 +88,14 @@ public class ExecutionController {
             ReportService reportService,
             @Value("${local.log.dir:C:/logs}") String localLogDir,
             @Value("${unified.trace.report.enabled:false}") boolean unifiedTraceReportEnabled,
-            @Value("${platform.report.enabled:false}") boolean platformReportEnabled) {
+            @Value("${platform.report.enabled:false}") boolean platformReportEnabled,
+            @Value("${soap.payload.catalog.enabled:true}") boolean soapPayloadCatalogEnabled,
+            @Value("${rest.payload.catalog.enabled:true}") boolean restPayloadCatalogEnabled) {
         this.orchestratorService = orchestratorService;
         this.executionRouterService = executionRouterService;
         this.jmsProducerService = jmsProducerService;
+        this.jmsFlowConfig = jmsFlowConfig;
+        this.jmsPayloadResolver = jmsPayloadResolver;
         this.logAnalyzerService = logAnalyzerService;
         this.testCaseGenerator = testCaseGenerator;
         this.payloadCatalogService = payloadCatalogService;
@@ -92,6 +105,8 @@ public class ExecutionController {
         this.localLogDir = localLogDir;
         this.unifiedTraceReportEnabled = unifiedTraceReportEnabled;
         this.platformReportEnabled = platformReportEnabled;
+        this.soapPayloadCatalogEnabled = soapPayloadCatalogEnabled;
+        this.restPayloadCatalogEnabled = restPayloadCatalogEnabled;
     }
 
     @PostMapping
@@ -218,22 +233,24 @@ public class ExecutionController {
     @PostMapping("/datahub")
     public JmsProcessingResult executeDataHubJms(
             @RequestParam(name = "bookingId") String bookingId,
+            @RequestParam(name = "system", defaultValue = "DMS") String system,
             @RequestParam(name = "async", defaultValue = "false") boolean async,
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
             @RequestParam(name = "scenario", defaultValue = "BOOKING_UPDATE") String scenario,
             @RequestBody(required = false) String requestPayload) {
-        return executeJmsInternal("POST", bookingId, "DATAHUB", async, payloadFile, flow, scenario, requestPayload);
+        return executeJmsInternal("POST", bookingId, system, async, payloadFile, flow, scenario, requestPayload);
     }
 
     @GetMapping("/datahub")
     public JmsProcessingResult executeDataHubJmsFromBrowser(
             @RequestParam(name = "bookingId") String bookingId,
+            @RequestParam(name = "system", defaultValue = "DMS") String system,
             @RequestParam(name = "async", defaultValue = "false") boolean async,
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
             @RequestParam(name = "scenario", defaultValue = "BOOKING_UPDATE") String scenario) {
-        return executeJmsInternal("GET", bookingId, "DATAHUB", async, payloadFile, flow, scenario, null);
+        return executeJmsInternal("GET", bookingId, system, async, payloadFile, flow, scenario, null);
     }
 
     @PostMapping("/apigee")
@@ -241,10 +258,13 @@ public class ExecutionController {
             @RequestParam(name = "bookingId") String bookingId,
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
-            @RequestParam(name = "scenario", defaultValue = "PACKAGE_OFFERS") String scenario,
+            @RequestParam(name = "scenario", defaultValue = "PACKAGEOFFER") String scenario,
+            @RequestParam(name = "env", required = false) String env,
+            @RequestParam(name = "collection", required = false) String collection,
+            @RequestParam(name = "brand", required = false) String brand,
             @RequestBody(required = false) String requestPayload) {
         return executeModule("TC_APIGEE_REST_JSON", "APIGEE", "APIGEE REST JSON", bookingId,
-                payloadFile, flow, scenario, "SYNC", requestPayload);
+                payloadFile, flow, scenario, "SYNC", requestPayload, env, null, collection, brand);
     }
 
     @GetMapping("/apigee")
@@ -252,9 +272,12 @@ public class ExecutionController {
             @RequestParam(name = "bookingId") String bookingId,
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
-            @RequestParam(name = "scenario", defaultValue = "PACKAGE_OFFERS") String scenario) {
+            @RequestParam(name = "scenario", defaultValue = "PACKAGEOFFER") String scenario,
+            @RequestParam(name = "env", required = false) String env,
+            @RequestParam(name = "collection", required = false) String collection,
+            @RequestParam(name = "brand", required = false) String brand) {
         return executeModule("TC_APIGEE_REST_JSON", "APIGEE", "APIGEE REST JSON", bookingId,
-                payloadFile, flow, scenario, "SYNC", null);
+                payloadFile, flow, scenario, "SYNC", null, env, null, collection, brand);
     }
 
     @PostMapping("/vrp")
@@ -263,9 +286,11 @@ public class ExecutionController {
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
             @RequestParam(name = "scenario", defaultValue = "BOOKING_REQUEST") String scenario,
+            @RequestParam(name = "env", required = false) String env,
+            @RequestParam(name = "system", required = false) String downstreamSystem,
             @RequestBody(required = false) String requestPayload) {
         return executeModule("TC_VRP_SOAP", "VRP", "VRP SOAP", bookingId, payloadFile,
-                flow, scenario, "SYNC", requestPayload);
+                flow, scenario, "SYNC", requestPayload, env, downstreamSystem);
     }
 
     @GetMapping("/vrp")
@@ -273,9 +298,11 @@ public class ExecutionController {
             @RequestParam(name = "bookingId") String bookingId,
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
-            @RequestParam(name = "scenario", defaultValue = "BOOKING_REQUEST") String scenario) {
+            @RequestParam(name = "scenario", defaultValue = "BOOKING_REQUEST") String scenario,
+            @RequestParam(name = "env", required = false) String env,
+            @RequestParam(name = "system", required = false) String downstreamSystem) {
         return executeModule("TC_VRP_SOAP", "VRP", "VRP SOAP", bookingId, payloadFile,
-                flow, scenario, "SYNC", null);
+                flow, scenario, "SYNC", null, env, downstreamSystem);
     }
 
     @PostMapping("/nordics")
@@ -284,9 +311,12 @@ public class ExecutionController {
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
             @RequestParam(name = "scenario", defaultValue = "BOOKING_EVENT") String scenario,
+            @RequestParam(name = "env", required = false) String env,
+            @RequestParam(name = "system", required = false) String downstreamSystem,
+            @RequestParam(name = "routingKey", required = false) String routingKey,
             @RequestBody(required = false) String requestPayload) {
         return executeModule("TC_NORDICS_RABBITMQ", "NORDICS", "Nordics RabbitMQ", bookingId,
-                payloadFile, flow, scenario, "ASYNC", requestPayload);
+                payloadFile, flow, scenario, "ASYNC", requestPayload, env, downstreamSystem, null, null, routingKey);
     }
 
     @GetMapping("/nordics")
@@ -294,16 +324,20 @@ public class ExecutionController {
             @RequestParam(name = "bookingId") String bookingId,
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
-            @RequestParam(name = "scenario", defaultValue = "BOOKING_EVENT") String scenario) {
+            @RequestParam(name = "scenario", defaultValue = "BOOKING_EVENT") String scenario,
+            @RequestParam(name = "env", required = false) String env,
+            @RequestParam(name = "system", required = false) String downstreamSystem,
+            @RequestParam(name = "routingKey", required = false) String routingKey) {
         return executeModule("TC_NORDICS_RABBITMQ", "NORDICS", "Nordics RabbitMQ", bookingId,
-                payloadFile, flow, scenario, "ASYNC", null);
+                payloadFile, flow, scenario, "ASYNC", null, env, downstreamSystem, null, null, routingKey);
     }
 
     @GetMapping(value = "/generate-testcase", produces = MediaType.APPLICATION_JSON_VALUE)
     public String generateTestCaseFromLogs(
             @RequestParam(name = "bookingId", required = false) String bookingId,
             @RequestParam(name = "jobId", required = false) String jobId,
-            @RequestParam(name = "corrId", required = false) String corrId) throws Exception {
+            @RequestParam(name = "corrId", required = false) String corrId,
+            @RequestParam(name = "sftpProfile", required = false) String sftpProfile) throws Exception {
         long executionStartNanos = System.nanoTime();
         String executionStatus = "UNKNOWN";
         LogSearchResult logSearchResult = null;
@@ -314,9 +348,11 @@ public class ExecutionController {
                 + " | CorrID=" + pendingValue(corrId));
         System.out.println("Orchestrator: Starting execution...");
         try {
-            logSearchResult = usableBookingId(bookingId)
-                    ? logAnalyzerService.analyzeRecursive(bookingId)
-                    : logAnalyzerService.searchFinalTraceDetailed(null, corrId, jobId);
+            try (AutoCloseable ignored = useSftpProfile(sftpProfileForRequest(sftpProfile))) {
+                logSearchResult = usableBookingId(bookingId)
+                        ? logAnalyzerService.analyzeRecursive(bookingId)
+                        : logAnalyzerService.searchFinalTraceDetailed(null, corrId, jobId);
+            }
             validateLogExecutionResult(reportBookingId, logSearchResult);
             CorrelationIds discoveredIds = discoveredCorrelationIds(logSearchResult, jobId, corrId);
             progress("Correlation resolved TestCase=TC_GENERATE_TESTCASE"
@@ -421,8 +457,8 @@ public class ExecutionController {
             String flow,
             String scenario,
             String requestPayload) {
-        String payload = resolvePayload(sourceSystem, flow, scenario, async ? "ASYNC" : "SYNC",
-                payloadFile, bookingId, requestPayload);
+        JmsPublishRequest publishRequest = buildJmsPublishRequest(
+                bookingId, sourceSystem, async, payloadFile, flow, scenario, requestPayload);
 
         if (async) {
             long asyncStartNanos = System.nanoTime();
@@ -435,7 +471,7 @@ public class ExecutionController {
                     + " Method=" + method
                     + " Mode=ASYNC");
             try {
-                JmsProcessingResult result = jmsProducerService.send(bookingId, payload, sourceSystem, true);
+                JmsProcessingResult result = jmsProducerService.send(publishRequest);
                 executionStatus = jmsExecutionStatus(result);
                 progress("Execution completed TestCase=TC_JMS_SIMULATION"
                         + " BookingID=" + bookingId
@@ -479,7 +515,7 @@ public class ExecutionController {
         }
 
         try {
-            JmsProcessingResult result = jmsProducerService.send(bookingId, payload, sourceSystem, false);
+            JmsProcessingResult result = jmsProducerService.send(publishRequest);
             executionStatus = jmsExecutionStatus(result);
             if (!unifiedTraceReportEnabled) {
                 progress("Execution completed TestCase=TC_JMS_SIMULATION"
@@ -505,6 +541,74 @@ public class ExecutionController {
         }
     }
 
+    private JmsPublishRequest buildJmsPublishRequest(
+            String bookingId,
+            String sourceSystem,
+            boolean async,
+            String payloadFile,
+            String flow,
+            String scenario,
+            String requestPayload) {
+        TestCase testCase = new TestCase();
+        testCase.setTestCaseId("TC_JMS_SIMULATION");
+        testCase.setBookingId(bookingId);
+        testCase.setFlow(flow);
+        testCase.setScenario(scenario);
+        testCase.setExecutionMode(async ? "ASYNC" : "SYNC");
+        testCase.setDownstreamSystem(sourceSystem);
+        if (!isBlank(requestPayload)) {
+            testCase.setPayload(requestPayload);
+        } else if (!isBlank(payloadFile)) {
+            testCase.setPayload(payloadFile);
+        }
+
+        JmsPayloadResolver.ResolvedJmsPayload resolvedPayload = jmsPayloadResolver.resolve(testCase);
+        String env = jmsFlowConfig.env(testCase);
+        String system = resolvedPayload.getSystem();
+
+        JmsPublishRequest request = new JmsPublishRequest();
+        request.setBookingId(bookingId);
+        request.setPayload(resolvedPayload.getContent());
+        request.setSourceSystem(system);
+        request.setAsync(async);
+        request.setEnv(env);
+        request.setDestinationType(jmsDestinationType(env, system, scenario));
+        request.setDestinationName(jmsDestinationName(env, system, scenario));
+        request.setMessageType(jmsMessageType(env, system, scenario));
+        request.setPayloadSource(resolvedPayload.getSource());
+        return request;
+    }
+
+    private String jmsDestinationType(String env, String system, String scenario) {
+        try {
+            return (String) jmsFlowConfig.getClass()
+                    .getMethod("destinationType", String.class, String.class, String.class)
+                    .invoke(jmsFlowConfig, env, system, scenario);
+        } catch (ReflectiveOperationException ignored) {
+            return jmsFlowConfig.destinationType(env, system);
+        }
+    }
+
+    private String jmsDestinationName(String env, String system, String scenario) {
+        try {
+            return (String) jmsFlowConfig.getClass()
+                    .getMethod("destinationName", String.class, String.class, String.class)
+                    .invoke(jmsFlowConfig, env, system, scenario);
+        } catch (ReflectiveOperationException ignored) {
+            return jmsFlowConfig.destinationName(env, system);
+        }
+    }
+
+    private String jmsMessageType(String env, String system, String scenario) {
+        try {
+            return (String) jmsFlowConfig.getClass()
+                    .getMethod("messageType", String.class, String.class, String.class)
+                    .invoke(jmsFlowConfig, env, system, scenario);
+        } catch (ReflectiveOperationException ignored) {
+            return jmsFlowConfig.messageType(env, system);
+        }
+    }
+
     private ExecutionResult executeModule(
             String testCaseName,
             String system,
@@ -514,13 +618,114 @@ public class ExecutionController {
             String flow,
             String scenario,
             String mode,
-            String requestPayload) {
+            String requestPayload,
+            String env,
+            String downstreamSystem) {
+        return executeModule(testCaseName, system, stepName, bookingId, payloadFile,
+                flow, scenario, mode, requestPayload, env, downstreamSystem, null, null);
+    }
+
+    private ExecutionResult executeModule(
+            String testCaseName,
+            String system,
+            String stepName,
+            String bookingId,
+            String payloadFile,
+            String flow,
+            String scenario,
+            String mode,
+            String requestPayload,
+            String env,
+            String downstreamSystem,
+            String collection,
+            String brand) {
+        return executeModule(testCaseName, system, stepName, bookingId, payloadFile,
+                flow, scenario, mode, requestPayload, env, downstreamSystem, collection, brand, null);
+    }
+
+    private ExecutionResult executeModule(
+            String testCaseName,
+            String system,
+            String stepName,
+            String bookingId,
+            String payloadFile,
+            String flow,
+            String scenario,
+            String mode,
+            String requestPayload,
+            String env,
+            String downstreamSystem,
+            String collection,
+            String brand,
+            String routingKey) {
         TestCase testCase = new TestCase();
         testCase.setTestCaseId(testCaseName);
         testCase.setBookingId(bookingId);
-        testCase.setPayload(resolvePayload(system, flow, scenario, mode, payloadFile, bookingId, requestPayload));
+        testCase.setEnv(env);
+        testCase.setFlow(flow);
+        testCase.setScenario(scenario);
+        testCase.setDownstreamSystem(downstreamSystem);
+        testCase.setCollection(collection);
+        testCase.setBrand(brand);
+        testCase.setRoutingKey(routingKey);
+        if (isRabbitSystem(system)) {
+            if (!isBlank(requestPayload)) {
+                testCase.setPayload(requestPayload);
+            } else if (!isBlank(payloadFile)) {
+                testCase.setPayload(payloadFile);
+            } else {
+                testCase.setPayload(resolvePayload(system, flow, scenario, mode, payloadFile, bookingId, null));
+            }
+        } else if (shouldResolvePayloadInGateway(system, payloadFile, requestPayload)) {
+            testCase.setPayload(resolvePayload(system, flow, scenario, mode, payloadFile, bookingId, requestPayload));
+        }
         testCase.setSteps(singleStep(stepName, system));
         return execute(testCase, bookingId, payloadFile, system, flow, scenario, mode);
+    }
+
+    private boolean shouldResolvePayloadInGateway(String system, String payloadFile, String requestPayload) {
+        if (!"VRP".equalsIgnoreCase(defaultValue(system))) {
+            if ("APIGEE".equalsIgnoreCase(defaultValue(system))) {
+                return restPayloadCatalogEnabled || !isBlank(payloadFile) || !isBlank(requestPayload);
+            }
+            return true;
+        }
+        return soapPayloadCatalogEnabled || !isBlank(payloadFile) || !isBlank(requestPayload);
+    }
+
+    private boolean isRabbitSystem(String system) {
+        String normalized = defaultValue(system).toUpperCase();
+        return "NORDICS".equals(normalized) || "RABBIT".equals(normalized) || "RABBITMQ".equals(normalized);
+    }
+
+    private String sftpProfileForRequest(String sftpProfile) {
+        String normalized = defaultValue(sftpProfile).trim().toLowerCase();
+        if ("rabbit".equals(normalized)
+                || "rabbitmq".equals(normalized)
+                || "nordics".equals(normalized)
+                || "rabbit-nordics".equals(normalized)) {
+            return "rabbit-nordics";
+        }
+        if ("rest".equals(normalized)
+                || "api".equals(normalized)
+                || "apigee".equals(normalized)
+                || "apigee-rest".equals(normalized)) {
+            return "apigee-rest";
+        }
+        return "default";
+    }
+
+    private AutoCloseable useSftpProfile(String profile) {
+        try {
+            Class<?> context = Class.forName("com.hcl.observability.sftp.SftpProfileContext");
+            Object scope = context.getMethod("use", String.class).invoke(null, profile);
+            if (scope instanceof AutoCloseable) {
+                return (AutoCloseable) scope;
+            }
+        } catch (ReflectiveOperationException ignored) {
+        }
+        return () -> {
+        };
     }
 
     private String resolvePayload(
@@ -1293,62 +1498,11 @@ public class ExecutionController {
         return defaultValue(service);
     }
 
-    private String wrappedServiceFlow(List<String> flowSteps) {
-        StringBuilder flow = new StringBuilder();
-        for (int i = 0; i < flowSteps.size(); i++) {
-            if (i > 0 && i % 4 == 0) {
-                flow.append(System.lineSeparator()).append("               ---> ");
-            } else if (i > 0) {
-                flow.append(" ---> ");
-            }
-            flow.append(flowSteps.get(i));
-        }
-        return flow.toString();
-    }
-
-    private String displayPhase(String phase) {
-        if ("REPLY".equalsIgnoreCase(phase)) {
-            return "RESPONSE";
-        }
-        return defaultValue(phase);
-    }
-
     private String localEvidencePath(String bookingId) {
         if (isBlank(bookingId)) {
             return defaultValue(localLogDir);
         }
         return new File(localLogDir, safeScope(bookingId)).getPath();
-    }
-
-    private String localEvidenceFiles(String bookingId) {
-        if (isBlank(bookingId)) {
-            return "NA";
-        }
-        File[] files = localLogFiles(bookingId);
-        if (files == null || files.length == 0) {
-            return "NA";
-        }
-        List<String> names = new ArrayList<>();
-        for (File file : files) {
-            names.add(file.getName());
-            if (names.size() >= 8) {
-                break;
-            }
-        }
-        if (names.isEmpty()) {
-            return "NA";
-        }
-        if (files.length > names.size()) {
-            names.add("+" + (files.length - names.size()) + " more");
-        }
-        return String.join(", ", names);
-    }
-
-    private int localTimelineSourceFileCount(String bookingId) {
-        if (isBlank(bookingId)) {
-            return 0;
-        }
-        return localLogFiles(bookingId).length;
     }
 
     private void appendSearchEvidence(StringBuilder report, String title, String message) {

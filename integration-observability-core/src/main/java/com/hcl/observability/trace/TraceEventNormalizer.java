@@ -127,6 +127,9 @@ public class TraceEventNormalizer {
         if (value.contains("RABBIT")) {
             return TraceSystem.RABBITMQ;
         }
+        if (value.contains("KAFKA") || value.contains("EVENTHUB") || value.contains("EVENT-HUB")) {
+            return TraceSystem.KAFKA;
+        }
         if (value.contains("APIGEE") || value.contains("REST")) {
             return TraceSystem.REST;
         }
@@ -146,6 +149,9 @@ public class TraceEventNormalizer {
         }
         if (system == TraceSystem.RABBITMQ) {
             return TraceProtocol.RABBITMQ;
+        }
+        if (system == TraceSystem.KAFKA) {
+            return TraceProtocol.KAFKA;
         }
         if (system == TraceSystem.REST) {
             return TraceProtocol.REST;

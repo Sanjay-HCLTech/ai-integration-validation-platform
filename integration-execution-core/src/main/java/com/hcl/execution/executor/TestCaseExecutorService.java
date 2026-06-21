@@ -11,11 +11,14 @@ import com.hcl.observability.correlation.TimelineValidator;
 import com.hcl.observability.log.LogAnalyzerService;
 import com.hcl.observability.log.LogSearchResult;
 import com.hcl.observability.report.ReportService;
+import com.hcl.observability.sftp.SftpService;
 import com.hcl.observability.trace.NormalizedTraceEvent;
 import com.hcl.observability.trace.TimelineEvent;
 import com.hcl.observability.trace.TimelineService;
 import com.hcl.observability.trace.TraceStatus;
 import com.hcl.observability.trace.TraceSystem;
+import com.hcl.observability.trace.TracePhase;
+import com.hcl.observability.trace.TraceProtocol;
 import com.hcl.observability.trace.UnifiedTraceContext;
 import com.hcl.observability.trace.UnifiedTraceContextHolder;
 import com.hcl.observability.trace.UnifiedTraceReportService;
@@ -25,6 +28,9 @@ import com.hcl.observability.validation.LogValidationService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -47,6 +53,7 @@ public class TestCaseExecutorService {
     private final TimelineService timelineService;
     private final BusinessValidationService businessValidationService;
     private final ReportService reportService;
+    private final SftpService sftpService;
     private final UnifiedTraceContextHolder traceContextHolder;
     private final UnifiedTraceReportService traceReportService;
     private final Map<String, TriggerService> triggerServices;
@@ -54,6 +61,9 @@ public class TestCaseExecutorService {
     private final long waitMs;
     private final boolean unifiedTraceReportEnabled;
     private final boolean platformReportEnabled;
+    private final String rabbitNordicsTrackingId;
+    private final String rabbitNordicsRemoteLogPath;
+    private final String localLogDir;
 
     public TestCaseExecutorService(
             LogAnalyzerService logAnalyzerService,
@@ -62,19 +72,24 @@ public class TestCaseExecutorService {
             TimelineService timelineService,
             BusinessValidationService businessValidationService,
             ReportService reportService,
+            SftpService sftpService,
             UnifiedTraceContextHolder traceContextHolder,
             UnifiedTraceReportService traceReportService,
             Map<String, TriggerService> triggerServices,
             @Value("${execution.retry.count:3}") int retryCount,
             @Value("${execution.wait.ms:3000}") long waitMs,
             @Value("${unified.trace.report.enabled:false}") boolean unifiedTraceReportEnabled,
-            @Value("${platform.report.enabled:false}") boolean platformReportEnabled) {
+            @Value("${platform.report.enabled:false}") boolean platformReportEnabled,
+            @Value("${rabbit.nordics.tracking.id:}") String rabbitNordicsTrackingId,
+            @Value("${rabbit.nordics.sftp.payload.log.dir:${rabbit.nordics.log.remote.path:}}") String rabbitNordicsRemoteLogPath,
+            @Value("${local.log.dir:C:/logs}") String localLogDir) {
         this.logAnalyzerService = logAnalyzerService;
         this.logValidationService = logValidationService;
         this.timelineValidator = timelineValidator;
         this.timelineService = timelineService;
         this.businessValidationService = businessValidationService;
         this.reportService = reportService;
+        this.sftpService = sftpService;
         this.traceContextHolder = traceContextHolder;
         this.traceReportService = traceReportService;
         this.triggerServices = triggerServices;
@@ -82,9 +97,23 @@ public class TestCaseExecutorService {
         this.waitMs = waitMs;
         this.unifiedTraceReportEnabled = unifiedTraceReportEnabled;
         this.platformReportEnabled = platformReportEnabled;
+        this.rabbitNordicsTrackingId = rabbitNordicsTrackingId;
+        this.rabbitNordicsRemoteLogPath = rabbitNordicsRemoteLogPath;
+        this.localLogDir = localLogDir;
     }
 
     public ExecutionResult execute(TestCase testCase) {
+        try (AutoCloseable ignored = useSftpProfile(sftpProfileFor(testCase))) {
+            return executeInternal(testCase);
+        } catch (Exception e) {
+            if (e instanceof RuntimeException) {
+                throw (RuntimeException) e;
+            }
+            throw new RuntimeException("Unable to activate SFTP profile", e);
+        }
+    }
+
+    private ExecutionResult executeInternal(TestCase testCase) {
         ExecutionResult result = new ExecutionResult();
         result.setTestCaseId(testCase.getTestCaseId());
 
@@ -130,9 +159,24 @@ public class TestCaseExecutorService {
             List<String> bookingLogs = bookingSearch.getLines();
 
             if (bookingLogs.isEmpty()) {
-                steps.add(step("BookingID Log Search", "FAIL", "No logs found for BookingID: " + bookingId));
-                finish(result, steps);
-                return result;
+                List<String> fallbackLogs = fallbackRabbitNordicsAuditSearch(
+                        testCase,
+                        bookingId,
+                        traceContext.getCorrId(),
+                        traceContext.getJobId(),
+                        steps,
+                        partialObservabilityMessages);
+                if (fallbackLogs.isEmpty()) {
+                    steps.add(step("BookingID Log Search", "FAIL", "No logs found for BookingID: " + bookingId
+                            + rabbitTrackingSuffix(testCase)));
+                    StepResult snapshotStep = forceRabbitNordicsAuditSnapshot(testCase, bookingId);
+                    if (snapshotStep != null) {
+                        steps.add(snapshotStep);
+                    }
+                    finish(result, steps);
+                    return result;
+                }
+                bookingLogs = fallbackLogs;
             }
 
             addSearchStep(steps, partialObservabilityMessages, "BookingID Log Search", bookingSearch);
@@ -417,6 +461,30 @@ public class TestCaseExecutorService {
         return "REST";
     }
 
+    private String sftpProfileFor(TestCase testCase) {
+        String system = firstTriggerSystem(testCase);
+        if ("RABBITMQ".equals(system) || "RABBIT".equals(system) || "NORDICS".equals(system)) {
+            return "rabbit-nordics";
+        }
+        if ("REST".equals(system)) {
+            return "apigee-rest";
+        }
+        return "default";
+    }
+
+    private AutoCloseable useSftpProfile(String profile) {
+        try {
+            Class<?> context = Class.forName("com.hcl.observability.sftp.SftpProfileContext");
+            Object scope = context.getMethod("use", String.class).invoke(null, profile);
+            if (scope instanceof AutoCloseable) {
+                return (AutoCloseable) scope;
+            }
+        } catch (ReflectiveOperationException ignored) {
+        }
+        return () -> {
+        };
+    }
+
     private List<String> expandFinalTrace(
             String bookingId,
             String corrId,
@@ -432,6 +500,158 @@ public class TestCaseExecutorService {
         }
 
         return traceLogs;
+    }
+
+    private List<String> fallbackRabbitNordicsAuditSearch(
+            TestCase testCase,
+            String bookingId,
+            String corrId,
+            String jobId,
+            List<StepResult> steps,
+            List<String> partialObservabilityMessages) throws Exception {
+        List<String> traceLogs = new ArrayList<>();
+        if (!isRabbitTestCase(testCase)) {
+            return traceLogs;
+        }
+
+        if (hasText(corrId) || hasText(jobId)) {
+            LogSearchResult primaryTraceSearch = logAnalyzerService.searchFinalTraceDetailed(bookingId, corrId, jobId);
+            traceLogs.addAll(primaryTraceSearch.getLines());
+            addSearchStep(steps, partialObservabilityMessages,
+                    "Rabbit Audit Search - BookingID/CorrID/JobID", primaryTraceSearch);
+            if (!traceLogs.isEmpty()) {
+                addRabbitObservabilityTrace(bookingId, corrId, jobId, rabbitNordicsTrackingId,
+                        TraceStatus.SUCCESS, "Primary trace matched: " + primaryTraceSearch.getMessage());
+                return traceLogs;
+            }
+        }
+
+        if (hasText(rabbitNordicsTrackingId)) {
+            LogSearchResult trackingSearch = logAnalyzerService.searchFinalTraceDetailed(bookingId, rabbitNordicsTrackingId, null);
+            traceLogs.addAll(trackingSearch.getLines());
+            addSearchStep(steps, partialObservabilityMessages,
+                    "Rabbit Audit Search - TrackingID", trackingSearch);
+            addRabbitObservabilityTrace(bookingId, corrId, jobId, rabbitNordicsTrackingId,
+                    traceLogs.isEmpty() ? TraceStatus.UNKNOWN : TraceStatus.SUCCESS,
+                    "TrackingID search: " + trackingSearch.getMessage());
+        }
+        return traceLogs;
+    }
+
+    private boolean isRabbitTestCase(TestCase testCase) {
+        if (testCase == null) {
+            return false;
+        }
+        String system = firstTriggerSystem(testCase);
+        return "RABBITMQ".equals(system) || "RABBIT".equals(system) || "NORDICS".equals(system);
+    }
+
+    private String rabbitTrackingSuffix(TestCase testCase) {
+        if (!isRabbitTestCase(testCase) || !hasText(rabbitNordicsTrackingId)) {
+            return "";
+        }
+        return "; Rabbit TrackingID fallback also searched: " + rabbitNordicsTrackingId;
+    }
+
+    private StepResult forceRabbitNordicsAuditSnapshot(TestCase testCase, String bookingId) {
+        if (!isRabbitTestCase(testCase)) {
+            return null;
+        }
+        if (!hasText(bookingId)) {
+            return step("Rabbit Audit Snapshot Transfer", "WARN",
+                    "Skipped because BookingID is unavailable");
+        }
+        String remoteAuditLog = resolvedRabbitNordicsAuditLogPath();
+        if (!hasText(remoteAuditLog)) {
+            return step("Rabbit Audit Snapshot Transfer", "WARN",
+                    "Skipped because rabbit.nordics.sftp.payload.log.dir is not configured");
+        }
+        String localAuditLog = localAuditLogPath(bookingId);
+        try {
+            sftpService.download(remoteAuditLog, localAuditLog);
+            UnifiedTraceContext context = traceContextHolder.current();
+            if (context != null) {
+                context.addFileLine("File=" + pad("audit.log", 48)
+                        + " Exists=Y Action=RAW_SNAPSHOT Reason=RABBIT_NORDICS_AUDIT");
+                context.addValidationLine("RabbitAuditSnapshot=TRANSFERRED");
+            }
+            return step("Rabbit Audit Snapshot Transfer", "PASS",
+                    "Remote audit.log transferred to " + localAuditLog);
+        } catch (RuntimeException e) {
+            return step("Rabbit Audit Snapshot Transfer", "FAIL",
+                    "Remote audit.log transfer failed: " + e.getMessage());
+        } catch (Exception e) {
+            return step("Rabbit Audit Snapshot Transfer", "FAIL",
+                    "Remote audit.log transfer failed: " + e.getMessage());
+        }
+    }
+
+    private String resolvedRabbitNordicsAuditLogPath() {
+        String value = rabbitNordicsRemoteLogPath == null ? "" : rabbitNordicsRemoteLogPath.trim();
+        if (!hasText(value)) {
+            return "";
+        }
+        String today = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
+        return value
+                .replace("<todays date>", today)
+                .replace("${today}", today)
+                .replace("{today}", today);
+    }
+
+    private String localAuditLogPath(String bookingId) {
+        File bookingDir = new File(localLogDir, safePathSegment(bookingId));
+        return new File(bookingDir, "audit.log").getPath();
+    }
+
+    private String safePathSegment(String value) {
+        String text = hasText(value) ? value.trim() : "NA";
+        return text.replaceAll("[^A-Za-z0-9._-]", "_");
+    }
+
+    private String pad(String value, int width) {
+        String text = value == null ? "" : value;
+        if (text.length() >= width) {
+            return text;
+        }
+        StringBuilder padded = new StringBuilder(text);
+        while (padded.length() < width) {
+            padded.append(' ');
+        }
+        return padded.toString();
+    }
+
+    private void addRabbitObservabilityTrace(
+            String bookingId,
+            String corrId,
+            String jobId,
+            String trackingId,
+            TraceStatus status,
+            String message) {
+        UnifiedTraceContext context = traceContextHolder.current();
+        if (context == null) {
+            return;
+        }
+        NormalizedTraceEvent event = NormalizedTraceEvent.of(
+                bookingId,
+                corrId,
+                jobId,
+                TraceSystem.OBSERVABILITY,
+                TraceProtocol.RABBITMQ,
+                TracePhase.PROCESS,
+                "RabbitAuditLogAnalyzer",
+                java.time.OffsetDateTime.now(),
+                status,
+                message);
+        event.setFromEndpoint("SFTP");
+        event.setToEndpoint("LocalLogAnalyzer");
+        context.addEvent(event);
+        context.addRetryLine("Stage=RabbitAudit Attempt=1/1 Result="
+                + (status == TraceStatus.SUCCESS ? "FOUND" : "NOT_FOUND")
+                + " Action=STOP");
+        context.addValidationLine("RabbitObservability="
+                + (status == TraceStatus.SUCCESS ? "SUCCESS" : "PENDING"));
+        context.addValidationLine("RabbitTrackingID=" + defaultValue(trackingId));
+        context.addSummaryLine("RabbitLogAnalyzerEnabled=Y");
     }
 
     private void addSearchStep(

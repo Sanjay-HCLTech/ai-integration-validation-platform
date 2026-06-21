@@ -14,6 +14,8 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,33 +23,53 @@ import java.util.List;
 @Service
 public class SftpService {
 
-    private final String host;
-    private final int port;
-    private final String user;
-    private final String key;
-    private final String passphrase;
+    private final String defaultLogDir;
+    private final SftpConnectionConfig defaultConfig;
+    private final SftpConnectionConfig rabbitNordicsConfig;
+    private final String rabbitNordicsRemoteLogPath;
+    private final String apigeeRestLogDir;
+    private final int modifiedWithinDays;
     private final int connectTimeoutMs;
     private final int commandTimeoutMs;
     private final int keepAliveIntervalMs;
     private Session sharedSession;
+    private String sharedSessionProfile;
 
     public SftpService(
             @Value("${sftp.host}") String host,
             @Value("${sftp.port:22}") int port,
             @Value("${sftp.username}") String user,
-            @Value("${sftp.private.key}") String key,
-            @Value("${sftp.private.key.passphrase:}") String passphrase,
+            @Value("${sftp.private-key-file:${sftp.private-key:${sftp.private.key:}}}") String key,
+            @Value("${sftp.private-key-passphrase:${sftp.private.key.passphrase:}}") String passphrase,
+            @Value("${sftp.password:}") String password,
+            @Value("${sftp.payload.log.dir}") String defaultLogDir,
+            @Value("${rabbit.nordics.sftp.host:${sftp.host}}") String rabbitNordicsHost,
+            @Value("${rabbit.nordics.sftp.port:${sftp.port:22}}") int rabbitNordicsPort,
+            @Value("${rabbit.nordics.sftp.username:${sftp.username}}") String rabbitNordicsUser,
+            @Value("${rabbit.nordics.sftp.password:}") String rabbitNordicsPassword,
+            @Value("${rabbit.nordics.sftp.private-key-file:${rabbit.nordics.sftp.private-key:${rabbit.nordics.sftp.private.key:${sftp.private-key-file:${sftp.private-key:${sftp.private.key:}}}}}}") String rabbitNordicsKey,
+            @Value("${rabbit.nordics.sftp.private-key-passphrase:${rabbit.nordics.sftp.private.key.passphrase:${sftp.private-key-passphrase:${sftp.private.key.passphrase:}}}}") String rabbitNordicsPassphrase,
+            @Value("${rabbit.nordics.sftp.payload.log.dir:${rabbit.nordics.log.remote.path:}}") String rabbitNordicsRemoteLogPath,
+            @Value("${rest.sftp.payload.log.dir:${rest.log.remote.path:${sftp.payload.log.dir}}}") String apigeeRestLogDir,
             @Value("${sftp.connect.timeout.ms:15000}") int connectTimeoutMs,
             @Value("${sftp.command.timeout.ms:20000}") int commandTimeoutMs,
-            @Value("${sftp.keepalive.interval.ms:30000}") int keepAliveIntervalMs) {
-        this.host = host;
-        this.port = port;
-        this.user = user;
-        this.key = key;
-        this.passphrase = passphrase;
+            @Value("${sftp.keepalive.interval.ms:30000}") int keepAliveIntervalMs,
+            @Value("${sftp.search.modified.within.days:15}") int modifiedWithinDays) {
+        this.defaultLogDir = trimTrailingSlash(defaultLogDir);
+        this.defaultConfig = new SftpConnectionConfig(host, port, user, password, key, passphrase);
+        this.rabbitNordicsConfig = new SftpConnectionConfig(
+                rabbitNordicsHost,
+                rabbitNordicsPort,
+                rabbitNordicsUser,
+                rabbitNordicsPassword,
+                rabbitNordicsKey,
+                rabbitNordicsPassphrase);
+        this.rabbitNordicsRemoteLogPath = rabbitNordicsRemoteLogPath;
+        this.apigeeRestLogDir = trimTrailingSlash(apigeeRestLogDir);
         this.connectTimeoutMs = Math.max(1000, connectTimeoutMs);
         this.commandTimeoutMs = Math.max(this.connectTimeoutMs, commandTimeoutMs);
         this.keepAliveIntervalMs = Math.max(1000, keepAliveIntervalMs);
+        this.modifiedWithinDays = Math.max(1, modifiedWithinDays);
     }
 
     public List<String> execute(String command) throws Exception {
@@ -65,7 +87,7 @@ public class SftpService {
             sshConnectTimeMs = elapsedMs(sshConnectStartNanos);
 
             channel = (ChannelExec) session.openChannel("exec");
-            channel.setCommand(command);
+            channel.setCommand(profileAwareCommand(command));
             channel.setInputStream(null);
 
             InputStream input = channel.getInputStream();
@@ -132,7 +154,7 @@ public class SftpService {
             sshConnectTimeMs = elapsedMs(sshConnectStartNanos);
 
             channel = (ChannelExec) session.openChannel("exec");
-            channel.setCommand(command);
+            channel.setCommand(profileAwareCommand(command));
             channel.setInputStream(null);
 
             InputStream input = channel.getInputStream();
@@ -204,7 +226,7 @@ public class SftpService {
             sftp.connect(connectTimeoutMs);
 
             for (DownloadRequest request : requests) {
-                downloadWithOpenChannel(sftp, request.remoteFile, request.localFile);
+                downloadWithOpenChannel(sftp, profileAwareRemotePath(request.remoteFile), request.localFile);
             }
         } catch (Exception e) {
             throw new RuntimeException("SFTP batch download failed. files=" + requests.size()
@@ -217,14 +239,18 @@ public class SftpService {
     }
 
     private Session connectedSession() throws Exception {
-        if (sharedSession != null && sharedSession.isConnected()) {
+        String profile = SftpProfileContext.currentProfile();
+        if (sharedSession != null && sharedSession.isConnected() && profile.equals(sharedSessionProfile)) {
             return sharedSession;
         }
+        closeSharedSession();
 
-        JSch jsch = createJsch();
-        sharedSession = jsch.getSession(user, host, port);
-        configureSession(sharedSession);
+        SftpConnectionConfig config = activeConfig();
+        JSch jsch = createJsch(config);
+        sharedSession = jsch.getSession(config.user, config.host, config.port);
+        configureSession(sharedSession, config);
         sharedSession.connect(connectTimeoutMs);
+        sharedSessionProfile = profile;
         return sharedSession;
     }
 
@@ -233,6 +259,7 @@ public class SftpService {
             sharedSession.disconnect();
         }
         sharedSession = null;
+        sharedSessionProfile = null;
     }
 
     private void downloadWithOpenChannel(ChannelSftp sftp, String remoteFile, String localFile) throws Exception {
@@ -259,25 +286,135 @@ public class SftpService {
         }
     }
 
-    private JSch createJsch() throws Exception {
-        if (key == null || key.trim().isEmpty()) {
-            throw new RuntimeException("SFTP key path is missing. Check configuration!");
-        }
-
+    private JSch createJsch(SftpConnectionConfig config) throws Exception {
         JSch jsch = new JSch();
-        if (passphrase != null && !passphrase.trim().isEmpty()) {
-            jsch.addIdentity(key, passphrase);
-        } else {
-            jsch.addIdentity(key);
+        if (hasText(config.key)) {
+            if (hasText(config.passphrase)) {
+                jsch.addIdentity(config.key, config.passphrase);
+            } else {
+                jsch.addIdentity(config.key);
+            }
+        } else if (!hasText(config.password)) {
+            throw new RuntimeException("SFTP key/password is missing. Check configuration!");
         }
         return jsch;
     }
 
-    private void configureSession(Session session) throws Exception {
+    private void configureSession(Session session, SftpConnectionConfig config) throws Exception {
+        if (hasText(config.password)) {
+            session.setPassword(config.password);
+        }
         session.setConfig("StrictHostKeyChecking", "no");
         session.setTimeout(commandTimeoutMs);
         session.setServerAliveInterval(keepAliveIntervalMs);
         session.setServerAliveCountMax(2);
+    }
+
+    private SftpConnectionConfig activeConfig() {
+        return SftpProfileContext.isRabbitNordics() ? rabbitNordicsConfig : defaultConfig;
+    }
+
+    private String profileAwareCommand(String command) {
+        if (SftpProfileContext.isApigeeRest()) {
+            return command == null ? null : command.replace(defaultLogDir, resolvedApigeeRestLogDir());
+        }
+
+        if (!SftpProfileContext.isRabbitNordics()) {
+            return command;
+        }
+
+        String remoteLogPath = resolvedRabbitNordicsRemoteLogPath();
+        if (!hasText(remoteLogPath)) {
+            return command;
+        }
+
+        if (command != null && command.contains("find . -maxdepth 1 -type f")) {
+            return rabbitNordicsAuditDiscoveryCommand(remoteLogPath);
+        }
+
+        return command == null ? null : command.replace(defaultLogDir, remoteDirectory(remoteLogPath));
+    }
+
+    private String profileAwareRemotePath(String remoteFile) {
+        if (SftpProfileContext.isApigeeRest() && remoteFile != null) {
+            return remoteFile.replace(defaultLogDir, resolvedApigeeRestLogDir());
+        }
+
+        if (!SftpProfileContext.isRabbitNordics() || remoteFile == null) {
+            return remoteFile;
+        }
+        String remoteLogPath = resolvedRabbitNordicsRemoteLogPath();
+        if (!hasText(remoteLogPath)) {
+            return remoteFile;
+        }
+        return remoteFile.replace(defaultLogDir, remoteDirectory(remoteLogPath));
+    }
+
+    private String rabbitNordicsAuditDiscoveryCommand(String remoteLogPath) {
+        String remoteDir = remoteDirectory(remoteLogPath);
+        String auditFile = fileName(remoteLogPath);
+        StringBuilder inner = new StringBuilder("cd " + shellQuote(remoteDir));
+        inner.append(" && find . -maxdepth 1 -type f -name ")
+                .append(shellQuote(auditFile))
+                .append(" -mtime -")
+                .append(modifiedWithinDays)
+                .append(" -print0 | while IFS= read -r -d '' f; do ")
+                .append("stat_out=$(stat -c '%s %Y' \"$f\" 2>&1); stat_rc=$?; ")
+                .append("if [ $stat_rc -eq 0 ]; then set -- $stat_out; size=\"$1\"; mtime=\"$2\"; ")
+                .append("else size=0; mtime=0; printf 'ACCESS\t%s\tSTAT_FAILED\t%s\n' \"$f\" \"$stat_out\"; fi; ")
+                .append("printf 'FILE\t%s\t%s\t%s\n' \"$f\" \"$size\" \"$mtime\"; ")
+                .append("if [ ! -r \"$f\" ]; then printf 'ACCESS\t%s\tNOT_READABLE\tread permission denied\n' \"$f\"; fi; ")
+                .append("done");
+        return "bash -lc " + shellQuote(inner.toString());
+    }
+
+    private String resolvedRabbitNordicsRemoteLogPath() {
+        String value = rabbitNordicsRemoteLogPath == null ? "" : rabbitNordicsRemoteLogPath.trim();
+        if (value.isEmpty()) {
+            return value;
+        }
+        String today = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
+        return trimTrailingSlash(value
+                .replace("<todays date>", today)
+                .replace("${today}", today)
+                .replace("{today}", today));
+    }
+
+    private String resolvedApigeeRestLogDir() {
+        return trimTrailingSlash(apigeeRestLogDir);
+    }
+
+    private String remoteDirectory(String path) {
+        String normalized = trimTrailingSlash(path);
+        int slash = normalized.lastIndexOf('/');
+        return slash <= 0 ? normalized : normalized.substring(0, slash);
+    }
+
+    private String fileName(String path) {
+        String normalized = path == null ? "" : path.trim();
+        int slash = normalized.lastIndexOf('/');
+        return slash < 0 ? normalized : normalized.substring(slash + 1);
+    }
+
+    private String trimTrailingSlash(String value) {
+        if (value == null) {
+            return "";
+        }
+
+        String trimmed = value.trim();
+        while (trimmed.endsWith("/") && trimmed.length() > 1) {
+            trimmed = trimmed.substring(0, trimmed.length() - 1);
+        }
+        return trimmed;
+    }
+
+    private String shellQuote(String value) {
+        String safeValue = value == null ? "" : value;
+        return "'" + safeValue.replace("'", "'\"'\"'") + "'";
+    }
+
+    private boolean hasText(String value) {
+        return value != null && !value.trim().isEmpty();
     }
 
     private void drainAvailable(InputStream input, ByteArrayOutputStream output) throws Exception {
@@ -366,6 +503,30 @@ public class SftpService {
         public DownloadRequest(String remoteFile, String localFile) {
             this.remoteFile = remoteFile;
             this.localFile = localFile;
+        }
+    }
+
+    private static final class SftpConnectionConfig {
+        private final String host;
+        private final int port;
+        private final String user;
+        private final String password;
+        private final String key;
+        private final String passphrase;
+
+        private SftpConnectionConfig(
+                String host,
+                int port,
+                String user,
+                String password,
+                String key,
+                String passphrase) {
+            this.host = host;
+            this.port = port;
+            this.user = user;
+            this.password = password;
+            this.key = key;
+            this.passphrase = passphrase;
         }
     }
 }

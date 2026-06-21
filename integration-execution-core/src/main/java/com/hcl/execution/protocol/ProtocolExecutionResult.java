@@ -7,8 +7,17 @@ public class ProtocolExecutionResult {
     private String status;
     private String jobId;
     private String corrId;
+    private String trackingId;
+    private Integer httpStatus;
+    private String responseBody;
     private long latencyMs;
     private String message;
+    private boolean validationComplete;
+    private String processStatus;
+    private String downstreamStatus;
+    private String errorFound;
+    private String payloadSource;
+    private String endpointOrDestination;
 
     public String getProtocol() {
         return protocol;
@@ -50,6 +59,30 @@ public class ProtocolExecutionResult {
         this.corrId = corrId;
     }
 
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public void setTrackingId(String trackingId) {
+        this.trackingId = trackingId;
+    }
+
+    public Integer getHttpStatus() {
+        return httpStatus;
+    }
+
+    public void setHttpStatus(Integer httpStatus) {
+        this.httpStatus = httpStatus;
+    }
+
+    public String getResponseBody() {
+        return responseBody;
+    }
+
+    public void setResponseBody(String responseBody) {
+        this.responseBody = responseBody;
+    }
+
     public long getLatencyMs() {
         return latencyMs;
     }
@@ -64,5 +97,53 @@ public class ProtocolExecutionResult {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public boolean isValidationComplete() {
+        return validationComplete;
+    }
+
+    public void setValidationComplete(boolean validationComplete) {
+        this.validationComplete = validationComplete;
+    }
+
+    public String getProcessStatus() {
+        return processStatus;
+    }
+
+    public void setProcessStatus(String processStatus) {
+        this.processStatus = processStatus;
+    }
+
+    public String getDownstreamStatus() {
+        return downstreamStatus;
+    }
+
+    public void setDownstreamStatus(String downstreamStatus) {
+        this.downstreamStatus = downstreamStatus;
+    }
+
+    public String getErrorFound() {
+        return errorFound;
+    }
+
+    public void setErrorFound(String errorFound) {
+        this.errorFound = errorFound;
+    }
+
+    public String getPayloadSource() {
+        return payloadSource;
+    }
+
+    public void setPayloadSource(String payloadSource) {
+        this.payloadSource = payloadSource;
+    }
+
+    public String getEndpointOrDestination() {
+        return endpointOrDestination;
+    }
+
+    public void setEndpointOrDestination(String endpointOrDestination) {
+        this.endpointOrDestination = endpointOrDestination;
     }
 }

@@ -73,9 +73,9 @@ public class LogAnalyzerService {
             @Value("${sftp.grep.retry.wait.ms:5000}") long grepRetryWaitMs,
             @Value("${sftp.search.modified.within.days:15}") int modifiedWithinDays,
             @Value("${sftp.correlation.max.depth:3}") int correlationMaxDepth,
-            @Value("${sftp.correlation.max.tokens:100}") int correlationMaxTokens,
+            @Value("${sftp.correlation.token-limit:${sftp.correlation.max.tokens:100}}") int correlationMaxTokens,
             @Value("${sftp.correlation.max.jobids:50}") int correlationMaxJobIds,
-            @Value("${sftp.correlation.max.tokens.per.search:3}") int correlationMaxTokensPerSearch,
+            @Value("${sftp.correlation.tokens-per-search:${sftp.correlation.max.tokens-per-search:${sftp.correlation.max.tokens.per.search:3}}}") int correlationMaxTokensPerSearch,
             @Value("${sftp.correlation.max.batches.per.depth:3}") int correlationMaxBatchesPerDepth,
             @Value("${sftp.block.max.matches.per.file:10}") int blockMaxMatchesPerFile,
             @Value("${sftp.local.min.block.lines:10}") int localMinBlockLines,
@@ -914,7 +914,7 @@ public class LogAnalyzerService {
                     && uniqueLocalFile.length() > 0;
             boolean uniqueLocalUsable = hasUsableLocalEvidence(uniqueLocalFile, searchValue, extendedRegex);
             boolean processedInTracker = isProcessedInTracker(processedFiles, remoteFile);
-            if (processedInTracker && hasUsableLocalEvidence(uniqueLocalFile, searchValue, extendedRegex)) {
+            if (processedInTracker && uniqueLocalUsable) {
                 logDownloadDecision(label, remoteFile.fullPath(logDir), uniqueLocalFile.getAbsolutePath(),
                         true, "SKIPPED - unique local file already present");
                 if (isCompleteLocalEvidence(uniqueLocalFile)) {

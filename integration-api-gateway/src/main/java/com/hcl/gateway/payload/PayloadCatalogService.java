@@ -195,6 +195,10 @@ public class PayloadCatalogService {
 
     private void validateExtension(String file) {
         String lower = file.toLowerCase(Locale.ROOT);
+        String name = Paths.get(file).getFileName() == null ? lower : Paths.get(file).getFileName().toString();
+        if (!name.contains(".")) {
+            return;
+        }
         if (!(lower.endsWith(".json") || lower.endsWith(".xml") || lower.endsWith(".txt"))) {
             throw new IllegalArgumentException("Unsupported payload file extension: " + file);
         }

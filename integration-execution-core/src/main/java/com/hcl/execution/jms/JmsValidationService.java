@@ -38,7 +38,10 @@ public class JmsValidationService {
         return "DATAHUB".equals(normalized)
                 || "GIP".equals(normalized)
                 || "SAP".equals(normalized)
-                || "DMS".equals(normalized);
+                || "DMS".equals(normalized)
+                || "AO".equals(normalized)
+                || "TDA".equals(normalized)
+                || "C4C".equals(normalized);
     }
 
     private boolean hasPayloadIntegrity(String payload) {

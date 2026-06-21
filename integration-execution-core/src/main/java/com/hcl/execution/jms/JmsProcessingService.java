@@ -289,11 +289,17 @@ public class JmsProcessingService {
         System.out.println();
         System.out.println("-------------------- JMS FLOW --------------------------");
         System.out.println("[JMS]");
+        System.out.println("Env=" + value(message.getEnv()));
+        System.out.println("System=" + value(message.getSourceSystem()));
+        System.out.println("DestinationType=" + value(message.getDestinationType()));
+        System.out.println("DestinationName=" + value(message.getDestinationName()));
         System.out.println("SenderQueue=" + value(message.getSenderQueue()));
         System.out.println("ReceiverQueue=" + value(message.getReceiverQueue()));
         System.out.println("MessageType=" + value(message.getMessageType()));
+        System.out.println("JMSMessageID=" + value(message.getJmsMessageId()));
         System.out.println("CorrID=" + value(message.getCorrId()));
         System.out.println("JobID=" + value(message.getJobId()));
+        System.out.println("Payload=" + value(message.getPayloadSource()));
         System.out.println("FlowStatus=" + ("SUCCESS".equalsIgnoreCase(result.getStatus()) ? "DELIVERED" : "FAILED"));
     }
 
@@ -333,9 +339,13 @@ public class JmsProcessingService {
         context.addEvents(events);
         context.addProtocolLine("JMS", "SenderQueue=" + value(message.getSenderQueue()));
         context.addProtocolLine("JMS", "ReceiverQueue=" + value(message.getReceiverQueue()));
+        context.addProtocolLine("JMS", "DestinationType=" + value(message.getDestinationType()));
+        context.addProtocolLine("JMS", "DestinationName=" + value(message.getDestinationName()));
         context.addProtocolLine("JMS", "MessageType=" + value(message.getMessageType()));
+        context.addProtocolLine("JMS", "JMSMessageID=" + value(message.getJmsMessageId()));
         context.addProtocolLine("JMS", "CorrID=" + value(message.getCorrId()));
         context.addProtocolLine("JMS", "JobID=" + value(message.getJobId()));
+        context.addProtocolLine("JMS", "Payload=" + value(message.getPayloadSource()));
         context.addProtocolLine("JMS", "FlowStatus="
                 + ("SUCCESS".equalsIgnoreCase(statusFromEvents(events)) ? "DELIVERED" : "FAILED"));
         context.addValidationLine("QueuePublish=Y");

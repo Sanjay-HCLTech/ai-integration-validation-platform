@@ -8,7 +8,12 @@ public class JmsMessage {
     private String sourceSystem;
     private String senderQueue;
     private String receiverQueue;
+    private String destinationType;
+    private String destinationName;
     private String messageType;
+    private String jmsMessageId;
+    private String payloadSource;
+    private String env;
     private String payload;
     private boolean async;
     private int retryCount;
@@ -62,12 +67,52 @@ public class JmsMessage {
         this.receiverQueue = receiverQueue;
     }
 
+    public String getDestinationType() {
+        return destinationType;
+    }
+
+    public void setDestinationType(String destinationType) {
+        this.destinationType = destinationType;
+    }
+
+    public String getDestinationName() {
+        return destinationName;
+    }
+
+    public void setDestinationName(String destinationName) {
+        this.destinationName = destinationName;
+    }
+
     public String getMessageType() {
         return messageType;
     }
 
     public void setMessageType(String messageType) {
         this.messageType = messageType;
+    }
+
+    public String getJmsMessageId() {
+        return jmsMessageId;
+    }
+
+    public void setJmsMessageId(String jmsMessageId) {
+        this.jmsMessageId = jmsMessageId;
+    }
+
+    public String getPayloadSource() {
+        return payloadSource;
+    }
+
+    public void setPayloadSource(String payloadSource) {
+        this.payloadSource = payloadSource;
+    }
+
+    public String getEnv() {
+        return env;
+    }
+
+    public void setEnv(String env) {
+        this.env = env;
     }
 
     public String getPayload() {

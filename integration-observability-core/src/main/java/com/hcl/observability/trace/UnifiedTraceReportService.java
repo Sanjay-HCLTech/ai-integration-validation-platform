@@ -37,11 +37,13 @@ public class UnifiedTraceReportService {
         appendRetries(report, safeContext);
         appendProtocolSection(report, safeContext, "JMS", TraceSystem.JMS, timeline,
                 triggeredProtocols, skippedProtocols);
-        appendProtocolSection(report, safeContext, "REST", TraceSystem.REST, timeline,
+        appendProtocolSection(report, safeContext, "APIGEE", TraceSystem.REST, timeline,
                 triggeredProtocols, skippedProtocols);
         appendProtocolSection(report, safeContext, "SOAP", TraceSystem.SOAP, timeline,
                 triggeredProtocols, skippedProtocols);
         appendProtocolSection(report, safeContext, "RabbitMQ", TraceSystem.RABBITMQ, timeline,
+                triggeredProtocols, skippedProtocols);
+        appendProtocolSection(report, safeContext, "Kafka", TraceSystem.KAFKA, timeline,
                 triggeredProtocols, skippedProtocols);
         appendTimeline(report, timeline);
         appendValidation(report, safeContext, validation);

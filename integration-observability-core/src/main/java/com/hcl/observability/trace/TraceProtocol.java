@@ -7,6 +7,7 @@ public enum TraceProtocol {
     SOAP_HTTP,
     SOAP_JMS,
     RABBITMQ,
+    KAFKA,
     SFTP_LOG,
     INTERNAL,
     UNKNOWN
