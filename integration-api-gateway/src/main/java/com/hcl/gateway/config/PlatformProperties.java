@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "platform")
 public class PlatformProperties {
 
-    private String env = "ST5";
+    private String env;
     private final Report report = new Report();
 
     public String getEnv() {

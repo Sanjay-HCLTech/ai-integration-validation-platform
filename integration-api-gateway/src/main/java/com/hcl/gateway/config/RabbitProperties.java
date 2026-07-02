@@ -22,7 +22,7 @@ public class RabbitProperties {
     private final Broker broker = new Broker();
     private final Management management = new Management();
     private final Expected expected = new Expected();
-    private String env = "ST5";
+    private String env;
     private String vhost;
     private String username;
     private String password;
@@ -163,7 +163,7 @@ public class RabbitProperties {
     }
 
     public static class Correlation {
-        private boolean enabled = true;
+        private boolean enabled;
 
         public boolean isEnabled() {
             return enabled;
@@ -281,8 +281,6 @@ public class RabbitProperties {
         private int port;
         private String username;
         private String password;
-        private String privateKeyFile;
-        private String privateKeyPassphrase;
         private final Map<String, Object> privateProperties = new LinkedHashMap<>();
         private final RemoteRun remote = new RemoteRun();
         private final PayloadLog payload = new PayloadLog();
@@ -317,22 +315,6 @@ public class RabbitProperties {
 
         public void setPassword(String password) {
             this.password = password;
-        }
-
-        public String getPrivateKeyFile() {
-            return privateKeyFile;
-        }
-
-        public void setPrivateKeyFile(String privateKeyFile) {
-            this.privateKeyFile = privateKeyFile;
-        }
-
-        public String getPrivateKeyPassphrase() {
-            return privateKeyPassphrase;
-        }
-
-        public void setPrivateKeyPassphrase(String privateKeyPassphrase) {
-            this.privateKeyPassphrase = privateKeyPassphrase;
         }
 
         public Map<String, Object> getPrivate() {

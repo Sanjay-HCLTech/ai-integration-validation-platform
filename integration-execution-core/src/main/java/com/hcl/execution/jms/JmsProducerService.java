@@ -18,7 +18,7 @@ public class JmsProducerService {
             JmsQueueService queueService,
             JmsProcessingService processingService,
             EmsQueueProperties emsQueueProperties,
-            @Value("${jms.simulation.retry.count:3}") int defaultRetryCount) {
+            @Value("${jms.simulation.retry.count}") int defaultRetryCount) {
         this.queueService = queueService;
         this.processingService = processingService;
         this.emsQueueProperties = emsQueueProperties;

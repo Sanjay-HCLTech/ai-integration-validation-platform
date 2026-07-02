@@ -25,7 +25,7 @@ public class RestProperties {
     private final Brand brand = new Brand();
     private final Connect connect = new Connect();
     private final Read read = new Read();
-    private String env = "ST5";
+    private String env;
     private String connection;
 
     public Payload getPayload() {

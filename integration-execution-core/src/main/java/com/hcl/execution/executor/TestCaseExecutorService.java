@@ -62,6 +62,7 @@ public class TestCaseExecutorService {
     private final boolean unifiedTraceReportEnabled;
     private final boolean platformReportEnabled;
     private final String rabbitNordicsTrackingId;
+    private final String rabbitNordicsProcessContextInstanceId;
     private final String rabbitNordicsRemoteLogPath;
     private final String localLogDir;
 
@@ -76,13 +77,14 @@ public class TestCaseExecutorService {
             UnifiedTraceContextHolder traceContextHolder,
             UnifiedTraceReportService traceReportService,
             Map<String, TriggerService> triggerServices,
-            @Value("${execution.retry.count:3}") int retryCount,
-            @Value("${execution.wait.ms:3000}") long waitMs,
-            @Value("${unified.trace.report.enabled:false}") boolean unifiedTraceReportEnabled,
-            @Value("${platform.report.enabled:false}") boolean platformReportEnabled,
-            @Value("${rabbit.nordics.tracking.id:}") String rabbitNordicsTrackingId,
-            @Value("${rabbit.nordics.sftp.payload.log.dir:${rabbit.nordics.log.remote.path:}}") String rabbitNordicsRemoteLogPath,
-            @Value("${local.log.dir:C:/logs}") String localLogDir) {
+            @Value("${execution.retry.count}") int retryCount,
+            @Value("${execution.wait.ms}") long waitMs,
+            @Value("${unified.trace.report.enabled}") boolean unifiedTraceReportEnabled,
+            @Value("${platform.report.enabled}") boolean platformReportEnabled,
+            @Value("${rabbit.nordics.tracking.id}") String rabbitNordicsTrackingId,
+            @Value("${rabbit.process-context.instance-id}") String rabbitNordicsProcessContextInstanceId,
+            @Value("${rabbit.nordics.sftp.payload.log.dir}") String rabbitNordicsRemoteLogPath,
+            @Value("${local.log.dir}") String localLogDir) {
         this.logAnalyzerService = logAnalyzerService;
         this.logValidationService = logValidationService;
         this.timelineValidator = timelineValidator;
@@ -98,6 +100,7 @@ public class TestCaseExecutorService {
         this.unifiedTraceReportEnabled = unifiedTraceReportEnabled;
         this.platformReportEnabled = platformReportEnabled;
         this.rabbitNordicsTrackingId = rabbitNordicsTrackingId;
+        this.rabbitNordicsProcessContextInstanceId = rabbitNordicsProcessContextInstanceId;
         this.rabbitNordicsRemoteLogPath = rabbitNordicsRemoteLogPath;
         this.localLogDir = localLogDir;
     }
@@ -169,7 +172,11 @@ public class TestCaseExecutorService {
                 if (fallbackLogs.isEmpty()) {
                     steps.add(step("BookingID Log Search", "FAIL", "No logs found for BookingID: " + bookingId
                             + rabbitTrackingSuffix(testCase)));
-                    StepResult snapshotStep = forceRabbitNordicsAuditSnapshot(testCase, bookingId);
+                    StepResult snapshotStep = transferRabbitNordicsAuditLog(
+                            testCase,
+                            bookingId,
+                            traceContext.getJobId(),
+                            traceContext.getCorrId());
                     if (snapshotStep != null) {
                         steps.add(snapshotStep);
                     }
@@ -514,26 +521,41 @@ public class TestCaseExecutorService {
             return traceLogs;
         }
 
-        if (hasText(corrId) || hasText(jobId)) {
-            LogSearchResult primaryTraceSearch = logAnalyzerService.searchFinalTraceDetailed(bookingId, corrId, jobId);
+        if (hasText(jobId)) {
+            LogSearchResult primaryTraceSearch = logAnalyzerService.searchFinalTraceDetailed(null, null, jobId);
             traceLogs.addAll(primaryTraceSearch.getLines());
             addSearchStep(steps, partialObservabilityMessages,
-                    "Rabbit Audit Search - BookingID/CorrID/JobID", primaryTraceSearch);
+                    "Rabbit Audit Search - JobID", primaryTraceSearch);
             if (!traceLogs.isEmpty()) {
                 addRabbitObservabilityTrace(bookingId, corrId, jobId, rabbitNordicsTrackingId,
-                        TraceStatus.SUCCESS, "Primary trace matched: " + primaryTraceSearch.getMessage());
+                        TraceStatus.SUCCESS, "JobID trace matched: " + primaryTraceSearch.getMessage());
                 return traceLogs;
             }
         }
 
-        if (hasText(rabbitNordicsTrackingId)) {
-            LogSearchResult trackingSearch = logAnalyzerService.searchFinalTraceDetailed(bookingId, rabbitNordicsTrackingId, null);
-            traceLogs.addAll(trackingSearch.getLines());
+        if (hasText(corrId)) {
+            LogSearchResult corrSearch = logAnalyzerService.searchFinalTraceDetailed(null, corrId, null);
+            traceLogs.addAll(corrSearch.getLines());
             addSearchStep(steps, partialObservabilityMessages,
-                    "Rabbit Audit Search - TrackingID", trackingSearch);
+                    "Rabbit Audit Search - CorrID", corrSearch);
+            if (!traceLogs.isEmpty()) {
+                addRabbitObservabilityTrace(bookingId, corrId, jobId, rabbitNordicsTrackingId,
+                        TraceStatus.SUCCESS, "CorrID trace matched: " + corrSearch.getMessage());
+                return traceLogs;
+            }
+        }
+
+        if (hasText(rabbitNordicsProcessContextInstanceId)) {
+            LogSearchResult processContextSearch = logAnalyzerService.searchFinalTraceDetailed(
+                    null,
+                    rabbitNordicsProcessContextInstanceId,
+                    null);
+            traceLogs.addAll(processContextSearch.getLines());
+            addSearchStep(steps, partialObservabilityMessages,
+                    "Rabbit Audit Search - processContext.instanceId", processContextSearch);
             addRabbitObservabilityTrace(bookingId, corrId, jobId, rabbitNordicsTrackingId,
                     traceLogs.isEmpty() ? TraceStatus.UNKNOWN : TraceStatus.SUCCESS,
-                    "TrackingID search: " + trackingSearch.getMessage());
+                    "processContext.instanceId search: " + processContextSearch.getMessage());
         }
         return traceLogs;
     }
@@ -547,42 +569,65 @@ public class TestCaseExecutorService {
     }
 
     private String rabbitTrackingSuffix(TestCase testCase) {
-        if (!isRabbitTestCase(testCase) || !hasText(rabbitNordicsTrackingId)) {
+        if (!isRabbitTestCase(testCase) || !hasText(rabbitNordicsProcessContextInstanceId)) {
             return "";
         }
-        return "; Rabbit TrackingID fallback also searched: " + rabbitNordicsTrackingId;
+        return "; Rabbit fallback order: BookingID > JobID > CorrID > processContext.instanceId";
     }
 
-    private StepResult forceRabbitNordicsAuditSnapshot(TestCase testCase, String bookingId) {
+    private StepResult transferRabbitNordicsAuditLog(
+            TestCase testCase,
+            String bookingId,
+            String jobId,
+            String corrId) {
         if (!isRabbitTestCase(testCase)) {
             return null;
         }
-        if (!hasText(bookingId)) {
-            return step("Rabbit Audit Snapshot Transfer", "WARN",
-                    "Skipped because BookingID is unavailable");
+        String evidenceScope = firstText(bookingId, jobId, corrId, rabbitNordicsProcessContextInstanceId);
+        if (!hasText(evidenceScope)) {
+            return step("Rabbit Audit Log Transfer", "WARN",
+                    "Skipped because Rabbit evidence id is unavailable");
         }
         String remoteAuditLog = resolvedRabbitNordicsAuditLogPath();
         if (!hasText(remoteAuditLog)) {
-            return step("Rabbit Audit Snapshot Transfer", "WARN",
+            return step("Rabbit Audit Log Transfer", "WARN",
                     "Skipped because rabbit.nordics.sftp.payload.log.dir is not configured");
         }
-        String localAuditLog = localAuditLogPath(bookingId);
+        String localAuditLog = localAuditLogPath(evidenceScope);
         try {
             sftpService.download(remoteAuditLog, localAuditLog);
             UnifiedTraceContext context = traceContextHolder.current();
             if (context != null) {
                 context.addFileLine("File=" + pad("audit.log", 48)
-                        + " Exists=Y Action=RAW_SNAPSHOT Reason=RABBIT_NORDICS_AUDIT");
-                context.addValidationLine("RabbitAuditSnapshot=TRANSFERRED");
+                        + " Exists=Y Action=DOWNLOADED RemotePath=" + remoteAuditLog
+                        + " LocalPath=" + localAuditLog
+                        + " Reason=RABBIT_NORDICS_AUDIT_LOG");
+                context.addValidationLine("RabbitAuditLogTransfer=DOWNLOADED");
             }
-            return step("Rabbit Audit Snapshot Transfer", "PASS",
-                    "Remote audit.log transferred to " + localAuditLog);
+            return step("Rabbit Audit Log Transfer", "PASS",
+                    "Remote audit.log downloaded to " + localAuditLog);
         } catch (RuntimeException e) {
-            return step("Rabbit Audit Snapshot Transfer", "FAIL",
-                    "Remote audit.log transfer failed: " + e.getMessage());
+            UnifiedTraceContext context = traceContextHolder.current();
+            if (context != null) {
+                context.addFileLine("File=" + pad("audit.log", 48)
+                        + " Exists=N Action=FAILED RemotePath=" + remoteAuditLog
+                        + " LocalPath=" + localAuditLog
+                        + " Reason=" + oneLine(e.getMessage()));
+                context.addValidationLine("RabbitAuditLogTransfer=FAILED");
+            }
+            return step("Rabbit Audit Log Transfer", "FAIL",
+                    "Remote audit.log download failed: " + e.getMessage());
         } catch (Exception e) {
-            return step("Rabbit Audit Snapshot Transfer", "FAIL",
-                    "Remote audit.log transfer failed: " + e.getMessage());
+            UnifiedTraceContext context = traceContextHolder.current();
+            if (context != null) {
+                context.addFileLine("File=" + pad("audit.log", 48)
+                        + " Exists=N Action=FAILED RemotePath=" + remoteAuditLog
+                        + " LocalPath=" + localAuditLog
+                        + " Reason=" + oneLine(e.getMessage()));
+                context.addValidationLine("RabbitAuditLogTransfer=FAILED");
+            }
+            return step("Rabbit Audit Log Transfer", "FAIL",
+                    "Remote audit.log download failed: " + e.getMessage());
         }
     }
 
@@ -779,6 +824,22 @@ public class TestCaseExecutorService {
 
     private boolean hasText(String value) {
         return value != null && !value.trim().isEmpty();
+    }
+
+    private String firstText(String... values) {
+        if (values == null) {
+            return "";
+        }
+        for (String value : values) {
+            if (hasText(value)) {
+                return value.trim();
+            }
+        }
+        return "";
+    }
+
+    private String oneLine(String value) {
+        return value == null ? "" : value.replace('\r', ' ').replace('\n', ' ').trim();
     }
 
     private boolean containsIgnoreCase(String value, String expected) {

@@ -15,6 +15,7 @@ public class ConsoleExecutionRequest {
     private boolean parallel;
     private boolean traceEnabled = true;
     private String bookingId;
+    private boolean bookingIdExplicit;
     private String brand;
 
     public String getExecutionId() {
@@ -95,6 +96,14 @@ public class ConsoleExecutionRequest {
 
     public void setBookingId(String bookingId) {
         this.bookingId = bookingId;
+    }
+
+    public boolean isBookingIdExplicit() {
+        return bookingIdExplicit;
+    }
+
+    public void setBookingIdExplicit(boolean bookingIdExplicit) {
+        this.bookingIdExplicit = bookingIdExplicit;
     }
 
     public String getBrand() {

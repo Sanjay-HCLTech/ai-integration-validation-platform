@@ -22,7 +22,7 @@ public class ExecutionEngine {
             TriggerAdapterRegistry adapterRegistry,
             UnifiedTraceContextHolder traceContextHolder,
             UnifiedTraceReportService traceReportService,
-            @Value("${unified.trace.report.enabled:false}") boolean unifiedTraceReportEnabled) {
+            @Value("${unified.trace.report.enabled}") boolean unifiedTraceReportEnabled) {
         this.adapterRegistry = adapterRegistry;
         this.traceContextHolder = traceContextHolder;
         this.traceReportService = traceReportService;
@@ -114,6 +114,7 @@ public class ExecutionEngine {
     }
 
     private ExecutionReport report(ExecutionContext context, TriggerResult triggerResult, String message) {
+        enrichTraceMetadata(triggerResult);
         ExecutionReport report = new ExecutionReport();
         report.setRequest(context.getRequest());
         report.setTriggerResult(triggerResult);
@@ -122,6 +123,22 @@ public class ExecutionEngine {
         report.setMessage(message == null ? triggerResult.getMessage() : message);
         report.setValidationComplete(validationComplete(triggerResult));
         return report;
+    }
+
+    private void enrichTraceMetadata(TriggerResult triggerResult) {
+        if (triggerResult == null) {
+            return;
+        }
+        UnifiedTraceContext unifiedTraceContext = traceContextHolder.current();
+        if (unifiedTraceContext == null) {
+            return;
+        }
+        if (!unifiedTraceContext.getFileLines().isEmpty()) {
+            triggerResult.putMetadata("TRACE_FILE_LINES", String.join("\n", unifiedTraceContext.getFileLines()));
+        }
+        if (!unifiedTraceContext.getRetryLines().isEmpty()) {
+            triggerResult.putMetadata("TRACE_RETRY_LINES", String.join("\n", unifiedTraceContext.getRetryLines()));
+        }
     }
 
     private boolean validationComplete(TriggerResult triggerResult) {

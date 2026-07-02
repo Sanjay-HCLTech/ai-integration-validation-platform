@@ -61,7 +61,7 @@ public class TimelineService {
     private final String localDir;
 
     public TimelineService(
-            @Value("${local.log.dir:C:/logs}") String localDir) {
+            @Value("${local.log.dir}") String localDir) {
         this.localDir = localDir;
     }
 

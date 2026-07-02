@@ -35,13 +35,13 @@ public class RabbitMqTriggerService implements TriggerService {
     private final RabbitFlowConfig flowConfig;
     private final RabbitPayloadResolver payloadResolver;
 
-    @Value("${system.rabbitmq.enabled:true}")
+    @Value("${system.rabbitmq.enabled}")
     private boolean enabled;
 
-    @Value("${rabbitmq.simulation.enabled:true}")
+    @Value("${rabbitmq.simulation.enabled}")
     private boolean simulationEnabled;
 
-    @Value("${unified.trace.report.enabled:false}")
+    @Value("${unified.trace.report.enabled}")
     private boolean unifiedTraceReportEnabled;
 
     public RabbitMqTriggerService(

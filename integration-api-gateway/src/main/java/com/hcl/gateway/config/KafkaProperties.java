@@ -17,7 +17,7 @@ public class KafkaProperties {
     private final Simulation simulation = new Simulation();
     private final Bootstrap bootstrap = new Bootstrap();
     private final Consumer consumer = new Consumer();
-    private String env = "ST5";
+    private String env;
     private int partition;
 
     public Payload getPayload() {
@@ -133,7 +133,7 @@ public class KafkaProperties {
     }
 
     public static class Simulation {
-        private boolean enabled = true;
+        private boolean enabled;
 
         public boolean isEnabled() {
             return enabled;

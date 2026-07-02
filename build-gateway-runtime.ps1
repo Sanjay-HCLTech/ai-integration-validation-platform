@@ -25,6 +25,12 @@ function Invoke-Maven {
 
 Push-Location $root
 try {
+    Write-Step "Enforcing configuration governance"
+    & (Join-Path $root "enforce-config-governance.ps1") -SummaryOnly
+    if (-not $?) {
+        throw "Configuration governance failed."
+    }
+
     # Keep the gateway runtime deterministic: install upstream modules first,
     # then compile the gateway against those freshly installed jars.
     Write-Step "Installing observability core"
@@ -32,6 +38,9 @@ try {
 
     Write-Step "Installing execution core"
     Invoke-Maven @("-pl", "integration-execution-core", "install")
+
+    Write-Step "Installing AI intelligence"
+    Invoke-Maven @("-pl", "integration-ai-intelligence", "install")
 
     Write-Step "Compiling API gateway"
     Invoke-Maven @("-pl", "integration-api-gateway", "compile")

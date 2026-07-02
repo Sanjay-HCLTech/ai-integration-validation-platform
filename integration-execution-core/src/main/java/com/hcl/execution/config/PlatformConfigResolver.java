@@ -17,15 +17,15 @@ public class PlatformConfigResolver {
     }
 
     public String env(String requestedEnv) {
-        return normalize(firstText(requestedEnv, property("platform.env", "ST5")));
+        return normalize(firstText(requestedEnv, property("platform.env", "")));
     }
 
     public String system(String requestedSystem, String flow, String fallbackSystem) {
-        return normalize(firstText(requestedSystem, systemFromFlow(flow), fallbackSystem, property("payload.system.default", "DMS")));
+        return normalize(firstText(requestedSystem, systemFromFlow(flow), fallbackSystem, property("payload.system.default", "")));
     }
 
     public Path payloadRoot() {
-        return Paths.get(property("payload.root", "C:/payloads")).normalize();
+        return Paths.get(property("payload.root", "")).normalize();
     }
 
     public String systemPayloadFolder(String system) {
@@ -37,8 +37,12 @@ public class PlatformConfigResolver {
     }
 
     public String property(String key, String fallback) {
-        String value = environment.getProperty(key);
+        String value = environment.getProperty(configKey(key));
         return hasText(value) ? value.trim() : fallback;
+    }
+
+    private String configKey(String key) {
+        return key == null ? null : key.toLowerCase(Locale.ROOT).replace('_', '.');
     }
 
     public String firstText(String... values) {

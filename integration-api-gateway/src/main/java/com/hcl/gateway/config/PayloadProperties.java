@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "payload")
 public class PayloadProperties {
 
-    private String root = "C:/payloads";
+    private String root;
     private final Base base = new Base();
     private final Default defaultValue = new Default();
     private final Manifest manifest = new Manifest();

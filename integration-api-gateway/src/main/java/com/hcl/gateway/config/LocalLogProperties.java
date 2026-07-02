@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "local.log")
 public class LocalLogProperties {
 
-    private String dir = "C:/logs";
+    private String dir;
     private final Retention retention = new Retention();
 
     public String getDir() {
@@ -23,7 +23,7 @@ public class LocalLogProperties {
     }
 
     public static class Retention {
-        private int days = 7;
+        private int days;
 
         public int getDays() {
             return days;

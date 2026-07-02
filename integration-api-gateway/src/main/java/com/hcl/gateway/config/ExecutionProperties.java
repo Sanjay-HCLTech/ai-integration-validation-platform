@@ -19,7 +19,7 @@ public class ExecutionProperties {
     }
 
     public static class Retry {
-        private int count = 3;
+        private int count;
 
         public int getCount() {
             return count;
@@ -31,7 +31,7 @@ public class ExecutionProperties {
     }
 
     public static class Wait {
-        private long ms = 3000;
+        private long ms;
 
         public long getMs() {
             return ms;

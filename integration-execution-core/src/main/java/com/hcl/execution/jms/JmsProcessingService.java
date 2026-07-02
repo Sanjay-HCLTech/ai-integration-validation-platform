@@ -57,10 +57,10 @@ public class JmsProcessingService {
             UnifiedTimelineBuilder timelineBuilder,
             UnifiedTraceContextHolder traceContextHolder,
             UnifiedTraceReportService traceReportService,
-            @Value("${jms.simulation.processing.delay.ms:2000}") long processingDelayMs,
-            @Value("${jms.simulation.log-analyzer.enabled:true}") boolean logAnalyzerEnabled,
-            @Value("${unified.trace.report.enabled:false}") boolean unifiedTraceReportEnabled,
-            @Value("${local.log.dir:C:/logs}") String localLogDir) {
+            @Value("${jms.simulation.processing.delay.ms}") long processingDelayMs,
+            @Value("${jms.simulation.log-analyzer.enabled}") boolean logAnalyzerEnabled,
+            @Value("${unified.trace.report.enabled}") boolean unifiedTraceReportEnabled,
+            @Value("${local.log.dir}") String localLogDir) {
         this.logAnalyzerService = logAnalyzerService;
         this.validationService = validationService;
         this.timelineBuilder = timelineBuilder;

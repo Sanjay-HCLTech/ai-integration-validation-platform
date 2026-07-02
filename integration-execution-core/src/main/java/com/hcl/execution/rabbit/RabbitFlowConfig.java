@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 import java.util.Map;
 
 @Service
@@ -45,6 +46,16 @@ public class RabbitFlowConfig {
                 property("rabbit.payload.system." + normalizedSystem, ""),
                 property("rabbit.payload.system.folder." + normalizedSystem, ""),
                 normalizedSystem);
+    }
+
+    public String payloadFile(TestCase testCase) {
+        String normalizedEnv = env(testCase);
+        String normalizedSystem = system(testCase);
+        String normalizedScenario = platformConfigResolver.normalize(testCase == null ? null : testCase.getScenario());
+        return firstText(
+                property("rabbit.payload." + normalizedEnv + "." + normalizedSystem + "." + normalizedScenario, ""),
+                property("rabbit.payload." + normalizedSystem + "." + normalizedScenario, ""),
+                property("rabbit.payload." + normalizedScenario, ""));
     }
 
     public String exchangeType(String env, String system) {
@@ -175,6 +186,20 @@ public class RabbitFlowConfig {
                 property("rabbit.tracking.id", ""));
     }
 
+    public String processContextInstanceId(String env, String system, String service) {
+        String normalizedEnv = platformConfigResolver.normalize(env);
+        String normalizedSystem = platformConfigResolver.normalize(system);
+        String normalizedService = platformConfigResolver.normalize(service);
+        return firstText(
+                property("rabbit.process-context.instance-id." + normalizedEnv + "." + normalizedSystem + "." + normalizedService, ""),
+                property("rabbit.process-context.instance-id." + normalizedEnv + "." + normalizedService, ""),
+                property("rabbit.process-context.instance-id." + normalizedService, ""),
+                property("rabbit.process-context.instance-id." + normalizedEnv + "." + normalizedSystem, ""),
+                property("rabbit.process-context.instance-id." + normalizedEnv, ""),
+                property("rabbit.process-context.instance-id." + normalizedSystem, ""),
+                property("rabbit.process-context.instance-id", ""));
+    }
+
     public boolean logScanEnabled(String env, String system, String service) {
         String normalizedEnv = platformConfigResolver.normalize(env);
         String normalizedSystem = platformConfigResolver.normalize(system);
@@ -229,8 +254,12 @@ public class RabbitFlowConfig {
     }
 
     private String property(String key, String fallback) {
-        String value = environment.getProperty(key);
+        String value = environment.getProperty(configKey(key));
         return platformConfigResolver.hasText(value) ? value.trim() : fallback;
+    }
+
+    private String configKey(String key) {
+        return key == null ? null : key.toLowerCase(Locale.ROOT).replace('_', '.');
     }
 
     private String firstText(String... values) {

@@ -1,5 +1,8 @@
 package com.hcl.execution.protocol;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class ProtocolExecutionResult {
 
     private String protocol;
@@ -18,6 +21,7 @@ public class ProtocolExecutionResult {
     private String errorFound;
     private String payloadSource;
     private String endpointOrDestination;
+    private final Map<String, String> metadata = new LinkedHashMap<>();
 
     public String getProtocol() {
         return protocol;
@@ -145,5 +149,15 @@ public class ProtocolExecutionResult {
 
     public void setEndpointOrDestination(String endpointOrDestination) {
         this.endpointOrDestination = endpointOrDestination;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void putMetadata(String key, String value) {
+        if (key != null && !key.trim().isEmpty() && value != null && !value.trim().isEmpty()) {
+            metadata.put(key.trim(), value.trim());
+        }
     }
 }

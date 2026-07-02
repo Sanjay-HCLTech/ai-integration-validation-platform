@@ -8,9 +8,14 @@ import org.springframework.stereotype.Component;
 public class ConsoleProperties {
 
     private final Execution execution = new Execution();
+    private final Intelligence intelligence = new Intelligence();
 
     public Execution getExecution() {
         return execution;
+    }
+
+    public Intelligence getIntelligence() {
+        return intelligence;
     }
 
     public static class Execution {
@@ -32,7 +37,7 @@ public class ConsoleProperties {
     }
 
     public static class History {
-        private int limit = 25;
+        private int limit;
 
         public int getLimit() {
             return limit;
@@ -52,7 +57,7 @@ public class ConsoleProperties {
     }
 
     public static class Timeout {
-        private long ms = 60000;
+        private long ms;
 
         public long getMs() {
             return ms;
@@ -72,6 +77,18 @@ public class ConsoleProperties {
 
         public void setBookingId(String bookingId) {
             this.bookingId = bookingId;
+        }
+    }
+
+    public static class Intelligence {
+        private boolean enabled;
+
+        public boolean isEnabled() {
+            return enabled;
+        }
+
+        public void setEnabled(boolean enabled) {
+            this.enabled = enabled;
         }
     }
 }

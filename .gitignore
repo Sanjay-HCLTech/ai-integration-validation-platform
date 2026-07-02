@@ -8,6 +8,7 @@ Users/
 gateway-server*.log
 *.out.log
 *.err.log
+integration-api-gateway/runtime/
 
 .DS_Store
 Thumbs.db

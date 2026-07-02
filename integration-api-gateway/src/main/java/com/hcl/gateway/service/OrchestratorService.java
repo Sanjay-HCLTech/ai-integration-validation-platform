@@ -15,7 +15,7 @@ public class OrchestratorService {
 
     public OrchestratorService(
             TestCaseExecutorService executorService,
-            @Value("${unified.trace.report.enabled:false}") boolean unifiedTraceReportEnabled) {
+            @Value("${unified.trace.report.enabled}") boolean unifiedTraceReportEnabled) {
         this.executorService = executorService;
         this.unifiedTraceReportEnabled = unifiedTraceReportEnabled;
     }
@@ -24,7 +24,7 @@ public class OrchestratorService {
 
         System.out.println("Orchestrator: Starting execution...");
 
-        // ✅ Correct call
+        // âœ… Correct call
         ExecutionResult result = executorService.execute(testCase);
 
         if (!unifiedTraceReportEnabled) {

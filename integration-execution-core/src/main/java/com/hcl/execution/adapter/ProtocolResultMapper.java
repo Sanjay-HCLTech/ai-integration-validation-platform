@@ -36,6 +36,9 @@ public final class ProtocolResultMapper {
         result.putMetadata("PAYLOAD_SOURCE", protocolResult.getPayloadSource());
         result.putMetadata("ENDPOINT_OR_DESTINATION", protocolResult.getEndpointOrDestination());
         result.putMetadata("TRACKING_ID", protocolResult.getTrackingId());
+        for (java.util.Map.Entry<String, String> entry : protocolResult.getMetadata().entrySet()) {
+            result.putMetadata(entry.getKey(), entry.getValue());
+        }
         return result;
     }
 

@@ -23,7 +23,7 @@ public class ConsoleExecutionHistoryStore {
     private final ConcurrentMap<String, ConsoleExecutionRecord> records = new ConcurrentHashMap<>();
     private final int recentLimit;
 
-    public ConsoleExecutionHistoryStore(@Value("${console.execution.history.limit:25}") int recentLimit) {
+    public ConsoleExecutionHistoryStore(@Value("${console.execution.history.limit}") int recentLimit) {
         this.recentLimit = Math.max(1, recentLimit);
     }
 
@@ -129,6 +129,7 @@ public class ConsoleExecutionHistoryStore {
             item.setTotal(summary.getTotal());
             item.setPass(summary.getPass());
             item.setFail(summary.getFail());
+            item.setDurationMs(summary.getDurationMs());
             item.setSuccessRate(summary.getSuccessRate());
         }
         return item;

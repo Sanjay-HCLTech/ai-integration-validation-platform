@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 import java.util.Map;
 
 @Service
@@ -100,7 +101,7 @@ public class KafkaFlowConfig {
                 property("kafka.consumer.group." + normalizedEnv + "." + normalizedSystem, ""),
                 property("kafka.consumer.group." + normalizedEnv, ""),
                 property("kafka.consumer.group." + normalizedSystem, ""),
-                property("kafka.consumer.group", "ivp-simulation-consumer"));
+                property("kafka.consumer.group.default", "ivp-simulation-consumer"));
     }
 
     public String messageType(String env, String system, String service) {
@@ -194,8 +195,12 @@ public class KafkaFlowConfig {
     }
 
     private String property(String key, String fallback) {
-        String value = environment.getProperty(key);
+        String value = environment.getProperty(configKey(key));
         return platformConfigResolver.hasText(value) ? value.trim() : fallback;
+    }
+
+    private String configKey(String key) {
+        return key == null ? null : key.toLowerCase(Locale.ROOT).replace('_', '.');
     }
 
     private String firstText(String... values) {

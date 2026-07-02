@@ -86,11 +86,11 @@ public class ExecutionController {
             TimelineService timelineService,
             BusinessValidationService businessValidationService,
             ReportService reportService,
-            @Value("${local.log.dir:C:/logs}") String localLogDir,
-            @Value("${unified.trace.report.enabled:false}") boolean unifiedTraceReportEnabled,
-            @Value("${platform.report.enabled:false}") boolean platformReportEnabled,
-            @Value("${soap.payload.catalog.enabled:true}") boolean soapPayloadCatalogEnabled,
-            @Value("${rest.payload.catalog.enabled:true}") boolean restPayloadCatalogEnabled) {
+            @Value("${local.log.dir}") String localLogDir,
+            @Value("${unified.trace.report.enabled}") boolean unifiedTraceReportEnabled,
+            @Value("${platform.report.enabled}") boolean platformReportEnabled,
+            @Value("${soap.payload.catalog.enabled}") boolean soapPayloadCatalogEnabled,
+            @Value("${rest.payload.catalog.enabled}") boolean restPayloadCatalogEnabled) {
         this.orchestratorService = orchestratorService;
         this.executionRouterService = executionRouterService;
         this.jmsProducerService = jmsProducerService;
@@ -258,7 +258,7 @@ public class ExecutionController {
             @RequestParam(name = "bookingId") String bookingId,
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
-            @RequestParam(name = "scenario", defaultValue = "PACKAGEOFFER") String scenario,
+            @RequestParam(name = "scenario", defaultValue = "PACKAGEOFFERS") String scenario,
             @RequestParam(name = "env", required = false) String env,
             @RequestParam(name = "collection", required = false) String collection,
             @RequestParam(name = "brand", required = false) String brand,
@@ -272,7 +272,7 @@ public class ExecutionController {
             @RequestParam(name = "bookingId") String bookingId,
             @RequestParam(name = "payload", required = false) String payloadFile,
             @RequestParam(name = "flow", defaultValue = "DMS_BOOKING") String flow,
-            @RequestParam(name = "scenario", defaultValue = "PACKAGEOFFER") String scenario,
+            @RequestParam(name = "scenario", defaultValue = "PACKAGEOFFERS") String scenario,
             @RequestParam(name = "env", required = false) String env,
             @RequestParam(name = "collection", required = false) String collection,
             @RequestParam(name = "brand", required = false) String brand) {

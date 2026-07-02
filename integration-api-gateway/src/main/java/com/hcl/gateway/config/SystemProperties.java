@@ -34,7 +34,7 @@ public class SystemProperties {
     }
 
     public static class Toggle {
-        private boolean enabled = true;
+        private boolean enabled;
 
         public boolean isEnabled() {
             return enabled;

@@ -33,7 +33,7 @@ public class RabbitMqProperties {
     }
 
     public static class Simulation {
-        private boolean enabled = true;
+        private boolean enabled;
 
         public boolean isEnabled() {
             return enabled;

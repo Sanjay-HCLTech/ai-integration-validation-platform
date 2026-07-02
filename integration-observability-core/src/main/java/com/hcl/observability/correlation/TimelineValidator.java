@@ -35,7 +35,7 @@ public class TimelineValidator {
 
     private static final Map<String, Month> MONTHS = new HashMap<>();
 
-    @Value("${unified.trace.report.enabled:false}")
+    @Value("${unified.trace.report.enabled}")
     private boolean unifiedTraceReportEnabled;
 
     static {

@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.hcl</groupId>
         <artifactId>ai-integration-validation-platform</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -23,14 +23,21 @@
         <dependency>
             <groupId>com.hcl</groupId>
             <artifactId>integration-execution-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <!-- Observability Core -->
         <dependency>
             <groupId>com.hcl</groupId>
             <artifactId>integration-observability-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- AI Intelligence -->
+        <dependency>
+            <groupId>com.hcl</groupId>
+            <artifactId>integration-ai-intelligence</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <!-- Configuration metadata for custom application.properties keys -->

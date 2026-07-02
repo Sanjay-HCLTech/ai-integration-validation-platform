@@ -42,7 +42,7 @@ Catalog-based examples:
 ```text
 http://localhost:8080/execute/run?bookingId=31835146&category=DATAHUB&flow=DMS_BOOKING&scenario=BOOKING_UPDATE_FULL&mode=SYNC
 http://localhost:8080/execute/run?bookingId=31835146&category=DATAHUB&flow=DMS_BOOKING&scenario=BOOKING_CANCEL&mode=ASYNC
-http://localhost:8080/execute/run?bookingId=31835146&category=APIGEE&flow=DMS_BOOKING&scenario=PACKAGEOFFER&mode=SYNC
+http://localhost:8080/execute/run?bookingId=31835146&category=APIGEE&flow=DMS_BOOKING&scenario=PACKAGEOFFERS&mode=SYNC
 http://localhost:8080/execute/run?bookingId=31835146&category=APIGEE&flow=DMS_BOOKING&scenario=FLIGHTOFFERS&mode=SYNC
 http://localhost:8080/execute/run?bookingId=31835146&category=VRP&flow=DMS_BOOKING&scenario=DISPLAYBOOKING_V3&mode=SYNC
 http://localhost:8080/execute/run?bookingId=31835146&category=VRP&flow=DMS_BOOKING&scenario=BOOKING_MODIFY&mode=SYNC

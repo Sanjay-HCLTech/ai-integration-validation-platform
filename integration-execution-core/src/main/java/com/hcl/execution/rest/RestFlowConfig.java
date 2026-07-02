@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Locale;
 
 @Service
 public class RestFlowConfig {
@@ -26,7 +27,7 @@ public class RestFlowConfig {
 
     public String collection(TestCase testCase) {
         String requestCollection = testCase == null ? null : testCase.getCollection();
-        return normalizeCollection(firstText(requestCollection, property("rest.collection.default", "PackageOffer")));
+        return normalizeCollection(firstText(requestCollection, property("rest.collection.default", "PackageOffers")));
     }
 
     public String brand(TestCase testCase) {
@@ -43,6 +44,7 @@ public class RestFlowConfig {
                 property("rest.endpoint." + normalizedEnv + "." + normalizedCollection, ""),
                 property("rest.endpoint." + normalizedCollection + "." + normalizedBrand, ""),
                 property("rest.endpoint." + normalizedCollection, ""),
+                property("rest.endpoint.default", ""),
                 property("rest.endpoint", ""));
     }
 
@@ -129,6 +131,28 @@ public class RestFlowConfig {
                 property("rest.success.markers", ""));
     }
 
+    public String logRemotePath(String env, String collection, String fallback) {
+        String normalizedEnv = platformConfigResolver.normalize(env);
+        String normalizedCollection = normalizeCollection(collection);
+        return firstText(
+                property("rest.log.remote.path." + normalizedEnv + "." + normalizedCollection, ""),
+                property("rest.log.remote.path." + normalizedCollection, ""),
+                property("rest.sftp.payload.log.dir." + normalizedEnv + "." + normalizedCollection, ""),
+                property("rest.sftp.payload.log.dir." + normalizedCollection, ""),
+                property("rest.log.remote.path", ""),
+                property("rest.sftp.payload.log.dir", ""),
+                fallback);
+    }
+
+    public String logSnapshotExclude(String env, String collection) {
+        String normalizedEnv = platformConfigResolver.normalize(env);
+        String normalizedCollection = normalizeCollection(collection);
+        return firstText(
+                property("rest.log.snapshot.exclude." + normalizedEnv + "." + normalizedCollection, ""),
+                property("rest.log.snapshot.exclude." + normalizedCollection, ""),
+                property("rest.log.snapshot.exclude", ""));
+    }
+
     public String payloadFile(TestCase testCase, String collection) {
         String normalizedEnv = env(testCase);
         String normalizedCollection = normalizeCollection(collection);
@@ -155,15 +179,19 @@ public class RestFlowConfig {
 
     public String normalizeCollection(String value) {
         String normalized = platformConfigResolver.normalize(value);
-        if ("PACKAGEOFFERS".equals(normalized)) {
-            return "PACKAGEOFFER";
+        if ("PACKAGEOFFER".equals(normalized)) {
+            return "PACKAGEOFFERS";
         }
         return normalized;
     }
 
     private String property(String key, String fallback) {
-        String value = environment.getProperty(key);
+        String value = environment.getProperty(configKey(key));
         return platformConfigResolver.hasText(value) ? value.trim() : fallback;
+    }
+
+    private String configKey(String key) {
+        return key == null ? null : key.toLowerCase(Locale.ROOT).replace('_', '.');
     }
 
     private String firstText(String... values) {

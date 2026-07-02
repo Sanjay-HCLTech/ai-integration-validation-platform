@@ -54,52 +54,52 @@ public class SoapTriggerService implements TriggerService {
         this.flowConfig = flowConfig;
     }
 
-    @Value("${soap.endpoint:}")
+    @Value("${soap.endpoint.default}")
     private String endpoint;
 
-    @Value("${soap.transport.default:${soap.transport:http}}")
+    @Value("${soap.transport.default}")
     private String transport;
 
-    @Value("${soap.action:}")
+    @Value("${soap.action}")
     private String soapAction;
 
-    @Value("${soap.expected.http.status:200}")
+    @Value("${soap.expected.http.status}")
     private int expectedHttpStatus;
 
-    @Value("${soap.status.xpath://*[translate(local-name(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='status']/text()}")
+    @Value("${soap.status.xpath}")
     private String statusXPath;
 
-    @Value("${soap.expected.status.values:SUCCESS}")
+    @Value("${soap.expected.status.values}")
     private String expectedStatusValues;
 
-    @Value("${soap.allow.error.status:false}")
+    @Value("${soap.allow.error.status}")
     private boolean allowErrorStatus;
 
-    @Value("${soap.connect.timeout.ms:5000}")
+    @Value("${soap.connect.timeout.ms}")
     private int connectTimeoutMs;
 
-    @Value("${soap.read.timeout.ms:15000}")
+    @Value("${soap.read.timeout.ms}")
     private int readTimeoutMs;
 
-    @Value("${soap.jms.sender:TIL.ST5.TIB-XX.REQ.VRP.XML.V1}")
+    @Value("${soap.jms.sender}")
     private String jmsSender;
 
-    @Value("${soap.jms.receiver:TIL.ST5.TIB-XX.RES.VRP.XML.V1}")
+    @Value("${soap.jms.receiver}")
     private String jmsReceiver;
 
-    @Value("${soap.jms.async:false}")
+    @Value("${soap.jms.async}")
     private boolean jmsAsync;
 
-    @Value("${soap.jms.validation.enabled:true}")
+    @Value("${soap.jms.validation.enabled}")
     private boolean jmsValidationEnabled;
 
-    @Value("${soap.jms.simulation.validation.enabled:true}")
+    @Value("${soap.jms.simulation.validation.enabled}")
     private boolean jmsSimulationValidationEnabled;
 
-    @Value("${system.soap.enabled:true}")
+    @Value("${system.soap.enabled}")
     private boolean enabled;
 
-    @Value("${unified.trace.report.enabled:false}")
+    @Value("${unified.trace.report.enabled}")
     private boolean unifiedTraceReportEnabled;
 
     @Override

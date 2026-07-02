@@ -30,6 +30,20 @@ public class RabbitPayloadResolver {
         String bookingId = testCase == null ? null : testCase.getBookingId();
 
         if (isBlank(payload)) {
+            String configuredPayload = flowConfig.payloadFile(testCase);
+            if (!isBlank(configuredPayload)) {
+                PayloadResolution configured = payloadResolver.resolve(
+                        configuredPayload,
+                        system,
+                        bookingId,
+                        RABBIT_EXTENSIONS,
+                        flowConfig.payloadRoot(),
+                        flowConfig.systemPayloadFolder(system));
+                if (configured != null) {
+                    return from(configured);
+                }
+                throw new IllegalArgumentException("Configured Rabbit payload file not found: " + configuredPayload);
+            }
             PayloadResolution latest = payloadResolver.resolve(
                     null,
                     system,

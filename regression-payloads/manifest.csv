@@ -8,7 +8,7 @@ DATAHUB,DMS_BOOKING,SUBSCRIBEBOOKINGDETAILS,ASYNC,datahub/BookingDetails_SUBSCRI
 DATAHUB,DMS_BOOKING,PUBLISHBOOKINGDETAILS,ASYNC,datahub/DataHub_PublishBookingDetails_Topic.xml,text/xml,N
 DATAHUB,DMS_BOOKING,SAMPLE_DMS_EVENT,ASYNC,datahub/sample-dms-event.xml,text/xml,N
 DATAHUB,SAP_BOOKING,SAMPLE_SAP_EVENT,ASYNC,datahub/sample-sap-event.xml,text/xml,N
-APIGEE,DMS_BOOKING,PACKAGEOFFER,SYNC,apigee/package-offers-postman.json,application/json,Y
+APIGEE,DMS_BOOKING,PACKAGEOFFERS,SYNC,apigee/package-offers-postman.json,application/json,Y
 APIGEE,DMS_BOOKING,ACCOMOFFERS,SYNC,apigee/accom-offers-postman.json,application/json,N
 APIGEE,DMS_BOOKING,FLIGHTOFFERS,SYNC,apigee/flight-offers-postman.json,application/json,N
 APIGEE,DMS_BOOKING,CRUISEOFFERS,SYNC,apigee/cruise-offers-postman.json,application/json,N

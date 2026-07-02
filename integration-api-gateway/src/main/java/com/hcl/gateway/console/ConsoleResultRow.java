@@ -11,6 +11,7 @@ public class ConsoleResultRow {
     private String env;
     private String status;
     private String bookingId;
+    private String trackingId;
     private String corrId;
     private String jobId;
     private long timeMs;
@@ -18,6 +19,7 @@ public class ConsoleResultRow {
     private List<String> trace = new ArrayList<>();
     private List<String> assertions = new ArrayList<>();
     private List<String> timeline = new ArrayList<>();
+    private List<String> terminalLog = new ArrayList<>();
 
     public String getService() {
         return service;
@@ -65,6 +67,14 @@ public class ConsoleResultRow {
 
     public void setBookingId(String bookingId) {
         this.bookingId = bookingId;
+    }
+
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public void setTrackingId(String trackingId) {
+        this.trackingId = trackingId;
     }
 
     public String getCorrId() {
@@ -121,5 +131,13 @@ public class ConsoleResultRow {
 
     public void setTimeline(List<String> timeline) {
         this.timeline = timeline;
+    }
+
+    public List<String> getTerminalLog() {
+        return terminalLog;
+    }
+
+    public void setTerminalLog(List<String> terminalLog) {
+        this.terminalLog = terminalLog;
     }
 }

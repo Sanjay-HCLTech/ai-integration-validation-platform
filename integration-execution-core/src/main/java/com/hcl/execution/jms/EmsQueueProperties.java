@@ -14,12 +14,12 @@ public class EmsQueueProperties {
     private final String receiverQueue;
 
     public EmsQueueProperties(
-            @Value("${ems.host:}") String host,
-            @Value("${ems.port:0}") int port,
-            @Value("${ems.user:}") String user,
-            @Value("${ems.password:}") String password,
-            @Value("${ems.queue.sender:}") String senderQueue,
-            @Value("${ems.queue.receiver:}") String receiverQueue) {
+            @Value("${ems.host}") String host,
+            @Value("${ems.port}") int port,
+            @Value("${ems.user}") String user,
+            @Value("${ems.password}") String password,
+            @Value("${ems.queue.sender}") String senderQueue,
+            @Value("${ems.queue.receiver}") String receiverQueue) {
         this.host = host;
         this.port = port;
         this.user = user;

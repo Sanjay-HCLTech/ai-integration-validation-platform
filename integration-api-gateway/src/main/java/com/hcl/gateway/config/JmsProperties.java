@@ -17,7 +17,7 @@ public class JmsProperties {
     private final Expected expected = new Expected();
     private final Simulation simulation = new Simulation();
     private final SystemConfig system = new SystemConfig();
-    private String env = "ST5";
+    private String env;
     private String provider;
     private final Default defaultValue = new Default();
 

@@ -36,13 +36,13 @@ public class KafkaTriggerService implements TriggerService {
     private final KafkaFlowConfig flowConfig;
     private final KafkaPayloadResolver payloadResolver;
 
-    @Value("${system.kafka.enabled:true}")
+    @Value("${system.kafka.enabled}")
     private boolean enabled;
 
-    @Value("${kafka.simulation.enabled:true}")
+    @Value("${kafka.simulation.enabled}")
     private boolean simulationEnabled;
 
-    @Value("${unified.trace.report.enabled:false}")
+    @Value("${unified.trace.report.enabled}")
     private boolean unifiedTraceReportEnabled;
 
     public KafkaTriggerService(

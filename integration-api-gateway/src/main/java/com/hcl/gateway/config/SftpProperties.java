@@ -11,11 +11,9 @@ import java.util.Map;
 public class SftpProperties {
 
     private String host;
-    private int port = 22;
+    private int port;
     private String username;
     private String password;
-    private String privateKeyFile;
-    private String privateKeyPassphrase;
     private final Map<String, Object> privateProperties = new LinkedHashMap<>();
     private final Remote remote = new Remote();
     private final Connect connect = new Connect();
@@ -59,22 +57,6 @@ public class SftpProperties {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getPrivateKeyFile() {
-        return privateKeyFile;
-    }
-
-    public void setPrivateKeyFile(String privateKeyFile) {
-        this.privateKeyFile = privateKeyFile;
-    }
-
-    public String getPrivateKeyPassphrase() {
-        return privateKeyPassphrase;
-    }
-
-    public void setPrivateKeyPassphrase(String privateKeyPassphrase) {
-        this.privateKeyPassphrase = privateKeyPassphrase;
     }
 
     public Map<String, Object> getPrivate() {
@@ -154,7 +136,7 @@ public class SftpProperties {
     }
 
     public static class Retry {
-        private int count = 3;
+        private int count;
         private final Wait wait = new Wait();
 
         public int getCount() {
@@ -171,7 +153,7 @@ public class SftpProperties {
     }
 
     public static class Wait {
-        private long ms = 10000;
+        private long ms;
 
         public long getMs() {
             return ms;
@@ -267,7 +249,7 @@ public class SftpProperties {
     }
 
     public static class Within {
-        private int days = 15;
+        private int days;
 
         public int getDays() {
             return days;
@@ -280,8 +262,8 @@ public class SftpProperties {
 
     public static class Correlation {
         private final Max max = new Max();
-        private int tokenLimit = 100;
-        private int tokensPerSearch = 3;
+        private int tokenLimit;
+        private int tokensPerSearch;
 
         public Max getMax() {
             return max;
@@ -305,8 +287,8 @@ public class SftpProperties {
     }
 
     public static class Max {
-        private int depth = 3;
-        private int jobids = 50;
+        private int depth;
+        private int jobids;
 
         public int getDepth() {
             return depth;
@@ -351,7 +333,7 @@ public class SftpProperties {
     }
 
     public static class Per {
-        private int file = 10;
+        private int file;
 
         public int getFile() {
             return file;
@@ -379,7 +361,7 @@ public class SftpProperties {
     }
 
     public static class BlockLines {
-        private int lines = 10;
+        private int lines;
 
         public int getLines() {
             return lines;
@@ -407,7 +389,7 @@ public class SftpProperties {
     }
 
     public static class Filter {
-        private boolean enabled = true;
+        private boolean enabled;
 
         public boolean isEnabled() {
             return enabled;

@@ -196,7 +196,7 @@ try {
     Require ([bool]($soap.rows[0].assertions | Where-Object { $_ -eq "DOWNSTREAM=SIMULATED" })) "SOAP assertions missing DOWNSTREAM=SIMULATED."
 
     Write-Step "Protocol smoke: REST"
-    $rest = Invoke-JsonPost -Path "/execute/executeAll" -Payload (New-Request -FlowTypes @("REST") -Services @("PackageOffer"))
+    $rest = Invoke-JsonPost -Path "/execute/executeAll" -Payload (New-Request -FlowTypes @("REST") -Services @("PackageOffers"))
     Assert-ExecutionResponse -Response $rest -Name "REST" -ExpectedBookingId $null
 
     Write-Step "Protocol smoke: JMS"

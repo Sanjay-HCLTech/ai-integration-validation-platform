@@ -58,17 +58,28 @@ public class UnifiedTraceReportService {
     }
 
     private void appendFiles(StringBuilder report, UnifiedTraceContext context) {
+        if (context.getFileLines().isEmpty()) {
+            return;
+        }
         report.append(System.lineSeparator());
         report.append("-------------------- FILE HANDLING ---------------------").append(System.lineSeparator());
         report.append("[FILES]").append(System.lineSeparator());
-        if (context.getFileLines().isEmpty()) {
-            report.append("Name=NO_REMOTE_FILES ExistsLocal=N Action=SKIP Reason=NO_FILE_ACTIVITY")
-                    .append(System.lineSeparator());
-            return;
-        }
-        for (String line : context.getFileLines()) {
+        for (int index = 0; index < context.getFileLines().size(); index++) {
+            String line = context.getFileLines().get(index);
             report.append(line).append(System.lineSeparator());
+            if (isFileRecord(line) && hasNextFileRecord(context, index)) {
+                report.append(System.lineSeparator());
+            }
         }
+    }
+
+    private boolean hasNextFileRecord(UnifiedTraceContext context, int index) {
+        return index + 1 < context.getFileLines().size()
+                && isFileRecord(context.getFileLines().get(index + 1));
+    }
+
+    private boolean isFileRecord(String line) {
+        return line != null && line.trim().startsWith("File=");
     }
 
     private void appendRetries(StringBuilder report, UnifiedTraceContext context) {

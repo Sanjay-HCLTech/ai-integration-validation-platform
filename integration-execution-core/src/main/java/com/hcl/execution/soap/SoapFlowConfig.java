@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Locale;
 
 @Service
 public class SoapFlowConfig {
@@ -47,6 +48,7 @@ public class SoapFlowConfig {
                 property("soap.endpoint." + normalizedEnv + "." + normalizedSystem, ""),
                 property("soap.endpoint." + normalizedEnv, ""),
                 property("soap.endpoint." + normalizedSystem, ""),
+                property("soap.endpoint.default", ""),
                 property("soap.endpoint", ""));
     }
 
@@ -98,8 +100,12 @@ public class SoapFlowConfig {
     }
 
     private String property(String key, String fallback) {
-        String value = environment.getProperty(key);
+        String value = environment.getProperty(configKey(key));
         return hasText(value) ? value.trim() : fallback;
+    }
+
+    private String configKey(String key) {
+        return key == null ? null : key.toLowerCase(Locale.ROOT).replace('_', '.');
     }
 
     private String firstText(String... values) {

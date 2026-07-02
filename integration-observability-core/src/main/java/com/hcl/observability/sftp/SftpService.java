@@ -37,24 +37,24 @@ public class SftpService {
 
     public SftpService(
             @Value("${sftp.host}") String host,
-            @Value("${sftp.port:22}") int port,
+            @Value("${sftp.port}") int port,
             @Value("${sftp.username}") String user,
-            @Value("${sftp.private-key-file:${sftp.private-key:${sftp.private.key:}}}") String key,
-            @Value("${sftp.private-key-passphrase:${sftp.private.key.passphrase:}}") String passphrase,
-            @Value("${sftp.password:}") String password,
+            @Value("${sftp.private.key}") String key,
+            @Value("${sftp.private.key.passphrase}") String passphrase,
+            @Value("${sftp.password}") String password,
             @Value("${sftp.payload.log.dir}") String defaultLogDir,
-            @Value("${rabbit.nordics.sftp.host:${sftp.host}}") String rabbitNordicsHost,
-            @Value("${rabbit.nordics.sftp.port:${sftp.port:22}}") int rabbitNordicsPort,
-            @Value("${rabbit.nordics.sftp.username:${sftp.username}}") String rabbitNordicsUser,
-            @Value("${rabbit.nordics.sftp.password:}") String rabbitNordicsPassword,
-            @Value("${rabbit.nordics.sftp.private-key-file:${rabbit.nordics.sftp.private-key:${rabbit.nordics.sftp.private.key:${sftp.private-key-file:${sftp.private-key:${sftp.private.key:}}}}}}") String rabbitNordicsKey,
-            @Value("${rabbit.nordics.sftp.private-key-passphrase:${rabbit.nordics.sftp.private.key.passphrase:${sftp.private-key-passphrase:${sftp.private.key.passphrase:}}}}") String rabbitNordicsPassphrase,
-            @Value("${rabbit.nordics.sftp.payload.log.dir:${rabbit.nordics.log.remote.path:}}") String rabbitNordicsRemoteLogPath,
-            @Value("${rest.sftp.payload.log.dir:${rest.log.remote.path:${sftp.payload.log.dir}}}") String apigeeRestLogDir,
-            @Value("${sftp.connect.timeout.ms:15000}") int connectTimeoutMs,
-            @Value("${sftp.command.timeout.ms:20000}") int commandTimeoutMs,
-            @Value("${sftp.keepalive.interval.ms:30000}") int keepAliveIntervalMs,
-            @Value("${sftp.search.modified.within.days:15}") int modifiedWithinDays) {
+            @Value("${rabbit.nordics.sftp.host}") String rabbitNordicsHost,
+            @Value("${rabbit.nordics.sftp.port}") int rabbitNordicsPort,
+            @Value("${rabbit.nordics.sftp.username}") String rabbitNordicsUser,
+            @Value("${rabbit.nordics.sftp.password}") String rabbitNordicsPassword,
+            @Value("${rabbit.nordics.sftp.private.key}") String rabbitNordicsKey,
+            @Value("${rabbit.nordics.sftp.private.key.passphrase}") String rabbitNordicsPassphrase,
+            @Value("${rabbit.nordics.sftp.payload.log.dir}") String rabbitNordicsRemoteLogPath,
+            @Value("${rest.sftp.payload.log.dir}") String apigeeRestLogDir,
+            @Value("${sftp.connect.timeout.ms}") int connectTimeoutMs,
+            @Value("${sftp.command.timeout.ms}") int commandTimeoutMs,
+            @Value("${sftp.keepalive.interval.ms}") int keepAliveIntervalMs,
+            @Value("${sftp.search.modified.within.days}") int modifiedWithinDays) {
         this.defaultLogDir = trimTrailingSlash(defaultLogDir);
         this.defaultConfig = new SftpConnectionConfig(host, port, user, password, key, passphrase);
         this.rabbitNordicsConfig = new SftpConnectionConfig(

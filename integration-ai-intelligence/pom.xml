@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.hcl</groupId>
         <artifactId>ai-integration-validation-platform</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
@@ -16,7 +16,13 @@
         <dependency>
             <groupId>com.hcl</groupId>
             <artifactId>integration-execution-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!-- JSON audit persistence -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
 
     </dependencies>

@@ -10,6 +10,7 @@ public class ConsoleExecutionHistoryItem {
     private int total;
     private int pass;
     private int fail;
+    private long durationMs;
     private int successRate;
 
     public String getExecutionId() {
@@ -58,6 +59,14 @@ public class ConsoleExecutionHistoryItem {
 
     public void setFail(int fail) {
         this.fail = fail;
+    }
+
+    public long getDurationMs() {
+        return durationMs;
+    }
+
+    public void setDurationMs(long durationMs) {
+        this.durationMs = durationMs;
     }
 
     public int getSuccessRate() {

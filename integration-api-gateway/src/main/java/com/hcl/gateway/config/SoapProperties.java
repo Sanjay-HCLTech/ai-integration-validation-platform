@@ -20,7 +20,7 @@ public class SoapProperties {
     private final Jms jms = new Jms();
     private final Allow allow = new Allow();
     private final Map<String, Object> transport = new LinkedHashMap<>();
-    private String env = "ST5";
+    private String env;
     private String action;
 
     public Payload getPayload() {

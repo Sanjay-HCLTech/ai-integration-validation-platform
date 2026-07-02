@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Locale;
 
 @Service
 public class JmsFlowConfig {
@@ -108,8 +109,12 @@ public class JmsFlowConfig {
     }
 
     private String property(String key, String fallback) {
-        String value = environment.getProperty(key);
+        String value = environment.getProperty(configKey(key));
         return platformConfigResolver.hasText(value) ? value.trim() : fallback;
+    }
+
+    private String configKey(String key) {
+        return key == null ? null : key.toLowerCase(Locale.ROOT).replace('_', '.');
     }
 
     private String firstText(String... values) {

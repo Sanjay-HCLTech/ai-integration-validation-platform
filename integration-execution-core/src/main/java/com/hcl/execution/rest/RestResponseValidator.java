@@ -25,10 +25,10 @@ public class RestResponseValidator {
     private final String statusXPath;
 
     public RestResponseValidator(
-            @Value("${rest.expected.http.status.codes:200,400,401,403,500}") String expectedHttpStatusCodes,
-            @Value("${rest.expected.status.values:SUCCESS,ERROR}") String expectedStatusValues,
-            @Value("${rest.status.json.path:status}") String statusJsonPath,
-            @Value("${rest.status.xpath://*[translate(local-name(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='status']/text()}") String statusXPath) {
+            @Value("${rest.expected.http.status.codes}") String expectedHttpStatusCodes,
+            @Value("${rest.expected.status.values}") String expectedStatusValues,
+            @Value("${rest.status.json.path}") String statusJsonPath,
+            @Value("${rest.status.xpath}") String statusXPath) {
         this.expectedHttpStatusCodes = expectedHttpStatusCodes;
         this.expectedStatusValues = expectedStatusValues;
         this.statusJsonPath = statusJsonPath;

@@ -38,6 +38,20 @@
       gap: 16px;
     }
 
+    .role-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .role-control select {
+      min-height: 30px;
+      min-width: 120px;
+    }
+
     h1 {
       margin: 0;
       font-size: 20px;
@@ -83,6 +97,17 @@
       padding: 14px;
     }
 
+    .runs-panel {
+      padding: 20px 22px 24px;
+      border-radius: 6px;
+    }
+
+    .results-panel {
+      padding: 0;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
     .controls {
       display: grid;
       grid-template-columns: 120px 180px 180px 220px 160px 1fr;
@@ -98,7 +123,7 @@
       font-weight: 700;
     }
 
-    select, input {
+    select, input, textarea {
       width: 100%;
       min-height: 34px;
       border: 1px solid var(--line);
@@ -109,6 +134,12 @@
       font: inherit;
     }
 
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+      line-height: 1.4;
+    }
+
     select[multiple] {
       min-height: 92px;
     }
@@ -117,8 +148,8 @@
       display: flex;
       gap: 14px;
       align-items: center;
-      flex-wrap: wrap;
-      padding-bottom: 6px;
+      flex: 0 0 auto;
+      flex-wrap: nowrap;
     }
 
     .checks label {
@@ -135,11 +166,101 @@
       min-height: 16px;
     }
 
-    .actions {
-      display: flex;
+    .control-group {
+      display: inline-flex;
+      align-items: center;
       gap: 8px;
-      flex-wrap: wrap;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    .control-group + .control-group {
+      border-left: 1px solid var(--line);
+      padding-left: 14px;
+    }
+
+    .control-label {
+      color: #102235;
+      background: #eaf0f5;
+      border: 1px solid #cfd8e3;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+      padding: 6px 8px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .control-label-control {
+      background: #e8f1ff;
+      border-color: #b9d2ff;
+      color: #0b4ca8;
+    }
+
+    .control-label-scope {
+      background: #f0f7ef;
+      border-color: #c8e3c5;
+      color: #1f6b35;
+    }
+
+    .control-label-mode {
+      background: #fff4d6;
+      border-color: #ead18a;
+      color: #7a4d00;
+    }
+
+    .control-label-report {
+      background: #f1edff;
+      border-color: #d6c8ff;
+      color: #4a2a91;
+    }
+
+    .control-group label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text);
+      font-weight: 400;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .control-group input[type="checkbox"] {
+      width: 16px;
+      min-height: 16px;
+      flex: 0 0 16px;
+    }
+
+    .action-panel {
+      display: grid;
+      gap: 12px;
       margin-top: 12px;
+    }
+
+    .report-action-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+    .control-buttons {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+
+    .report-action-row select {
+      width: 112px;
+      flex: 0 0 112px;
+      min-height: 38px;
+    }
+
+    .report-action-row button {
+      flex: 0 0 auto;
     }
 
     button {
@@ -159,6 +280,12 @@
       border-color: var(--blue);
     }
 
+    button.active {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: #eef5ff;
+    }
+
     button:disabled {
       opacity: .55;
       cursor: not-allowed;
@@ -168,6 +295,29 @@
       color: var(--muted);
       margin-left: auto;
       align-self: center;
+    }
+
+    .run-message {
+      color: #40516a;
+      font-size: 14px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .run-message.pass {
+      background: transparent;
+      color: var(--green);
+    }
+
+    .run-message.fail {
+      background: transparent;
+      color: var(--red);
+    }
+
+    .run-message.pending {
+      background: transparent;
+      color: var(--amber);
     }
 
     table {
@@ -252,28 +402,295 @@
       font-size: 16px;
     }
 
+    .runs-panel .section-title {
+      margin-bottom: 16px;
+    }
+
+    .runs-panel .section-title h2 {
+      font-size: 18px;
+      color: #071524;
+    }
+
+    .runs-panel .section-title button {
+      min-height: 38px;
+      padding: 8px 18px;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+
     .history-actions {
       display: flex;
       gap: 6px;
       flex-wrap: wrap;
     }
 
+    .recent-runs-table,
+    .results-table {
+      border: 0;
+      border-radius: 0;
+    }
+
+    .recent-runs-table th,
+    .results-table th {
+      background: #eaf0f5;
+      color: #203246;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 12px 16px;
+    }
+
+    .recent-runs-table td,
+    .results-table td {
+      padding: 14px 16px;
+      font-size: 15px;
+      color: #000b1a;
+    }
+
+    .recent-runs-table .history-actions button {
+      min-height: 36px;
+      padding: 7px 16px;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+
+    .results-table .toggle-detail {
+      min-width: 38px;
+      min-height: 36px;
+      padding: 0;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .result-detail-row td {
+      padding: 0;
+      white-space: normal;
+      background: #fbfcfd;
+    }
+
+    .mode-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .mode-panel[hidden] {
+      display: none;
+    }
+
+    .smart-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) 180px 180px;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 220px 120px 160px 1fr;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 1.1fr) minmax(260px, .9fr);
+      gap: 14px;
+    }
+
+    .report-box {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 12px;
+      background: #fbfcfd;
+      min-height: 96px;
+    }
+
+    .report-box h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+    }
+
+    .intelligence-summary-card {
+      max-height: 680px;
+      overflow: auto;
+    }
+
+    .summary-report {
+      display: grid;
+      gap: 12px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .summary-report-title {
+      background: #202a33;
+      color: #fff;
+      border-radius: 6px;
+      padding: 12px;
+    }
+
+    .summary-report-title strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .summary-report-title span,
+    .summary-muted {
+      color: var(--muted);
+    }
+
+    .summary-report-title span {
+      color: #d7dde3;
+    }
+
+    .summary-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(110px, 1fr));
+      gap: 8px;
+    }
+
+    .summary-metric,
+    .summary-section {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .summary-metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .summary-metric strong {
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .summary-section h4 {
+      margin: 0 0 8px;
+      font-size: 13px;
+    }
+
+    .summary-section p {
+      margin: 0;
+    }
+
+    .summary-section ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .summary-section table {
+      border-radius: 0;
+      font-size: 12px;
+    }
+
+    .summary-section th,
+    .summary-section td {
+      white-space: normal;
+    }
+
+    .terminal-log-panel {
+      padding: 0;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .terminal-log-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #202a33;
+      color: #fff;
+    }
+
+    .terminal-log-header h2 {
+      margin: 0;
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+
+    .terminal-log-header span {
+      color: #d7dde3;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .terminal-log-body {
+      height: clamp(260px, 42vh, 428px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      overscroll-behavior: contain;
+      background: #07111f;
+      border-top: 1px solid #31445a;
+    }
+
+    .terminal-log-body pre {
+      min-height: 0;
+      padding: 16px;
+      color: #dbeafe;
+      white-space: pre;
+      word-break: normal;
+      overflow-x: auto;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    .flow-visualizer {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .flow-node {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 7px 9px;
+      background: #fff;
+      min-width: 96px;
+      max-width: 220px;
+      word-break: break-word;
+    }
+
+    .flow-arrow {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
     @media (max-width: 980px) {
       .summary { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
       .controls { grid-template-columns: 1fr 1fr; }
       .detail { grid-template-columns: 1fr; }
+      .smart-grid, .booking-grid, .report-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Unified Execution Console</h1>
-    <div>IVP Single Pane</div>
+    <div class="role-control">
+      <span>Role</span>
+      <select id="securityRole">
+        <option>VIEWER</option>
+        <option selected>OPERATOR</option>
+        <option>ADMIN</option>
+      </select>
+    </div>
   </header>
 
   <main>
     <section class="summary">
-      <div class="metric"><span>Execution ID</span><strong id="executionId">-</strong></div>
+      <div class="metric"><span>Correlation ID</span><strong id="executionId">-</strong></div>
       <div class="metric"><span>Total</span><strong id="total">0</strong></div>
       <div class="metric"><span>Pass</span><strong id="pass">0</strong></div>
       <div class="metric"><span>Fail</span><strong id="fail">0</strong></div>
@@ -281,86 +698,153 @@
       <div class="metric"><span>Success Rate</span><strong id="rate">0%</strong></div>
     </section>
 
-    <section class="panel">
-      <div class="controls">
-        <label>Environment
-          <select id="env">
-            <option>ST5</option>
-            <option>ST3</option>
-            <option>SIT</option>
-          </select>
-        </label>
-
-        <label>Flow Types
-          <select id="flows" multiple>
-            <option selected>JMS</option>
-            <option selected>RABBIT</option>
-            <option>KAFKA</option>
-            <option>REST</option>
-            <option>SOAP</option>
-          </select>
-        </label>
-
-        <label>Systems
-          <select id="systems" multiple>
-            <option selected>DMS</option>
-            <option>SAP</option>
-            <option>AO</option>
-            <option>TDA</option>
-            <option>GIP</option>
-            <option>C4C</option>
-          </select>
-        </label>
-
-        <label>Services
-          <select id="services" multiple>
-            <option selected>BookingDetails</option>
-            <option>SubscribeBookingDetails</option>
-            <option>AccomOffers</option>
-            <option>FlightOffers</option>
-            <option>PackageOffer</option>
-            <option>CruiseOffers</option>
-            <option>DisplayBooking_v3</option>
-            <option>InfoBooking_v3</option>
-            <option>CreateBooking_v3</option>
-            <option>ReservationEvent_v3</option>
-          </select>
-        </label>
-
-        <label>Payload Mode
-          <select id="payloadMode">
-            <option>AUTO</option>
-            <option>MANUAL</option>
-          </select>
-        </label>
-
-        <label>Booking ID
-          <input id="bookingId" value="31835146" placeholder="31835146">
-        </label>
+    <section class="panel" id="executionPanel">
+      <div class="mode-tabs">
+        <button class="active" id="modeSmart" data-mode="SMART_PROMPT">Smart Prompt</button>
+        <button id="modeGuided" data-mode="GUIDED">Guided</button>
+        <button id="modeBooking" data-mode="BOOKING_ID">BookingID</button>
       </div>
 
-      <div class="actions">
-        <button class="primary" id="run">Run</button>
-        <button id="stop" disabled>Stop</button>
-        <button id="rerun" disabled>Re-run Failed</button>
-        <button id="download" disabled>Download Logs</button>
-        <button id="export" disabled>Export Report</button>
-        <div class="checks">
-          <label><input id="runAll" type="checkbox"> Run All Services</label>
-          <label><input id="parallel" type="checkbox" checked> Parallel Execution</label>
-          <label><input id="trace" type="checkbox" checked> Trace Enabled</label>
+      <div class="mode-panel" id="smartPanel">
+        <div class="smart-grid">
+          <label>Prompt
+            <textarea id="smartPrompt">Trigger DMS via JMS and validate till Mongo</textarea>
+          </label>
+          <label>Environment
+            <select id="smartEnv">
+              <option>ST5</option>
+              <option>ST3</option>
+              <option>SIT</option>
+            </select>
+          </label>
+          <label>Booking ID
+            <input id="smartBookingId" value="31835146">
+          </label>
         </div>
-        <div class="status" id="status">Ready</div>
+      </div>
+
+      <div class="mode-panel" id="guidedPanel" hidden>
+        <div class="controls">
+          <label>Environment
+            <select id="env">
+              <option>ST5</option>
+              <option>ST3</option>
+              <option>SIT</option>
+            </select>
+          </label>
+
+          <label>Flow Types
+            <select id="flows" multiple>
+              <option selected>JMS</option>
+              <option>RABBIT</option>
+              <option>KAFKA</option>
+              <option>REST</option>
+              <option>SOAP</option>
+            </select>
+          </label>
+
+          <label>Systems
+            <select id="systems" multiple>
+              <option selected>DMS</option>
+              <option>SAP</option>
+              <option>AO</option>
+              <option>TDA</option>
+              <option>GIP</option>
+              <option>C4C</option>
+            </select>
+          </label>
+
+          <label>Services
+            <select id="services" multiple>
+              <option selected>BookingDetails</option>
+              <option>SubscribeBookingDetails</option>
+              <option>AccomOffers</option>
+              <option>FlightOffers</option>
+              <option>PackageOffers</option>
+              <option>CruiseOffers</option>
+              <option>DisplayBooking_v3</option>
+              <option>InfoBooking_v3</option>
+              <option>CreateBooking_v3</option>
+              <option>ReservationEvent_v3</option>
+            </select>
+          </label>
+
+          <label>Payload Mode
+            <select id="payloadMode">
+              <option>AUTO</option>
+              <option>MANUAL</option>
+            </select>
+          </label>
+
+          <label>Booking ID
+            <input id="bookingId" value="31835146" placeholder="31835146">
+          </label>
+        </div>
+      </div>
+
+      <div class="mode-panel" id="bookingPanel" hidden>
+        <div class="booking-grid">
+          <label>Booking ID
+            <input id="bookingOnlyId" value="31835146">
+          </label>
+          <label>Environment
+            <select id="bookingEnv">
+              <option>ST5</option>
+              <option>ST3</option>
+              <option>SIT</option>
+            </select>
+          </label>
+          <label>Payload Mode
+            <select id="bookingPayloadMode">
+              <option>AUTO</option>
+              <option>MANUAL</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="action-panel">
+        <div class="report-action-row">
+          <div class="control-group">
+            <span class="control-label control-label-control">CONTROL:</span>
+            <div class="control-buttons">
+              <button class="primary" id="run">Run</button>
+              <button id="stop" disabled>Stop</button>
+              <button id="rerun" disabled>Retry Failed</button>
+              <button id="download" disabled>Logs</button>
+            </div>
+          </div>
+          <div class="control-group">
+            <span class="control-label control-label-scope">SCOPE:</span>
+            <label><input id="runAll" type="checkbox"> Run All Services</label>
+          </div>
+          <div class="control-group checks">
+            <span class="control-label control-label-mode">MODE:</span>
+            <label><input id="parallel" type="checkbox" checked> Parallel</label>
+            <label><input id="trace" type="checkbox" checked> Trace</label>
+          </div>
+          <div class="control-group">
+            <span class="control-label control-label-report">REPORT:</span>
+            <select id="reportFormat" aria-label="Report format">
+              <option value="json">JSON</option>
+              <option value="txt">TXT</option>
+              <option value="csv">CSV</option>
+              <option value="html">HTML</option>
+            </select>
+            <button id="export" disabled>Download</button>
+          </div>
+        </div>
+        <div class="run-message" id="status">Ready</div>
       </div>
     </section>
 
-    <section class="panel">
+    <section class="panel runs-panel">
       <div class="section-title">
         <h2>Recent Runs</h2>
         <button id="refreshHistory">Refresh</button>
       </div>
       <div class="table-wrap">
-        <table>
+        <table class="recent-runs-table">
           <thead>
             <tr>
               <th>Execution ID</th>
@@ -380,26 +864,80 @@
       </div>
     </section>
 
-    <section class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Service</th>
-            <th>Flow</th>
-            <th>System</th>
-            <th>Env</th>
-            <th>Status</th>
-            <th>BookingID</th>
-            <th>CorrID</th>
-            <th>JobID</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody id="results">
-          <tr><td colspan="10">No executions yet.</td></tr>
-        </tbody>
-      </table>
+    <section class="panel results-panel">
+      <div class="table-wrap">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Service</th>
+              <th>Flow</th>
+              <th>System</th>
+              <th>Env</th>
+              <th>Status</th>
+              <th>BookingID</th>
+              <th>TrackingID</th>
+              <th>CorrID</th>
+              <th>JobID</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="results">
+            <tr><td colspan="11">No executions yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="intelligencePanel">
+      <div class="section-title">
+        <h2>Intelligence Report</h2>
+        <span class="status" id="reportStatus">No report</span>
+      </div>
+      <div class="report-grid">
+        <div class="report-box">
+          <h3>Executive Summary</h3>
+          <pre id="executiveSummary">NA</pre>
+        </div>
+        <div class="report-box">
+          <h3>Key Insights</h3>
+          <pre id="keyInsights">NA</pre>
+        </div>
+        <div class="report-box">
+          <h3>Flow Visualizer</h3>
+          <div class="flow-visualizer" id="flowVisualizer"></div>
+        </div>
+        <div class="report-box">
+          <h3>Trace Graph Edges</h3>
+          <pre id="traceEdges">NA</pre>
+        </div>
+        <div class="report-box">
+          <h3>Failure Point</h3>
+          <pre id="failurePoint">NA</pre>
+        </div>
+        <div class="report-box">
+          <h3>Drift Detection</h3>
+          <pre id="driftSignals">NA</pre>
+        </div>
+        <div class="report-box">
+          <h3>Validation Rules</h3>
+          <pre id="validationRules">NA</pre>
+        </div>
+        <div class="report-box intelligence-summary-card">
+          <h3>Intelligence Summary Report</h3>
+          <div id="intelligenceSummaryReport" class="summary-report">NA</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel terminal-log-panel">
+      <div class="terminal-log-header">
+        <h2>Execution Terminal Logs</h2>
+        <span id="terminalLogStatus">No execution selected</span>
+      </div>
+      <div class="terminal-log-body">
+        <pre id="terminalLogs">No execution logs yet.</pre>
+      </div>
     </section>
   </main>
 
@@ -407,25 +945,134 @@
     const $ = (id) => document.getElementById(id);
     let lastRequest = null;
     let lastResponse = null;
+    let lastIntelligence = null;
     let activeController = null;
     let currentExecutionId = null;
+    let currentMode = "SMART_PROMPT";
+    let consoleConfig = { intelligenceEnabled: true };
+    let guidedBookingIdTouched = false;
+
+    function isIntelligenceEnabled() {
+      return consoleConfig.intelligenceEnabled !== false;
+    }
+
+    async function loadConsoleConfig() {
+      const response = await fetch("/console/config", {
+        headers: authHeaders()
+      });
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+      consoleConfig = await response.json();
+      applyConsoleConfig();
+    }
+
+    function applyConsoleConfig() {
+      const intelligenceEnabled = isIntelligenceEnabled();
+      $("modeSmart").hidden = !intelligenceEnabled;
+      $("smartPanel").hidden = !intelligenceEnabled || currentMode !== "SMART_PROMPT";
+      $("intelligencePanel").hidden = !intelligenceEnabled;
+      if (!intelligenceEnabled && currentMode === "SMART_PROMPT") {
+        setMode("GUIDED");
+      }
+      if (!intelligenceEnabled) {
+        clearIntelligenceReport();
+      }
+      setActionState();
+    }
+
+    function selectedRole() {
+      return $("securityRole")?.value || localStorage.getItem("ivpRole") || "VIEWER";
+    }
+
+    function setSecurityRole(role) {
+      const safeRole = role || "VIEWER";
+      localStorage.setItem("ivpRole", safeRole);
+      document.cookie = `IVP_ROLE=${encodeURIComponent(safeRole)}; path=/; SameSite=Lax`;
+      if ($("securityRole")) {
+        $("securityRole").value = safeRole;
+      }
+      setActionState();
+    }
+
+    function authHeaders(headers = {}) {
+      return {
+        ...headers,
+        "X-IVP-Role": selectedRole()
+      };
+    }
+
+    function canOperate() {
+      return ["OPERATOR", "ADMIN"].includes(selectedRole());
+    }
 
     function selected(id) {
       return Array.from($(id).selectedOptions).map(option => option.value);
     }
 
-    function requestBody() {
+    function setOnlySelected(selectId, value) {
+      Array.from($(selectId).options).forEach(option => {
+        option.selected = option.value === value;
+      });
+    }
+
+    function syncGuidedRabbitSelection() {
+      if ($("runAll").checked) {
+        return;
+      }
+      const flows = selected("flows").map(value => value.toUpperCase());
+      if (!flows.includes("RABBIT") && !flows.includes("RABBITMQ")) {
+        return;
+      }
+      setOnlySelected("flows", "RABBIT");
+      setOnlySelected("systems", "DMS");
+      setOnlySelected("services", "ReservationEvent_v3");
+    }
+
+    function guidedRequestBody() {
+      syncGuidedRabbitSelection();
       return {
         executionId: newExecutionId(),
+        mode: "GUIDED",
         env: $("env").value,
         systems: selected("systems"),
         flowTypes: selected("flows"),
         services: selected("services"),
         payloadMode: $("payloadMode").value,
         bookingId: $("bookingId").value,
+        bookingIdExplicit: guidedBookingIdTouched && Boolean(($("bookingId").value || "").trim()),
         runAllServices: $("runAll").checked,
         parallel: $("parallel").checked,
         traceEnabled: $("trace").checked
+      };
+    }
+
+    function intelligenceRequestBody() {
+      if (currentMode === "GUIDED") {
+        return guidedRequestBody();
+      }
+      if (currentMode === "BOOKING_ID") {
+        return {
+          executionId: newExecutionId(),
+          mode: "BOOKING_ID",
+          bookingId: $("bookingOnlyId").value,
+          env: $("bookingEnv").value,
+          payloadMode: $("bookingPayloadMode").value,
+          runAllServices: $("runAll").checked,
+          parallel: $("parallel").checked,
+          traceEnabled: $("trace").checked
+        };
+      }
+      return {
+        executionId: newExecutionId(),
+        mode: "SMART_PROMPT",
+        prompt: $("smartPrompt").value,
+        bookingId: $("smartBookingId").value,
+        env: $("smartEnv").value,
+        runAllServices: $("runAll").checked,
+        parallel: $("parallel").checked,
+        traceEnabled: $("trace").checked,
+        payloadMode: "AUTO"
       };
     }
 
@@ -449,7 +1096,7 @@
     }
 
     function setBusy(isBusy) {
-      $("run").disabled = isBusy;
+      $("run").disabled = isBusy || !canOperate();
       $("stop").disabled = !isBusy;
       setActionState();
     }
@@ -457,7 +1104,8 @@
     function setActionState() {
       const hasRows = Boolean(lastResponse?.rows?.length);
       const hasFailed = Boolean(lastResponse?.rows?.some(row => (row.status || "").toUpperCase() === "FAIL"));
-      $("rerun").disabled = Boolean(activeController) || !hasFailed;
+      $("run").disabled = Boolean(activeController) || !canOperate();
+      $("rerun").disabled = Boolean(activeController) || !hasFailed || !canOperate();
       $("download").disabled = Boolean(activeController) || !hasRows;
       $("export").disabled = Boolean(activeController) || !hasRows;
     }
@@ -470,14 +1118,142 @@
       $("rate").textContent = `${summary?.successRate ?? 0}%`;
     }
 
+    function setRecentRunsSummary(items) {
+      const runs = items || [];
+      const total = runs.length;
+      const failed = runs.filter(isFailedHistoryRun).length;
+      const passed = runs.filter(isPassedHistoryRun).length;
+      const durationMs = runs.reduce((sum, item) => sum + (Number(item.durationMs) || 0), 0);
+      setSummary({
+        total,
+        pass: passed,
+        fail: failed,
+        durationMs,
+        successRate: total === 0 ? 0 : Math.round((passed * 100) / total)
+      });
+    }
+
+    function isFailedHistoryRun(item) {
+      const status = String(item?.status || "").toUpperCase();
+      return status === "FAILED" || Number(item?.fail || 0) > 0;
+    }
+
+    function isPassedHistoryRun(item) {
+      const status = String(item?.status || "").toUpperCase();
+      const rowTotal = Number(item?.total || 0);
+      return status === "COMPLETED" && rowTotal > 0 && !isFailedHistoryRun(item);
+    }
+
     function setExecutionId(value) {
       currentExecutionId = value || null;
-      $("executionId").textContent = value ? value.substring(0, 8) : "-";
-      $("executionId").title = value || "";
+      setCorrelationMetric(null, value);
     }
 
     function shortId(value) {
       return value ? value.substring(0, 8) : "NA";
+    }
+
+    function usableToken(value) {
+      const token = String(value ?? "").trim();
+      return token && token.toUpperCase() !== "NA" ? token : null;
+    }
+
+    function displayToken(value) {
+      const token = usableToken(value);
+      return token && token.length > 12 ? token.substring(0, 12) : token || "-";
+    }
+
+    function correlationToken(rows) {
+      const list = rows || [];
+      for (const row of list) {
+        const corrId = usableToken(row.corrId);
+        if (corrId) {
+          return corrId;
+        }
+      }
+      for (const row of list) {
+        const jobId = usableToken(row.jobId);
+        if (jobId) {
+          return jobId;
+        }
+      }
+      return null;
+    }
+
+    function setCorrelationMetric(rows, fallback) {
+      const token = correlationToken(rows) || usableToken(fallback);
+      $("executionId").textContent = displayToken(token);
+      $("executionId").title = token || "";
+    }
+
+    function setStatusMessage(message, state) {
+      const target = $("status");
+      target.textContent = message || "Ready";
+      target.className = `run-message ${state || ""}`.trim();
+    }
+
+    function parseBackendError(error) {
+      const raw = error?.message || String(error || "");
+      try {
+        return JSON.parse(raw);
+      } catch {
+        return { message: raw };
+      }
+    }
+
+    function friendlyErrorMessage(error, prefix) {
+      if (error?.name === "AbortError") {
+        return "Stopped";
+      }
+      const body = parseBackendError(error);
+      const details = [];
+      if (body.reason || body.path) {
+        details.push(`${prefix || "Failed"} at ${body.reason || body.path}`);
+      } else {
+        details.push(`${prefix || "Failed"}: ${body.message || error.message || "Unknown error"}`);
+      }
+      if (body.httpStatus || body.status) {
+        details.push(`HTTP=${body.httpStatus || "NA"} Status=${body.status || "NA"}`);
+      }
+      if (body.timestamp) {
+        details.push(`Timestamp=${body.timestamp}`);
+      }
+      if (body.action) {
+        details.push(`Action=${body.action}`);
+      }
+      return details.join("\n");
+    }
+
+    function firstMeaningfulLine(values) {
+      return (values || []).map(value => String(value || "").trim()).find(Boolean) || "NA";
+    }
+
+    function runStatusMessage(response, report, fallback) {
+      const rows = response?.rows || [];
+      const failed = rows.find(row => (row.status || "").toUpperCase() === "FAIL");
+      if (failed) {
+        return [
+          `Failed at ${failed.system || "NA"} / ${failed.service || "NA"} (${failed.flow || "NA"})`,
+          `${(failed.flow || "").toUpperCase() === "REST" ? "TrackingID" : "BookingID"}=${(failed.flow || "").toUpperCase() === "REST" ? (failed.trackingId || "NA") : (failed.bookingId || "NA")}`,
+          `BookingID=${failed.bookingId || "NA"}`,
+          `CorrID=${failed.corrId || "NA"}`,
+          `JobID=${failed.jobId || "NA"}`,
+          `Trace=${firstMeaningfulLine(failed.trace)}`,
+          `Assert=${firstMeaningfulLine(failed.assertions)}`,
+          `Timeline=${firstMeaningfulLine(failed.timeline)}`
+        ].join("\n");
+      }
+      if ((report?.executionSummary?.status || "").toUpperCase() === "FAIL") {
+        return [
+          `Failed at ${report.failurePoint?.system || report.executionSummary?.flow || "NA"}`,
+          `BookingID=${report.executionSummary?.bookingId || "NA"}`,
+          `Expected=${report.expectedVsActual?.expected || "NA"}`,
+          `Actual=${report.expectedVsActual?.actual || "NA"}`,
+          `Action=${(report.actions || []).map(action => action.search || action.file || action.time).filter(Boolean).join(" | ") || "NA"}`
+        ].join("\n");
+      }
+      const summary = response?.summary || {};
+      return `${fallback || "Complete"}: ${summary.pass || 0}/${summary.total || 0} passed in ${summary.durationMs || 0}ms`;
     }
 
     function badge(status) {
@@ -499,24 +1275,34 @@
       return text((values || []).join("\n"));
     }
 
+    function value(value) {
+      const token = String(value ?? "").trim();
+      return token ? token : "NA";
+    }
+
     function renderRows(rows) {
       const tbody = $("results");
       tbody.innerHTML = "";
       if (!rows || rows.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="10">No results returned.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="11">No results returned.</td></tr>';
+        setCorrelationMetric([], currentExecutionId);
+        renderTerminalLogs([]);
         return;
       }
+      setCorrelationMetric(rows, currentExecutionId);
+      renderTerminalLogs(rows);
 
       rows.forEach((row, index) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td><button data-index="${index}" aria-label="Toggle details">+</button></td>
+          <td><button class="toggle-detail" data-index="${index}" aria-label="Toggle details">-</button></td>
           <td>${text(row.service)}</td>
           <td>${text(row.flow)}</td>
           <td>${text(row.system)}</td>
           <td>${text(row.env)}</td>
           <td>${badge(row.status)}</td>
           <td>${text(row.bookingId)}</td>
+          <td>${text(row.trackingId)}</td>
           <td>${text(row.corrId)}</td>
           <td>${text(row.jobId)}</td>
           <td>${row.timeMs || 0}ms</td>
@@ -524,9 +1310,10 @@
         tbody.appendChild(tr);
 
         const detail = document.createElement("tr");
-        detail.hidden = true;
+        detail.className = "result-detail-row";
+        detail.hidden = false;
         detail.innerHTML = `
-          <td colspan="10">
+          <td colspan="11">
             <div class="detail">
               <section><h3>[TRACE]</h3><pre>${lines(row.trace)}</pre></section>
               <section><h3>[ASSERT]</h3><pre>${lines(row.assertions)}</pre></section>
@@ -544,16 +1331,81 @@
       });
     }
 
+    function renderTerminalLogs(rows) {
+      const terminal = $("terminalLogs");
+      const status = $("terminalLogStatus");
+      if (!terminal || !status) {
+        return;
+      }
+      const blocks = (rows || [])
+        .map((row, index) => {
+          const header = `######## TEST EXECUTION ${index + 1}: ${value(row.service)} / ${value(row.flow)} / ${value(row.status)} ########`;
+          const body = (row.terminalLog || []).join("\n") || fallbackTerminalBlock(row);
+          return `${header}\n${body}`;
+        })
+        .join("\n\n");
+      terminal.textContent = blocks || "No execution logs yet.";
+      status.textContent = rows && rows.length
+        ? `${rows.length} test execution${rows.length === 1 ? "" : "s"}`
+        : "No execution selected";
+    }
+
+    async function loadTerminalLogs(executionId) {
+      const terminal = $("terminalLogs");
+      const status = $("terminalLogStatus");
+      if (!terminal || !status || !executionId) {
+        return;
+      }
+      const response = await fetch(`/execute/${executionId}/logs`, {
+        headers: authHeaders({ "Accept": "text/plain" })
+      });
+      if (!response.ok) {
+        return;
+      }
+      const logText = await response.text();
+      if (!logText || !logText.trim()) {
+        return;
+      }
+      terminal.textContent = logText;
+      status.textContent = `Execution ${shortId(executionId)}`;
+    }
+
+    function fallbackTerminalBlock(row) {
+      return [
+        "==================== EXECUTION SUMMARY ====================",
+        `Service=${value(row?.service)}`,
+        `Flow=${value(row?.flow)}`,
+        `System=${value(row?.system)}`,
+        `Env=${value(row?.env)}`,
+        `Status=${value(row?.status)}`,
+        "",
+        "[TRACE]",
+        (row?.trace || []).join("\n") || "NA",
+        "",
+        "[ASSERT]",
+        (row?.assertions || []).join("\n") || "NA",
+        "",
+        "[TIMELINE]",
+        (row?.timeline || []).join("\n") || "NA",
+        "==================== EXECUTION END ========================"
+      ].join("\n");
+    }
+
     async function executeRequest(body, statusText) {
       body.executionId = body.executionId || newExecutionId();
       setExecutionId(body.executionId);
       activeController = new AbortController();
       setBusy(true);
-      $("status").textContent = "Running...";
+      setStatusMessage("Running...", "pending");
       try {
-        const response = await fetch("/execute/executeAll", {
+        if (!isIntelligenceEnabled()) {
+          const execution = await executeConsoleOnly(body, statusText);
+          await refreshHistory().catch(() => {});
+          return execution;
+        }
+        const response = await fetch("/intelligence/execute", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: authHeaders({ "Content-Type": "application/json" }),
           body: JSON.stringify(body),
           signal: activeController.signal
         });
@@ -562,20 +1414,47 @@
         }
         const data = await response.json();
         lastRequest = body;
-        lastResponse = data;
-        setExecutionId(data.executionId || body.executionId);
-        setSummary(data.summary);
-        renderRows(data.rows);
-        $("status").textContent = statusText || "Complete";
+        lastIntelligence = data;
+        lastResponse = data.execution || {};
+        setExecutionId(data.executionId || lastResponse.executionId || body.executionId);
+        renderRows(lastResponse.rows);
+        await loadTerminalLogs(currentExecutionId).catch(() => {});
+        renderIntelligenceReport(data.report);
+        const hasFailure = Boolean(lastResponse.rows?.some(row => (row.status || "").toUpperCase() === "FAIL"))
+          || (data.report?.executionSummary?.status || "").toUpperCase() === "FAIL";
+        setStatusMessage(runStatusMessage(lastResponse, data.report, statusText || "Complete"), hasFailure ? "fail" : "pass");
         await refreshHistory().catch(() => {});
         return data;
       } catch (error) {
-        $("status").textContent = error.name === "AbortError" ? "Stopped" : `Failed: ${error.message}`;
+        setStatusMessage(friendlyErrorMessage(error), error.name === "AbortError" ? "pending" : "fail");
         throw error;
       } finally {
         activeController = null;
         setBusy(false);
       }
+    }
+
+    async function executeConsoleOnly(body, statusText) {
+      const response = await fetch("/execute/executeAll", {
+        method: "POST",
+        headers: authHeaders({ "Content-Type": "application/json" }),
+        body: JSON.stringify(body),
+        signal: activeController.signal
+      });
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+      const data = await response.json();
+      lastRequest = body;
+      lastIntelligence = null;
+      lastResponse = data || {};
+      setExecutionId(lastResponse.executionId || body.executionId);
+      renderRows(lastResponse.rows);
+      await loadTerminalLogs(currentExecutionId).catch(() => {});
+      clearIntelligenceReport();
+      const hasFailure = Boolean(lastResponse.rows?.some(row => (row.status || "").toUpperCase() === "FAIL"));
+      setStatusMessage(runStatusMessage(lastResponse, null, statusText || "Complete"), hasFailure ? "fail" : "pass");
+      return data;
     }
 
     function mergeResponses(responses) {
@@ -599,34 +1478,250 @@
       if (!currentExecutionId) {
         return;
       }
-      window.location.href = `/execute/${currentExecutionId}/${path}`;
+      if (path === "report") {
+        if (!isIntelligenceEnabled()) {
+          window.location.href = `/execute/${currentExecutionId}/report`;
+          return;
+        }
+        const format = $("reportFormat").value || "txt";
+        window.location.href = `/intelligence/${currentExecutionId}/report/download/${format}`;
+        return;
+      }
+      window.location.href = isIntelligenceEnabled()
+        ? `/intelligence/${currentExecutionId}/logs`
+        : `/execute/${currentExecutionId}/logs`;
     }
 
     function openHistoryDownload(executionId, path) {
+      if (path === "report") {
+        if (!isIntelligenceEnabled()) {
+          window.location.href = `/execute/${executionId}/report`;
+          return;
+        }
+        const format = $("reportFormat").value || "txt";
+        window.location.href = `/intelligence/${executionId}/report/download/${format}`;
+        return;
+      }
       window.location.href = `/execute/${executionId}/${path}`;
     }
 
     async function openExecution(executionId) {
-      const response = await fetch(`/execute/${executionId}`);
+      const response = await fetch(`/execute/${executionId}`, {
+        headers: authHeaders()
+      });
       if (!response.ok) {
         throw new Error(await response.text());
       }
       const data = await response.json();
       lastResponse = data;
+      lastIntelligence = null;
       setExecutionId(data.executionId || executionId);
-      setSummary(data.summary);
       renderRows(data.rows);
-      $("status").textContent = `Opened ${shortId(executionId)}`;
+      await loadTerminalLogs(executionId).catch(() => {});
+      await loadIntelligenceReport(executionId);
+      setStatusMessage(runStatusMessage(lastResponse, lastIntelligence?.report, `Opened ${shortId(executionId)}`),
+        (lastResponse.rows || []).some(row => (row.status || "").toUpperCase() === "FAIL") ? "fail" : "pass");
       setActionState();
+    }
+
+    async function loadIntelligenceReport(executionId) {
+      if (!isIntelligenceEnabled()) {
+        lastIntelligence = null;
+        clearIntelligenceReport();
+        return;
+      }
+      const response = await fetch(`/intelligence/${executionId}/report`, {
+        headers: authHeaders()
+      });
+      if (!response.ok) {
+        lastIntelligence = null;
+        clearIntelligenceReport();
+        return;
+      }
+      const report = await response.json();
+      lastIntelligence = { report };
+      renderIntelligenceReport(report);
+    }
+
+    function setMode(mode) {
+      if (mode === "SMART_PROMPT" && !isIntelligenceEnabled()) {
+        mode = "GUIDED";
+      }
+      currentMode = mode;
+      $("modeSmart").classList.toggle("active", mode === "SMART_PROMPT");
+      $("modeGuided").classList.toggle("active", mode === "GUIDED");
+      $("modeBooking").classList.toggle("active", mode === "BOOKING_ID");
+      $("smartPanel").hidden = mode !== "SMART_PROMPT" || !isIntelligenceEnabled();
+      $("guidedPanel").hidden = mode !== "GUIDED";
+      $("bookingPanel").hidden = mode !== "BOOKING_ID";
+    }
+
+    function renderIntelligenceReport(report) {
+      if (!report) {
+        clearIntelligenceReport();
+        return;
+      }
+      $("reportStatus").textContent = report.executionSummary?.status || "READY";
+      $("executiveSummary").textContent = report.executiveSummary || "NA";
+      $("keyInsights").textContent = (report.keyInsights || []).join("\n") || "NA";
+      $("failurePoint").textContent = [
+        `System=${report.failurePoint?.system || "NA"}`,
+        `Severity=${report.severity || "NA"}`,
+        `Retry=${report.retrySuggestion || "NA"}`,
+        `Expected=${report.expectedVsActual?.expected || "NA"}`,
+        `Actual=${report.expectedVsActual?.actual || "NA"}`
+      ].join("\n");
+      $("driftSignals").textContent = [
+        ...(report.driftSignals || []),
+        ...(report.orphanLogs || []).map(value => `Orphan=${value}`)
+      ].join("\n") || "NA";
+      $("validationRules").textContent = (report.rules || []).map(rule => [
+        `${rule.status || "NA"} ${rule.ruleId || rule.rule || "RULE"}`,
+        `Type=${rule.type || "NA"} Scope=${rule.scope || "NA"}`,
+        `Expected=${rule.expected || "NA"}`,
+        `Actual=${rule.actual || "NA"}`
+      ].join("\n")).join("\n\n") || "NA";
+      $("traceEdges").textContent = (report.traceGraph?.edges || []).map(edge => [
+        `${edge.from || "NA"} > ${edge.to || "NA"}`,
+        `Token=${edge.token || "NA"}`,
+        `Reason=${edge.reason || "NA"}`
+      ].join("\n")).join("\n\n") || "NA";
+      $("intelligenceSummaryReport").innerHTML = intelligenceSummaryHtml(report);
+      renderFlow(report.traceGraph?.nodes || report.multiHopTrace || report.timeline || lastResponse?.rows || []);
+    }
+
+    function intelligenceSummaryHtml(report) {
+      const summary = report?.executionSummary || {};
+      const status = value(summary.status);
+      const statusClass = status.toUpperCase() === "PASS" ? "pass" : "fail";
+      return `
+        <div class="summary-report-title">
+          <strong>Integration Intelligence Report</strong>
+          <span>Execution ${text(currentExecutionId || "NA")}</span>
+        </div>
+        <div class="summary-metrics">
+          ${summaryMetric("Status", `<span class="badge ${statusClass}">${text(status)}</span>`)}
+          ${summaryMetric("Flow", text(value(summary.flow)))}
+          ${summaryMetric("Trigger", text(value(summary.triggerMode)))}
+          ${summaryMetric("Booking", text(value(summary.bookingId)))}
+          ${summaryMetric("Confidence", text(value(summary.confidence)))}
+          ${summaryMetric("Severity", text(value(report?.severity)))}
+          ${summaryMetric("Retry", text(value(report?.retrySuggestion)))}
+          ${summaryMetric("Evidence", text(value(report?.observabilityIndexSummary)))}
+        </div>
+        ${summarySection("Executive Summary", `<p>${text(value(report?.executiveSummary))}</p>`)}
+        ${summarySection("Key Insights", summaryList(report?.keyInsights))}
+        ${summarySection("Expected vs Actual", expectedVsActualTable(report?.expectedVsActual))}
+        ${summarySection("Failure Point", failurePointTable(report?.failurePoint))}
+        ${summarySection("Drift Detection", summaryList(report?.driftSignals))}
+        ${summarySection("Validation Rules", rulesTable(report?.rules))}
+        ${summarySection("Recommended Actions", actionsTable(report?.actions))}
+        ${summarySection("Trace Path", summaryList(report?.multiHopTrace))}
+      `;
+    }
+
+    function summaryMetric(label, valueHtml) {
+      return `<div class="summary-metric"><span>${text(label)}</span><strong>${valueHtml}</strong></div>`;
+    }
+
+    function summarySection(title, bodyHtml) {
+      return `<section class="summary-section"><h4>${text(title)}</h4>${bodyHtml}</section>`;
+    }
+
+    function summaryList(values) {
+      if (!values || values.length === 0) {
+        return '<p class="summary-muted">NA</p>';
+      }
+      return `<ul>${values.map(item => `<li>${text(value(item))}</li>`).join("")}</ul>`;
+    }
+
+    function expectedVsActualTable(expectedVsActual) {
+      return `<table><tr><th>Expected</th><th>Actual</th></tr><tr><td>${text(value(expectedVsActual?.expected))}</td><td>${text(value(expectedVsActual?.actual))}</td></tr></table>`;
+    }
+
+    function failurePointTable(failurePoint) {
+      return `<table><tr><th>System</th><th>Timestamp</th></tr><tr><td>${text(value(failurePoint?.system))}</td><td>${text(value(failurePoint?.timestamp))}</td></tr></table>`;
+    }
+
+    function rulesTable(rules) {
+      if (!rules || rules.length === 0) {
+        return '<p class="summary-muted">NA</p>';
+      }
+      return `<table><tr><th>Status</th><th>Rule</th><th>Expected</th><th>Actual</th></tr>${rules.map(rule => `
+        <tr>
+          <td>${text(value(rule.status))}</td>
+          <td>${text(value(rule.rule))}</td>
+          <td>${text(value(rule.expected))}</td>
+          <td>${text(value(rule.actual))}</td>
+        </tr>`).join("")}</table>`;
+    }
+
+    function actionsTable(actions) {
+      if (!actions || actions.length === 0) {
+        return '<p class="summary-muted">NA</p>';
+      }
+      return `<table><tr><th>File</th><th>Search</th><th>Time</th></tr>${actions.map(action => `
+        <tr>
+          <td>${text(value(action.file))}</td>
+          <td><pre>${text(value(action.search))}</pre></td>
+          <td>${text(value(action.time))}</td>
+        </tr>`).join("")}</table>`;
+    }
+
+    function renderFlow(values) {
+      const target = $("flowVisualizer");
+      target.innerHTML = "";
+      const nodes = (values || []).slice(0, 8);
+      if (nodes.length === 0) {
+        target.textContent = "NA";
+        return;
+      }
+      nodes.forEach((value, index) => {
+        const node = document.createElement("div");
+        node.className = "flow-node";
+        if (typeof value === "object") {
+          node.textContent = value.service || value.id || value.system || value.name || "NA";
+          node.title = [
+            `File=${value.file || "NA"}`,
+            `Evidence=${value.evidenceCount || 0}`,
+            `First=${value.firstTimestamp || "NA"}`,
+            `Last=${value.lastTimestamp || "NA"}`
+          ].join("\n");
+        } else {
+          node.textContent = value;
+        }
+        target.appendChild(node);
+        if (index < nodes.length - 1) {
+          const arrow = document.createElement("span");
+          arrow.className = "flow-arrow";
+          arrow.textContent = ">";
+          target.appendChild(arrow);
+        }
+      });
+    }
+
+    function clearIntelligenceReport() {
+      $("reportStatus").textContent = "No report";
+      $("executiveSummary").textContent = "NA";
+      $("keyInsights").textContent = "NA";
+      $("failurePoint").textContent = "NA";
+      $("driftSignals").textContent = "NA";
+      $("validationRules").textContent = "NA";
+      $("traceEdges").textContent = "NA";
+      $("flowVisualizer").textContent = "NA";
+      $("intelligenceSummaryReport").textContent = "NA";
     }
 
     function renderHistory(items) {
       const tbody = $("history");
       tbody.innerHTML = "";
       if (!items || items.length === 0) {
+        setRecentRunsSummary([]);
         tbody.innerHTML = '<tr><td colspan="8">No recent runs yet.</td></tr>';
-        return;
+        return null;
       }
+
+      setRecentRunsSummary(items);
 
       items.forEach(item => {
         const executionId = item.executionId || "";
@@ -649,30 +1744,39 @@
         `;
         tr.querySelector('[data-action="open"]').addEventListener("click", () => {
           openExecution(executionId).catch(error => {
-            $("status").textContent = `Open failed: ${error.message}`;
+            setStatusMessage(friendlyErrorMessage(error, "Open failed"), "fail");
           });
         });
         tr.querySelector('[data-action="logs"]').addEventListener("click", () => openHistoryDownload(executionId, "logs"));
         tr.querySelector('[data-action="report"]').addEventListener("click", () => openHistoryDownload(executionId, "report"));
         tbody.appendChild(tr);
       });
+      return items[0]?.executionId || null;
     }
 
-    async function refreshHistory() {
-      const response = await fetch("/execute/history");
+    async function refreshHistory(autoOpenLatest = false) {
+      const response = await fetch("/execute/history", {
+        headers: authHeaders()
+      });
       if (!response.ok) {
         throw new Error(await response.text());
       }
-      renderHistory(await response.json());
+      const latestExecutionId = renderHistory(await response.json());
+      if (autoOpenLatest && !currentExecutionId && latestExecutionId) {
+        await openExecution(latestExecutionId);
+      }
     }
 
     $("run").addEventListener("click", async () => {
-      await executeRequest(requestBody(), "Complete").catch(() => {});
+      await executeRequest(intelligenceRequestBody(), "Complete").catch(() => {});
     });
 
     $("stop").addEventListener("click", async () => {
       if (currentExecutionId) {
-        await fetch(`/execute/${currentExecutionId}/stop`, { method: "POST" }).catch(() => {});
+        await fetch(`/execute/${currentExecutionId}/stop`, {
+          method: "POST",
+          headers: authHeaders()
+        }).catch(() => {});
       }
       if (activeController) {
         activeController.abort();
@@ -680,27 +1784,64 @@
     });
 
     $("rerun").addEventListener("click", async () => {
-      const failedRows = (lastResponse?.rows || [])
-        .filter(row => (row.status || "").toUpperCase() === "FAIL");
-      if (failedRows.length === 0) {
+      if (!currentExecutionId) {
         return;
       }
-
-      const responses = [];
-      for (const row of failedRows) {
-        const response = await executeRequest(singleRowRequest(row), `Re-running failed: ${row.service || "NA"}`)
-          .catch(() => null);
-        if (response) {
-          responses.push(response);
+      setBusy(true);
+      setStatusMessage("Replaying...", "pending");
+      try {
+        if (!isIntelligenceEnabled()) {
+          activeController = new AbortController();
+          const failedRows = (lastResponse?.rows || []).filter(row => (row.status || "").toUpperCase() === "FAIL");
+          const responses = [];
+          for (const row of failedRows) {
+            const request = singleRowRequest(row);
+            const response = await fetch("/execute/executeAll", {
+              method: "POST",
+              headers: authHeaders({ "Content-Type": "application/json" }),
+              body: JSON.stringify(request),
+              signal: activeController.signal
+            });
+            if (!response.ok) {
+              throw new Error(await response.text());
+            }
+            responses.push(await response.json());
+          }
+          lastIntelligence = null;
+          lastResponse = mergeResponses(responses);
+          setExecutionId(responses[0]?.executionId || currentExecutionId);
+          renderRows(lastResponse.rows);
+          clearIntelligenceReport();
+          const hasFailure = Boolean(lastResponse.rows?.some(row => (row.status || "").toUpperCase() === "FAIL"));
+          setStatusMessage(runStatusMessage(lastResponse, null, "Retry complete"), hasFailure ? "fail" : "pass");
+          setActionState();
+          await refreshHistory().catch(() => {});
+          return;
         }
-      }
-      if (responses.length > 0) {
-        lastResponse = mergeResponses(responses);
-        setSummary(lastResponse.summary);
+        const response = await fetch(`/intelligence/replay/${currentExecutionId}`, {
+          method: "POST",
+          headers: authHeaders()
+        });
+        if (!response.ok) {
+          throw new Error(await response.text());
+        }
+        const data = await response.json();
+        lastIntelligence = data;
+        lastResponse = data.execution || {};
+        setExecutionId(data.executionId || lastResponse.executionId);
         renderRows(lastResponse.rows);
-        $("status").textContent = "Re-run failed complete";
+        await loadTerminalLogs(currentExecutionId).catch(() => {});
+        renderIntelligenceReport(data.report);
+        const hasFailure = Boolean(lastResponse.rows?.some(row => (row.status || "").toUpperCase() === "FAIL"))
+          || (data.report?.executionSummary?.status || "").toUpperCase() === "FAIL";
+        setStatusMessage(runStatusMessage(lastResponse, data.report, "Replay complete"), hasFailure ? "fail" : "pass");
         setActionState();
         await refreshHistory().catch(() => {});
+      } catch (error) {
+        setStatusMessage(friendlyErrorMessage(error, "Replay failed"), "fail");
+      } finally {
+        activeController = null;
+        setBusy(false);
       }
     });
 
@@ -712,13 +1853,33 @@
       openDownload("report");
     });
 
+    $("modeSmart").addEventListener("click", () => setMode("SMART_PROMPT"));
+    $("modeGuided").addEventListener("click", () => setMode("GUIDED"));
+    $("modeBooking").addEventListener("click", () => setMode("BOOKING_ID"));
+    $("flows").addEventListener("change", syncGuidedRabbitSelection);
+    $("services").addEventListener("change", syncGuidedRabbitSelection);
+    $("runAll").addEventListener("change", syncGuidedRabbitSelection);
+    $("bookingId").addEventListener("input", () => {
+      guidedBookingIdTouched = true;
+    });
+    $("securityRole").addEventListener("change", () => setSecurityRole($("securityRole").value));
+
     $("refreshHistory").addEventListener("click", () => {
       refreshHistory().catch(error => {
-        $("status").textContent = `History failed: ${error.message}`;
+        setStatusMessage(friendlyErrorMessage(error, "History failed"), "fail");
       });
     });
 
-    refreshHistory().catch(() => {});
+    setSecurityRole(localStorage.getItem("ivpRole") || $("securityRole").value);
+    loadConsoleConfig()
+      .catch(() => {
+        consoleConfig = { intelligenceEnabled: true };
+        applyConsoleConfig();
+      })
+      .finally(() => {
+        clearIntelligenceReport();
+        refreshHistory(true).catch(() => {});
+      });
   </script>
 </body>
 </html>

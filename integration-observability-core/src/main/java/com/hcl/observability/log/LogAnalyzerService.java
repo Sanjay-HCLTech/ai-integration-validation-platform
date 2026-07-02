@@ -68,19 +68,19 @@ public class LogAnalyzerService {
             UnifiedTraceContextHolder traceContextHolder,
             @Value("${sftp.payload.log.dir}") String logDir,
             @Value("${local.log.dir}") String localDir,
-            @Value("${sftp.remote.run.as:}") String remoteRunAs,
-            @Value("${sftp.grep.retry.count:3}") int grepRetryCount,
-            @Value("${sftp.grep.retry.wait.ms:5000}") long grepRetryWaitMs,
-            @Value("${sftp.search.modified.within.days:15}") int modifiedWithinDays,
-            @Value("${sftp.correlation.max.depth:3}") int correlationMaxDepth,
-            @Value("${sftp.correlation.token-limit:${sftp.correlation.max.tokens:100}}") int correlationMaxTokens,
-            @Value("${sftp.correlation.max.jobids:50}") int correlationMaxJobIds,
-            @Value("${sftp.correlation.tokens-per-search:${sftp.correlation.max.tokens-per-search:${sftp.correlation.max.tokens.per.search:3}}}") int correlationMaxTokensPerSearch,
-            @Value("${sftp.correlation.max.batches.per.depth:3}") int correlationMaxBatchesPerDepth,
-            @Value("${sftp.block.max.matches.per.file:10}") int blockMaxMatchesPerFile,
-            @Value("${sftp.local.min.block.lines:10}") int localMinBlockLines,
-            @Value("${sftp.log.name.filter.enabled:true}") boolean logNameFilterEnabled,
-            @Value("${unified.trace.report.enabled:false}") boolean unifiedTraceReportEnabled) {
+            @Value("${sftp.remote.run.as}") String remoteRunAs,
+            @Value("${sftp.grep.retry.count}") int grepRetryCount,
+            @Value("${sftp.grep.retry.wait.ms}") long grepRetryWaitMs,
+            @Value("${sftp.search.modified.within.days}") int modifiedWithinDays,
+            @Value("${sftp.correlation.max.depth}") int correlationMaxDepth,
+            @Value("${sftp.correlation.token-limit}") int correlationMaxTokens,
+            @Value("${sftp.correlation.max.jobids}") int correlationMaxJobIds,
+            @Value("${sftp.correlation.tokens-per-search}") int correlationMaxTokensPerSearch,
+            @Value("${sftp.correlation.max.batches.per.depth}") int correlationMaxBatchesPerDepth,
+            @Value("${sftp.block.max.matches.per.file}") int blockMaxMatchesPerFile,
+            @Value("${sftp.local.min.block.lines}") int localMinBlockLines,
+            @Value("${sftp.log.name.filter.enabled}") boolean logNameFilterEnabled,
+            @Value("${unified.trace.report.enabled}") boolean unifiedTraceReportEnabled) {
         this.sftp = sftp;
         this.logCleanupService = logCleanupService;
         this.traceContextHolder = traceContextHolder;

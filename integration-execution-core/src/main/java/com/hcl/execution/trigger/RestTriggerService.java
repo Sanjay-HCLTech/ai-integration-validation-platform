@@ -35,6 +35,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service("restTriggerService")
 public class RestTriggerService implements TriggerService {
@@ -45,6 +47,21 @@ public class RestTriggerService implements TriggerService {
     private final PayloadResolver payloadResolver;
     private final RestResponseValidator responseValidator;
     private static final Set<String> REST_EXTENSIONS = new HashSet<>(Arrays.asList("json", "xml", "txt"));
+    private static final List<String> TRACKING_HEADERS = Arrays.asList(
+            "TrackingID",
+            "Tracking-Id",
+            "Tracking_Id",
+            "trackingId",
+            "X-Tracking-ID",
+            "X-TrackingId",
+            "X-Correlation-ID",
+            "X-Request-ID");
+    private static final Pattern TRACKING_JSON_PATTERN = Pattern.compile(
+            "\"(?:trackingId|trackingID|tracking_id|TrackingID|Tracking_Id|traceId|requestId)\"\\s*:\\s*\"([^\"]+)\"",
+            Pattern.CASE_INSENSITIVE);
+    private static final Pattern TRACKING_XML_PATTERN = Pattern.compile(
+            "<(?:trackingId|trackingID|tracking_id|TrackingID|Tracking_Id|traceId|requestId)>([^<]+)</",
+            Pattern.CASE_INSENSITIVE);
 
     public RestTriggerService(
             UnifiedTimelineBuilder timelineBuilder,
@@ -59,34 +76,34 @@ public class RestTriggerService implements TriggerService {
         this.responseValidator = responseValidator;
     }
 
-    @Value("${rest.endpoint:}")
+    @Value("${rest.endpoint.default}")
     private String endpoint;
 
-    @Value("${rest.api.key.default:${rest.api.key:}}")
+    @Value("${rest.api.key.default}")
     private String apiKey;
 
-    @Value("${rest.method.default:${rest.method:POST}}")
+    @Value("${rest.method.default}")
     private String method;
 
-    @Value("${rest.accept.value:${rest.accept:application/json}}")
+    @Value("${rest.accept.value}")
     private String acceptHeader;
 
-    @Value("${rest.content.type.default:${rest.content.type:application/json}}")
+    @Value("${rest.content.type.default}")
     private String contentType;
 
-    @Value("${rest.connect.timeout.ms:5000}")
+    @Value("${rest.connect.timeout.ms}")
     private int connectTimeoutMs;
 
-    @Value("${rest.read.timeout.ms:15000}")
+    @Value("${rest.read.timeout.ms}")
     private int readTimeoutMs;
 
-    @Value("${rest.get.query.param:getPackageOffersRequest}")
+    @Value("${rest.get.query.param}")
     private String getQueryParam;
 
-    @Value("${system.rest.enabled:true}")
+    @Value("${system.rest.enabled}")
     private boolean enabled;
 
-    @Value("${unified.trace.report.enabled:false}")
+    @Value("${unified.trace.report.enabled}")
     private boolean unifiedTraceReportEnabled;
 
     @Override
@@ -121,7 +138,7 @@ public class RestTriggerService implements TriggerService {
         }
 
         if (resolvedApiKey == null || resolvedApiKey.isEmpty()) {
-            throw new RuntimeException("REST API key not configured");
+            throw new RuntimeException(missingApiKeyMessage(env, collection, brand));
         }
 
         String urlStr = resolvedEndpoint;
@@ -164,6 +181,7 @@ public class RestTriggerService implements TriggerService {
 
             int responseCode = conn.getResponseCode();
             String responseBody = readResponse(conn, responseCode);
+            String trackingId = trackingId(conn, responseBody);
             RestValidationResult validationResult = responseValidator.validate(responseCode, responseBody, successMarkers);
             long responseTimeMs = System.currentTimeMillis();
             if (!unifiedTraceReportEnabled) {
@@ -196,6 +214,7 @@ public class RestTriggerService implements TriggerService {
             outcome.setBrand(brand);
             outcome.setPayloadSource(resolvedPayload.source);
             outcome.setHttpStatus(responseCode);
+            outcome.setTrackingId(trackingId);
             outcome.setResponseBody(responseBody);
             outcome.setValidationResult(validationResult);
             outcome.setMessage(validationResult.summary());
@@ -398,6 +417,27 @@ public class RestTriggerService implements TriggerService {
         return response.toString().trim();
     }
 
+    private String trackingId(HttpURLConnection conn, String responseBody) {
+        if (conn != null) {
+            for (String header : TRACKING_HEADERS) {
+                String value = trimToNull(conn.getHeaderField(header));
+                if (value != null) {
+                    return value;
+                }
+            }
+        }
+        String body = responseBody == null ? "" : responseBody;
+        Matcher jsonMatcher = TRACKING_JSON_PATTERN.matcher(body);
+        if (jsonMatcher.find()) {
+            return jsonMatcher.group(1).trim();
+        }
+        Matcher xmlMatcher = TRACKING_XML_PATTERN.matcher(body);
+        if (xmlMatcher.find()) {
+            return xmlMatcher.group(1).trim();
+        }
+        return null;
+    }
+
     private List<NormalizedTraceEvent> buildRestTrace(
             TestCase testCase,
             String collection,
@@ -482,6 +522,32 @@ public class RestTriggerService implements TriggerService {
 
     private String valueOrDefault(String value, String fallback) {
         return value == null || value.trim().isEmpty() ? fallback : value.trim();
+    }
+
+    private String missingApiKeyMessage(String env, String collection, String brand) {
+        String normalizedEnv = safeToken(env);
+        String normalizedCollection = flowConfig.normalizeCollection(collection);
+        String normalizedBrand = safeToken(brand);
+        List<String> candidates = new ArrayList<>();
+        if (trimToNull(normalizedEnv) != null && trimToNull(normalizedCollection) != null
+                && trimToNull(normalizedBrand) != null) {
+            candidates.add("rest.api.key." + normalizedEnv + "." + normalizedCollection + "." + normalizedBrand);
+        }
+        if (trimToNull(normalizedEnv) != null && trimToNull(normalizedCollection) != null) {
+            candidates.add("rest.api.key." + normalizedEnv + "." + normalizedCollection);
+        }
+        if (trimToNull(normalizedCollection) != null) {
+            candidates.add("rest.api.key." + normalizedCollection);
+        }
+        candidates.add("rest.api.key.default");
+        return "REST API key not configured for " + valueOrDefault(normalizedCollection, "REST")
+                + " (" + valueOrDefault(normalizedEnv, "ENV") + "). Configure "
+                + String.join(" or ", candidates) + " in application.properties.";
+    }
+
+    private String safeToken(String value) {
+        String trimmed = trimToNull(value);
+        return trimmed == null ? null : trimmed.toUpperCase(Locale.ROOT).replaceAll("[^A-Z0-9]+", "_");
     }
 
     private String trimToNull(String value) {

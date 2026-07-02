@@ -24,7 +24,7 @@ public class PayloadCatalogService {
     public PayloadCatalogService(
             @Value("${payload.base.dir}") String payloadBaseDir,
             @Value("${payload.default.file}") String defaultPayloadFile,
-            @Value("${payload.manifest.file:manifest.csv}") String manifestFile) {
+            @Value("${payload.manifest.file}") String manifestFile) {
         this.payloadBaseDir = payloadBaseDir;
         this.defaultPayloadFile = defaultPayloadFile;
         this.manifestFile = manifestFile;

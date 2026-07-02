@@ -20,7 +20,7 @@ public class LogCleanupService {
 
     public LogCleanupService(
             @Value("${local.log.dir}") String localLogDir,
-            @Value("${local.log.retention.days:7}") int retentionDays) {
+            @Value("${local.log.retention.days}") int retentionDays) {
         this.localLogDir = Path.of(localLogDir).toAbsolutePath().normalize();
         this.retentionDays = retentionDays;
     }

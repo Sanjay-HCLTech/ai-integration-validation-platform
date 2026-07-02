@@ -8,6 +8,7 @@ public class RestTriggerOutcome {
     private String brand;
     private String payloadSource;
     private Integer httpStatus;
+    private String trackingId;
     private String responseBody;
     private String message;
     private RestValidationResult validationResult;
@@ -58,6 +59,14 @@ public class RestTriggerOutcome {
 
     public void setHttpStatus(Integer httpStatus) {
         this.httpStatus = httpStatus;
+    }
+
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public void setTrackingId(String trackingId) {
+        this.trackingId = trackingId;
     }
 
     public String getResponseBody() {

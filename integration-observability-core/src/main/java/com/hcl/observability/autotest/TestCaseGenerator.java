@@ -30,8 +30,8 @@ public class TestCaseGenerator {
     public TestCaseGenerator(
             LogParser logParser,
             FlowBuilder flowBuilder,
-            @Value("${local.log.dir:C:/logs}") String localDir,
-            @Value("${sftp.payload.log.dir:/tui/tibco/tra/domain/TIB_DOM_ST5/application/logs/Bookings/Payload}") String remoteLogDir) {
+            @Value("${local.log.dir}") String localDir,
+            @Value("${sftp.payload.log.dir}") String remoteLogDir) {
         this.logParser = logParser;
         this.flowBuilder = flowBuilder;
         this.localDir = localDir;

@@ -16,10 +16,10 @@ public class EmsTriggerService implements TriggerService {
     private final JmsFlowConfig flowConfig;
     private final JmsPayloadResolver payloadResolver;
 
-    @Value("${system.jms.enabled:true}")
+    @Value("${system.jms.enabled}")
     private boolean enabled;
 
-    @Value("${jms.default.async:false}")
+    @Value("${jms.default.async}")
     private boolean defaultAsync;
 
     public EmsTriggerService(

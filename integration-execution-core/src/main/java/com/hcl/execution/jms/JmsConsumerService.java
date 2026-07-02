@@ -22,9 +22,9 @@ public class JmsConsumerService implements InitializingBean, DisposableBean {
     public JmsConsumerService(
             JmsQueueService queueService,
             JmsProcessingService processingService,
-            @Value("${jms.simulation.consumer.enabled:true}") boolean consumerEnabled,
-            @Value("${unified.trace.report.enabled:false}") boolean unifiedTraceReportEnabled,
-            @Value("${jms.simulation.retry.delay.ms:2000}") long retryDelayMs) {
+            @Value("${jms.simulation.consumer.enabled}") boolean consumerEnabled,
+            @Value("${unified.trace.report.enabled}") boolean unifiedTraceReportEnabled,
+            @Value("${jms.simulation.retry.delay.ms}") long retryDelayMs) {
         this.queueService = queueService;
         this.processingService = processingService;
         this.consumerEnabled = consumerEnabled;
